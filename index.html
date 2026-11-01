@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GeGe Team (Nhà Cáo) — Cộng đồng và giao dịch game</title>
+  <meta name="description" content="GeGe Team (Nhà Cáo) là cộng đồng game thủ và đội giao dịch game Việt Nam. Chọn game, xem tin tức và kết nối với team qua Zalo, Facebook.">
+  <meta property="og:title" content="GeGe Team (Nhà Cáo)">
+  <meta property="og:description" content="Cộng đồng game thủ và đội giao dịch game Việt Nam.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.webp">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#games">Đến danh mục game</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <a class="brand" href="#top">
+        <img src="assets/logo.webp" alt="" width="44" height="44">
+        <span>GeGe Team</span>
+      </a>
+      <nav class="nav" aria-label="Điều hướng chính">
+        <a href="#games">Game</a>
+        <a href="#news">Tin tức</a>
+        <a href="#about">Về team</a>
+        <a href="#community">Cộng đồng</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-in">
+        <div class="hero-copy">
+          <p class="eyebrow">Nhà Cáo</p>
+          <h1>Một đội, nhiều game, chơi và giao dịch đều yên tâm.</h1>
+          <p class="lead">GeGe Team là cộng đồng game thủ Việt Nam và đội giao dịch game. Chọn game bạn đang chơi để vào đúng khu vực của team.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#games">Chọn game</a>
+            <a class="btn btn-ghost" href="https://zalo.me/0936854505" target="_blank" rel="noopener">Liên hệ qua Zalo</a>
+          </div>
+        </div>
+        <img class="hero-logo" src="assets/logo.webp" alt="Linh vật cáo của GeGe Team" width="480" height="480">
+      </div>
+    </section>
+
+    <section class="section" id="games" aria-labelledby="games-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="games-title">Danh mục game</h2>
+          <p class="count" id="game-count" aria-live="polite"></p>
+        </div>
+        <div class="filters">
+          <label class="search">
+            <span class="sr-only">Tìm game</span>
+            <input id="game-search" type="search" placeholder="Tìm theo tên game" autocomplete="off">
+          </label>
+          <div class="chips" id="genre-filters" role="group" aria-label="Lọc theo thể loại"></div>
+        </div>
+        <div class="game-grid" id="game-grid"></div>
+        <p class="empty" id="game-empty" hidden>Không có game phù hợp. Thử từ khóa khác hoặc chọn "Tất cả".</p>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="news" aria-labelledby="news-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="news-title">Tin tức</h2>
+        </div>
+        <div class="chips" id="news-filters" role="group" aria-label="Lọc tin theo game"></div>
+        <div class="news-list" id="news-list"></div>
+        <p class="empty" id="news-empty" hidden>Chưa có tin cho mục này.</p>
+        <button class="btn btn-ghost more" id="news-more" type="button" hidden>Xem thêm tin</button>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="about-title">GeGe Team làm gì</h2>
+        </div>
+        <div class="about-grid">
+          <article>
+            <h3>Cộng đồng</h3>
+            <p>Nơi anh em cập nhật tin game, hỏi đáp, tìm đội và cùng chơi qua Zalo, Facebook.</p>
+          </article>
+          <article>
+            <h3>Thu mua</h3>
+            <p>Thu mua gold và item trong game, có bảng giá riêng cho từng game và thanh toán bằng VND hoặc USDT tùy game.</p>
+          </article>
+          <article>
+            <h3>Cày thuê</h3>
+            <p>Nhận cày thuê theo yêu cầu ở những game có mở dịch vụ, trao đổi trực tiếp với admin.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="community" aria-labelledby="community-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="community-title">Kết nối với team</h2>
+        </div>
+        <div class="community-grid" id="community-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-in">
+      <span>© <span id="year"></span> GeGe Team · Nhà Cáo</span>
+      <span>Tên và hình ảnh game thuộc về nhà phát hành tương ứng.</span>
+    </div>
+  </footer>
+
+  <dialog class="dialog" id="soon-dialog" aria-labelledby="soon-title">
+    <h2 id="soon-title"></h2>
+    <p>Website riêng của game này sắp ra mắt. Trong lúc chờ, bạn có thể liên hệ admin để được hỗ trợ.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://zalo.me/0936854505" target="_blank" rel="noopener">Liên hệ qua Zalo</a>
+      <button class="btn btn-ghost" id="soon-close" type="button">Đóng</button>
+    </div>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
