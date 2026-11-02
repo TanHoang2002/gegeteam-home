@@ -12,100 +12,108 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a class="skip" href="#games">Đến danh mục game</a>
+  <a class="skip" href="#games" data-i18n="skip">Đến danh mục game</a>
 
   <header class="topbar">
-    <div class="wrap topbar-in">
+    <div class="topbar-in">
       <a class="brand" href="#top">
-        <img src="assets/logo.webp" alt="" width="44" height="44">
+        <img src="assets/logo.webp" alt="" width="40" height="40">
         <span>GeGe Team</span>
       </a>
-      <nav class="nav" aria-label="Điều hướng chính">
-        <a href="#games">Game</a>
-        <a href="#news">Tin tức</a>
-        <a href="#about">Về team</a>
-        <a href="#community">Cộng đồng</a>
+      <nav class="nav" aria-label="Điều hướng chính" data-i18n-aria="navLabel">
+        <a href="#news" data-i18n="navNews">Tin tức</a>
+        <a href="#games" data-i18n="navGames">Game của chúng tôi</a>
+        <a href="#about" data-i18n="navAbout">Dịch vụ</a>
+        <a href="#community" data-i18n="navCommunity">Cộng đồng</a>
       </nav>
+      <button class="icon-btn lang-btn" id="lang-btn" type="button" aria-label="Ngôn ngữ / Language">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.6 4.2 5.8 4.2 9.5s-1.4 6.9-4.2 9.5c-2.8-2.6-4.2-5.8-4.2-9.5S9.2 5.1 12 2.5z"/></svg>
+        <span id="lang-label">VI</span>
+      </button>
+      <div class="menu-wrap">
+        <button class="icon-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg>
+        </button>
+        <div class="menu-panel" id="menu-panel" hidden>
+          <button type="button" class="menu-item" data-action="login" data-i18n="menuLogin">Đăng nhập</button>
+          <button type="button" class="menu-item" data-action="register" data-i18n="menuRegister">Đăng ký</button>
+          <button type="button" class="menu-item" data-action="find" data-i18n="menuFind">Tìm game</button>
+          <a class="menu-item" href="https://zalo.me/0936854505" target="_blank" rel="noopener" data-i18n="menuZalo">Liên hệ Zalo</a>
+          <button type="button" class="menu-item" data-action="settings" data-i18n="menuSettings">Cài đặt</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="wrap hero-in">
-        <div class="hero-copy">
-          <p class="eyebrow">Nhà Cáo</p>
-          <h1>Một đội, nhiều game, chơi và giao dịch đều yên tâm.</h1>
-          <p class="lead">GeGe Team là cộng đồng game thủ Việt Nam và đội giao dịch game. Chọn game bạn đang chơi để vào đúng khu vực của team.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#games">Chọn game</a>
-            <a class="btn btn-ghost" href="https://zalo.me/0936854505" target="_blank" rel="noopener">Liên hệ qua Zalo</a>
-          </div>
+    <section class="hero" aria-roledescription="carousel" aria-label="Nổi bật" data-i18n-aria="heroLabel">
+      <div class="hero-slides" id="hero-slides"></div>
+      <div class="hero-dots" id="hero-dots" role="group" aria-label="Chọn slide"></div>
+    </section>
+
+    <section class="news-section" id="news" aria-labelledby="news-title">
+      <div class="wrap">
+        <div class="head-row">
+          <h2 id="news-title" data-i18n="newsTitle">Chuyện gì đang xảy ra vậy?</h2>
+          <button class="tag-btn" id="news-more" type="button">Xem tất cả</button>
         </div>
-        <img class="hero-logo" src="assets/logo.webp" alt="Linh vật cáo của GeGe Team" width="480" height="480">
+        <div class="news-grid">
+          <div id="news-featured"></div>
+          <div class="news-list" id="news-list"></div>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="games" aria-labelledby="games-title">
+    <section class="games-section" id="games" aria-labelledby="games-title">
       <div class="wrap">
-        <div class="section-head">
-          <h2 id="games-title">Danh mục game</h2>
-          <p class="count" id="game-count" aria-live="polite"></p>
+        <div class="head-row">
+          <h2 id="games-title" data-i18n="gamesTitle">Trò chơi của chúng tôi</h2>
+          
         </div>
         <div class="filters">
           <label class="search">
-            <span class="sr-only">Tìm game</span>
-            <input id="game-search" type="search" placeholder="Tìm theo tên game" autocomplete="off">
+            <span class="sr-only" data-i18n="menuFind">Tìm game</span>
+            <input id="game-search" type="search" placeholder="Tìm theo tên game" data-i18n-placeholder="searchPh" autocomplete="off">
           </label>
-          <div class="chips" id="genre-filters" role="group" aria-label="Lọc theo thể loại"></div>
+          <div class="chips" id="genre-filters" role="group" aria-label="Lọc theo thể loại" data-i18n-aria="genreLabel"></div>
         </div>
-        <div class="game-grid" id="game-grid"></div>
-        <p class="empty" id="game-empty" hidden>Không có game phù hợp. Thử từ khóa khác hoặc chọn "Tất cả".</p>
       </div>
+      <div class="carousel-wrap">
+        <button class="arrow arrow-prev" id="games-prev" type="button" aria-label="Game trước" data-i18n-aria="prevGame">‹</button>
+        <div class="carousel" id="game-grid" tabindex="0" aria-label="Danh sách game" data-i18n-aria="gameList"></div>
+        <button class="arrow arrow-next" id="games-next" type="button" aria-label="Game sau" data-i18n-aria="nextGame">›</button>
+      </div>
+      <div class="wrap"><p class="empty" id="game-empty" hidden data-i18n="gameEmpty">Không có game phù hợp. Thử từ khóa khác hoặc chọn "Tất cả".</p></div>
     </section>
 
-    <section class="section section-alt" id="news" aria-labelledby="news-title">
+    <section class="about-section" id="about" aria-labelledby="about-title">
       <div class="wrap">
-        <div class="section-head">
-          <h2 id="news-title">Tin tức</h2>
-        </div>
-        <div class="chips" id="news-filters" role="group" aria-label="Lọc tin theo game"></div>
-        <div class="news-list" id="news-list"></div>
-        <p class="empty" id="news-empty" hidden>Chưa có tin cho mục này.</p>
-        <button class="btn btn-ghost more" id="news-more" type="button" hidden>Xem thêm tin</button>
-      </div>
-    </section>
-
-    <section class="section" id="about" aria-labelledby="about-title">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="about-title">GeGe Team làm gì</h2>
-        </div>
+        <div class="head-row"><h2 id="about-title" data-i18n="aboutTitle">Chúng tôi làm gì</h2></div>
         <div class="about-grid">
           <article>
-            <h3>Cộng đồng</h3>
-            <p>Nơi anh em cập nhật tin game, hỏi đáp, tìm đội và cùng chơi qua Zalo, Facebook.</p>
+            <h3 data-i18n="aboutCommunity">Cộng đồng</h3>
+            <p data-i18n="aboutCommunityText">Nơi anh em cập nhật tin game, hỏi đáp, tìm đội và cùng chơi qua Zalo, Facebook.</p>
           </article>
           <article>
-            <h3>Thu mua</h3>
-            <p>Thu mua gold và item trong game, có bảng giá riêng cho từng game và thanh toán bằng VND hoặc USDT tùy game.</p>
+            <h3 data-i18n="aboutBuy">Thu mua</h3>
+            <p data-i18n="aboutBuyText">Thu mua gold và item trong game, có bảng giá riêng cho từng game và thanh toán bằng VND hoặc USDT tùy game.</p>
           </article>
           <article>
-            <h3>Cày thuê</h3>
-            <p>Nhận cày thuê theo yêu cầu ở những game có mở dịch vụ, trao đổi trực tiếp với admin.</p>
+            <h3 data-i18n="aboutBoost">Cày thuê</h3>
+            <p data-i18n="aboutBoostText">Nhận cày thuê theo yêu cầu ở những game có mở dịch vụ, trao đổi trực tiếp với admin.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="community" aria-labelledby="community-title">
+    <section class="cta" id="community" aria-labelledby="community-title">
       <div class="wrap">
-        <div class="section-head">
-          <h2 id="community-title">Kết nối với team</h2>
-        </div>
+        <h2 id="community-title" data-i18n="communityTitle">Vào team cùng anh em</h2>
+        <p class="lead" data-i18n="communityLead">Tin nhanh, hỏi đáp, tìm đội và hỗ trợ giao dịch. Chọn kênh bạn quen dùng nhất.</p>
         <div class="community-grid" id="community-grid"></div>
       </div>
     </section>
@@ -113,17 +121,54 @@
 
   <footer class="footer">
     <div class="wrap footer-in">
-      <span>© <span id="year"></span> GeGe Team · Nhà Cáo</span>
-      <span>Tên và hình ảnh game thuộc về nhà phát hành tương ứng.</span>
+      <div class="footer-brand">
+        <img src="assets/logo.webp" alt="" width="48" height="48">
+        <strong>GeGe Team</strong>
+        <span data-i18n="footerTag">Nhà Cáo · Cộng đồng và giao dịch game</span>
+      </div>
+      <nav class="footer-nav" aria-label="Liên kết chân trang">
+        <a href="#news" data-i18n="navNews">Tin tức</a>
+        <a href="#games" data-i18n="footerGames">Game</a>
+        <a href="#about" data-i18n="navAbout">Dịch vụ</a>
+        <a href="#community" data-i18n="navCommunity">Cộng đồng</a>
+      </nav>
+      <p class="legal">© <span id="year"></span> GeGe Team · Nhà Cáo. <span data-i18n="legal">Tên và hình ảnh game thuộc về nhà phát hành tương ứng.</span></p>
     </div>
   </footer>
 
   <dialog class="dialog" id="soon-dialog" aria-labelledby="soon-title">
     <h2 id="soon-title"></h2>
-    <p>Website riêng của game này sắp ra mắt. Trong lúc chờ, bạn có thể liên hệ admin để được hỗ trợ.</p>
+    <p id="soon-text" data-i18n="soonText">Website riêng của game này sắp ra mắt. Trong lúc chờ, bạn có thể liên hệ admin để được hỗ trợ.</p>
     <div class="actions">
-      <a class="btn btn-primary" href="https://zalo.me/0936854505" target="_blank" rel="noopener">Liên hệ qua Zalo</a>
-      <button class="btn btn-ghost" id="soon-close" type="button">Đóng</button>
+      <a class="btn btn-primary" href="https://zalo.me/0936854505" target="_blank" rel="noopener" data-i18n="zaloFull">Liên hệ qua Zalo</a>
+      <button class="btn btn-ghost" data-close type="button" data-i18n="close">Đóng</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog" id="account-dialog" aria-labelledby="account-title">
+    <h2 id="account-title"></h2>
+    <p data-i18n="accountText">Tài khoản thành viên chưa mở. Hiện tại bạn không cần đăng nhập để xem tin và bảng giá. Cần hỗ trợ thì liên hệ admin qua Zalo.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://zalo.me/0936854505" target="_blank" rel="noopener" data-i18n="zaloFull">Liên hệ qua Zalo</a>
+      <button class="btn btn-ghost" data-close type="button" data-i18n="close">Đóng</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog" id="settings-dialog" aria-labelledby="settings-title">
+    <h2 id="settings-title" data-i18n="menuSettings">Cài đặt</h2>
+    <div class="setting">
+      <label for="set-lang" data-i18n="setLang">Ngôn ngữ</label>
+      <select id="set-lang">
+        <option value="vi">Tiếng Việt</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+    <div class="setting">
+      <label for="set-auto" data-i18n="setAuto">Tự chuyển slide ở đầu trang</label>
+      <input id="set-auto" type="checkbox">
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" data-close type="button" data-i18n="close">Đóng</button>
     </div>
   </dialog>
 
