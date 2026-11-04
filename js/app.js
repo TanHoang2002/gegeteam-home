@@ -98,9 +98,9 @@
   function gameCard(game) {
     var card = el(game.url ? "a" : "button", "game-card");
     if (game.url) {
+      /* Mở trang game ngay trong tab đang xem: trình duyệt nhúng (như trong VS Code) không mở được tab mới,
+         và từ trang game bấm logo là về lại trang chủ */
       card.href = game.url;
-      card.target = "_blank";
-      card.rel = "noopener";
     } else {
       card.type = "button";
       card.addEventListener("click", function () { openSoon(game); });
@@ -166,7 +166,8 @@
     var box = el("div", className);
     if (game && game.image) {
       var img = el("img");
-      img.src = game.image;
+      /* Ảnh tin lớn (feature-art) cần ảnh độ phân giải cao, ảnh nhỏ ở cột bên dùng bản 960px là đủ */
+      img.src = className === "feature-art" && game.hero ? game.hero : game.image;
       img.alt = "";
       img.loading = "lazy";
       box.appendChild(img);
@@ -249,7 +250,7 @@
     slide.id = "hero-slide-" + i;
     if (game && game.image) {
       var img = el("img", "hero-img");
-      img.src = game.image;
+      img.src = game.hero || game.image;
       img.alt = "";
       if (i > 0) img.loading = "lazy";
       slide.appendChild(img);
