@@ -239,7 +239,7 @@
     more.textContent = state.newsAll ? t("collapse") : t("viewAll");
   }
 
-  /* Hero: trượt qua các tin mới nhất, nền là ảnh của game tương ứng. */
+  /* Hero: giới thiệu lần lượt từng game (A–Z), sau đó là các tin mới nhất; nền là ảnh của game tương ứng. */
   var HERO_COUNT = 3;
   var heroIndex = 0;
   var heroTimer = null;
@@ -258,14 +258,15 @@
       slide.classList.add("hero-plain");
     }
     var copy = el("div", "hero-copy");
-    copy.appendChild(el("p", "eyebrow", game ? game.name : "GeGe Team"));
+    copy.appendChild(el("p", "eyebrow", item.isGame ? "GeGe Team · " + game.genre : (game ? game.name : "GeGe Team")));
     copy.appendChild(el(i === 0 ? "h1" : "h2", "hero-title", loc(item, "title")));
     copy.appendChild(el("p", "hero-text", loc(item, "summary")));
     var cta = el("a", "cta-pill");
     cta.href = item.url || (game ? "#games" : "#news");
-    if (item.url) { cta.target = "_blank"; cta.rel = "noopener"; }
+    /* Slide game mở trang game ngay trong tab; slide tin mở bài ở tab mới */
+    if (item.url && !item.isGame) { cta.target = "_blank"; cta.rel = "noopener"; }
     cta.appendChild(el("span", "cta-play", "▶"));
-    cta.appendChild(el("span", "", t("watch")));
+    cta.appendChild(el("span", "", item.isGame ? t(item.url ? "visit" : "soon") : t("watch")));
     copy.appendChild(cta);
     slide.appendChild(copy);
     return slide;
@@ -300,7 +301,13 @@
     var dots = $("hero-dots");
     slides.textContent = "";
     dots.textContent = "";
-    news.slice(0, HERO_COUNT).forEach(function (n, i) {
+    var gameSlides = games.filter(function (g) { return g.hero || g.image; }).map(function (g) {
+      return {
+        isGame: true, game: g.id, url: g.url, title: g.name, summary: g.description,
+        en: { title: g.name, summary: g.en && g.en.description }
+      };
+    });
+    gameSlides.concat(news.slice(0, HERO_COUNT)).forEach(function (n, i) {
       slides.appendChild(heroSlide(n, i));
       var dot = el("button", "dot");
       dot.type = "button";

@@ -23,7 +23,7 @@ window.GEGE_DATA = {
       focus: "72% 50%",
       description: "Cộng đồng người chơi AION 2 Việt Nam: tin tức, hỏi đáp, tìm đội và tuyển thành viên Legion.",
       services: ["Cộng đồng", "Tin tức"],
-      url: "https://gegeteam-web.vercel.app/",
+      url: "games/aion-2/",
       en: { description: "Vietnamese AION 2 community: news, Q&A, finding parties and Legion recruitment.", services: ["Community", "News"] }
     },
     {
@@ -41,11 +41,13 @@ window.GEGE_DATA = {
       id: "diablo-4",
       name: "Diablo 4",
       genre: "ARPG",
-      image: null,
-      description: "Khu vực dành cho người chơi Diablo 4 đang được chuẩn bị.",
+      image: "assets/games/diablo-4.webp",
+      hero: "assets/hero/diablo-4.webp",
+      focus: "50% 40%",
+      description: "Season 15 – Season of Hell's Legacy: Diablo, Baal và Mephisto trở lại. Khu vực Diablo 4 của Nhà Cáo đang được chuẩn bị.",
       services: [],
       url: null,
-      en: { description: "The Diablo 4 area is being prepared.", services: [] }
+      en: { description: "Season 15 – Season of Hell's Legacy: Diablo, Baal and Mephisto return. Nha Cao's Diablo 4 area is being prepared.", services: [] }
     },
     {
       id: "poe-1",
