@@ -5,6 +5,7 @@
     url:   link website riêng của game. Để null thì thẻ game hiện "Sắp ra mắt".
     image: ảnh trong assets/games. Để null thì thẻ dùng nền màu.
     genre: thể loại, tự sinh thành bộ lọc danh mục.
+    hero:  ảnh lớn (~2000px) cho slide đầu trang; không có thì dùng image.
     focus: vị trí cắt ảnh khi thành poster đứng, ví dụ "75% 50%" (0% là mép trái, 100% là mép phải). Không điền thì lấy "50% 50%".
   NEWS: trang tự xếp tin mới nhất lên đầu.
     game:  id của game trong GAMES, hoặc null nếu là tin chung của team.
@@ -18,10 +19,11 @@ window.GEGE_DATA = {
       name: "AION 2",
       genre: "MMORPG",
       image: "assets/games/aion-2.webp",
+      hero: "assets/hero/aion-2.webp",
       focus: "72% 50%",
       description: "Cộng đồng người chơi AION 2 Việt Nam: tin tức, hỏi đáp, tìm đội và tuyển thành viên Legion.",
       services: ["Cộng đồng", "Tin tức"],
-      url: null,
+      url: "games/aion-2/",
       en: { description: "Vietnamese AION 2 community: news, Q&A, finding parties and Legion recruitment.", services: ["Community", "News"] }
     },
     {
@@ -29,30 +31,45 @@ window.GEGE_DATA = {
       name: "Blox Fruits",
       genre: "Roblox",
       image: "assets/games/blox-fruits.webp",
+      hero: "assets/hero/blox-fruits.webp",
       description: "Bảng giá thu mua trái, skin và item limited, tính tổng tiền theo VND và USDT.",
       services: ["Thu mua item"],
-      url: null,
+      url: "games/blox-fruits/",
       en: { description: "Buying price list for fruits, skins and limited items, with totals in VND and USDT.", services: ["Item buying"] }
     },
     {
       id: "diablo-4",
       name: "Diablo 4",
       genre: "ARPG",
-      image: null,
-      description: "Khu vực dành cho người chơi Diablo 4 đang được chuẩn bị.",
+      image: "assets/games/diablo-4.webp",
+      hero: "assets/hero/diablo-4.webp",
+      focus: "50% 40%",
+      description: "Season 15 – Season of Hell's Legacy: Diablo, Baal và Mephisto trở lại. Khu vực Diablo 4 của Nhà Cáo đang được chuẩn bị.",
       services: [],
       url: null,
-      en: { description: "The Diablo 4 area is being prepared.", services: [] }
+      en: { description: "Season 15 – Season of Hell's Legacy: Diablo, Baal and Mephisto return. Nha Cao's Diablo 4 area is being prepared.", services: [] }
+    },
+    {
+      id: "poe-1",
+      name: "POE 1",
+      genre: "ARPG",
+      image: "assets/games/poe-1.webp",
+      hero: "assets/hero/poe-1.webp",
+      description: "Thu mua Divine Orb và Mirror of Kalandra, nhận cày account và mua bán item hộ.",
+      services: ["Thu mua Divine/Mirror", "Cày thuê"],
+      url: "games/poe-1/",
+      en: { description: "Buying Divine Orbs and Mirrors of Kalandra, plus account boosting and item trading.", services: ["Divine/Mirror buying", "Boosting"] }
     },
     {
       id: "wow-forever",
       name: "WoW Forever",
       genre: "MMORPG",
       image: "assets/games/wow-forever.webp",
+      hero: "assets/hero/wow-forever.webp",
       focus: "80% 50%",
       description: "Thu mua gold theo ruleset và phe, cùng dịch vụ cày thuê theo yêu cầu.",
       services: ["Thu mua gold", "Cày thuê"],
-      url: null,
+      url: "games/wow-forever/",
       en: { description: "Gold buying by ruleset and faction, plus boosting on request.", services: ["Gold buying", "Boosting"] }
     }
   ],
