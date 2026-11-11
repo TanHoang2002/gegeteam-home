@@ -12,21 +12,26 @@
     return b.date.localeCompare(a.date);
   });
 
-  var state = { query: "", genre: ALL, newsAll: false, lang: "vi", auto: true };
+  var state = { query: "", game: ALL, newsAll: false, lang: "vi", auto: true };
 
   var STRINGS = {
     vi: {
       skip: "Đến danh mục game", navLabel: "Điều hướng chính", heroLabel: "Nổi bật",
       navNews: "Tin tức", navGames: "Game của chúng tôi", navAbout: "Dịch vụ", navCommunity: "Cộng đồng", footerGames: "Game",
       menuLogin: "Đăng nhập", menuRegister: "Đăng ký", menuFind: "Tìm game", menuZalo: "Liên hệ Zalo", menuSettings: "Cài đặt",
-      newsTitle: "Chuyện gì đang xảy ra vậy?", gamesTitle: "Trò chơi của chúng tôi", aboutTitle: "Chúng tôi làm gì",
+      newsTitle: "Cập nhật mới nhất", gamesTitle: "Trò chơi của chúng tôi", aboutTitle: "Chúng tôi làm gì",
       communityTitle: "Vào team cùng anh em", communityLead: "Tin nhanh, hỏi đáp, tìm đội và hỗ trợ giao dịch. Chọn kênh bạn quen dùng nhất.",
-      searchPh: "Tìm theo tên game", genreLabel: "Lọc theo thể loại", gameEmpty: "Không có game phù hợp. Thử từ khóa khác hoặc chọn \"Tất cả\".",
+      searchPh: "Tìm theo tên game", genreLabel: "Lọc theo game", gameEmpty: "Không có game phù hợp. Thử từ khóa khác hoặc chọn \"Tất cả\".",
       prevGame: "Game trước", nextGame: "Game sau", gameList: "Danh sách game",
-      aboutCommunity: "Cộng đồng", aboutCommunityText: "Nơi anh em cập nhật tin game, hỏi đáp, tìm đội và cùng chơi qua Zalo, Facebook.",
-      aboutBuy: "Thu mua", aboutBuyText: "Thu mua gold và item trong game, có bảng giá riêng cho từng game và thanh toán bằng VND hoặc USDT tùy game.",
-      aboutBoost: "Cày thuê", aboutBoostText: "Nhận cày thuê theo yêu cầu ở những game có mở dịch vụ, trao đổi trực tiếp với admin.",
+      aboutCommunity: "Cộng đồng", aboutCommunityText: "Nơi anh em cập nhật tin game, trao đổi, thảo luận và cùng chơi qua Zalo, Facebook, Discord.",
+      aboutCommunityList: "Tin game mỗi ngày|Hỏi đáp, chia sẻ kinh nghiệm|Tìm đội, tuyển thành viên",
+      aboutBuy: "Thu mua", aboutBuyText: "Thu mua gold và item trong game, có bảng giá riêng cho từng game.",
+      aboutBuyList: "AION 2: Kinah|POE 1: Divine Orb, Mirror|WoW Forever: gold|Blox Fruits: trái, skin, item limited",
+      aboutBoost: "Booster", aboutBoostText: "Nhận làm đơn theo yêu cầu ở những game có mở dịch vụ, trao đổi trực tiếp với admin.",
+      aboutBoostList: "AION 2|POE 1|WoW Forever",
       footerTag: "Nhà Cáo · Cộng đồng và giao dịch game", legal: "Tên và hình ảnh game thuộc về nhà phát hành tương ứng.",
+      footerAbout: "Cộng đồng game thủ và đội giao dịch game Việt Nam: tin tức, thu mua và booster cho các game anh em đang chơi.",
+      footerGamesTitle: "Game", footerExplore: "Khám phá", footerContact: "Liên hệ", footerHours: "Hỗ trợ qua Zalo mỗi ngày", backTop: "Lên đầu trang",
       soonText: "Website riêng của game này sắp ra mắt. Trong lúc chờ, bạn có thể liên hệ admin để được hỗ trợ.",
       accountText: "Tài khoản thành viên chưa mở. Hiện tại bạn không cần đăng nhập để xem tin và bảng giá. Cần hỗ trợ thì liên hệ admin qua Zalo.",
       zaloFull: "Liên hệ qua Zalo", close: "Đóng", setLang: "Ngôn ngữ", setAuto: "Tự chuyển slide ở đầu trang",
@@ -36,14 +41,19 @@
       skip: "Skip to games", navLabel: "Main navigation", heroLabel: "Highlights",
       navNews: "News", navGames: "Our games", navAbout: "Services", navCommunity: "Community", footerGames: "Games",
       menuLogin: "Log in", menuRegister: "Sign up", menuFind: "Find a game", menuZalo: "Contact on Zalo", menuSettings: "Settings",
-      newsTitle: "What's happening?", gamesTitle: "Our games", aboutTitle: "What we do",
+      newsTitle: "Latest updates", gamesTitle: "Our games", aboutTitle: "What we do",
       communityTitle: "Join the team", communityLead: "Quick news, Q&A, finding parties and trading support. Pick the channel you use most.",
-      searchPh: "Search by game name", genreLabel: "Filter by genre", gameEmpty: "No matching games. Try another keyword or choose \"All\".",
+      searchPh: "Search by game name", genreLabel: "Filter by game", gameEmpty: "No matching games. Try another keyword or choose \"All\".",
       prevGame: "Previous game", nextGame: "Next game", gameList: "Game list",
-      aboutCommunity: "Community", aboutCommunityText: "A place to catch up on game news, ask questions, find parties and play together through Zalo and Facebook.",
-      aboutBuy: "Buying", aboutBuyText: "We buy in-game gold and items, with a separate price list for each game, paid in VND or USDT depending on the game.",
-      aboutBoost: "Boosting", aboutBoostText: "Boosting on request for games where the service is open. Talk directly with the admin.",
+      aboutCommunity: "Community", aboutCommunityText: "A place to catch up on game news, chat, discuss and play together through Zalo, Facebook and Discord.",
+      aboutCommunityList: "Daily game news|Q&A and shared experience|Finding parties and recruiting",
+      aboutBuy: "Buying", aboutBuyText: "We buy in-game gold and items, with a separate price list for each game.",
+      aboutBuyList: "AION 2: Kinah|POE 1: Divine Orb, Mirror|WoW Forever: gold|Blox Fruits: fruits, skins, limited items",
+      aboutBoost: "Booster", aboutBoostText: "Orders on request for games where the service is open. Talk directly with the admin.",
+      aboutBoostList: "AION 2|POE 1|WoW Forever",
       footerTag: "Nha Cao · Gaming community and trading", legal: "Game names and images belong to their respective publishers.",
+      footerAbout: "A Vietnamese gaming community and trading team: news, buying and boosting for the games we play.",
+      footerGamesTitle: "Games", footerExplore: "Explore", footerContact: "Contact", footerHours: "Zalo support every day", backTop: "Back to top",
       soonText: "This game's own website is coming soon. In the meantime, you can contact the admin for support.",
       accountText: "Member accounts are not open yet. You don't need to log in to read news and price lists. For support, contact the admin on Zalo.",
       zaloFull: "Contact on Zalo", close: "Close", setLang: "Language", setAuto: "Auto-advance the top slides",
@@ -122,7 +132,6 @@
 
     var body = el("div", "game-body");
     var meta = el("div", "game-meta");
-    meta.appendChild(el("span", "", game.genre));
     meta.appendChild(el("span", game.url ? "status status-live" : "status", game.url ? t("visit") : t("soon")));
     body.appendChild(meta);
     body.appendChild(el("h3", "", game.name));
@@ -140,18 +149,15 @@
   function renderGames() {
     var query = normalize(state.query.trim());
     var visible = games.filter(function (g) {
-      return (state.genre === ALL || g.genre === state.genre) &&
+      return (state.game === ALL || g.id === state.game) &&
         normalize(g.name).indexOf(query) !== -1;
     });
 
-    var genres = games.map(function (g) { return g.genre; })
-      .filter(function (g, i, list) { return list.indexOf(g) === i; })
-      .sort(function (a, b) { return a.localeCompare(b, "vi"); });
-    var options = [{ value: ALL, label: t("all") }].concat(genres.map(function (g) {
-      return { value: g, label: g };
+    var options = [{ value: ALL, label: t("all") }].concat(games.map(function (g) {
+      return { value: g.id, label: g.name };
     }));
-    renderChips($("genre-filters"), options, state.genre, function (value) {
-      state.genre = value;
+    renderChips($("genre-filters"), options, state.game, function (value) {
+      state.game = value;
       renderGames();
     });
 
@@ -164,10 +170,10 @@
   function newsThumb(item, className) {
     var game = item.game ? gameById(item.game) : null;
     var box = el("div", className);
-    if (game && game.image) {
+    if (item.image || (game && game.image)) {
       var img = el("img");
-      /* Ảnh tin lớn (feature-art) cần ảnh độ phân giải cao, ảnh nhỏ ở cột bên dùng bản 960px là đủ */
-      img.src = className === "feature-art" && game.hero ? game.hero : game.image;
+      /* Tin có ảnh riêng thì dùng ảnh đó; không thì lấy ảnh game (tin lớn dùng ảnh hero độ phân giải cao) */
+      img.src = item.image || (className === "feature-art" && game.hero ? game.hero : game.image);
       img.alt = "";
       img.loading = "lazy";
       box.appendChild(img);
@@ -248,17 +254,18 @@
     var game = item.game ? gameById(item.game) : null;
     var slide = el("div", "hero-slide");
     slide.id = "hero-slide-" + i;
-    if (game && game.image) {
+    if (item.image || (game && game.image)) {
       var img = el("img", "hero-img");
-      img.src = game.hero || game.image;
+      img.src = item.image || game.hero || game.image;
       img.alt = "";
+      if (item.isGame && game.heroFocusMobile) img.style.setProperty("--focus-m", game.heroFocusMobile);
       if (i > 0) img.loading = "lazy";
       slide.appendChild(img);
     } else {
       slide.classList.add("hero-plain");
     }
     var copy = el("div", "hero-copy");
-    copy.appendChild(el("p", "eyebrow", item.isGame ? "GeGe Team · " + game.genre : (game ? game.name : "GeGe Team")));
+    copy.appendChild(el("p", "eyebrow", item.isGame ? "GeGe Team · Nhà Cáo" : (game ? game.name : "GeGe Team")));
     copy.appendChild(el(i === 0 ? "h1" : "h2", "hero-title", loc(item, "title")));
     copy.appendChild(el("p", "hero-text", loc(item, "summary")));
     var cta = el("a", "cta-pill");
@@ -327,19 +334,98 @@
     hero.addEventListener("focusout", startHero);
   }
 
+  var ICONS = {
+    facebook: "M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z",
+    discord: "M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.445.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.618-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.028C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.1 14.1 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z",
+    link: "M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+  };
+  /* Đường nét (stroke) thay vì tô đặc */
+  var STROKE_ICONS = { link: true };
+
+  /* Logo nền tảng: SVG cho Facebook, Discord, liên kết; Zalo dùng chữ vì không có biểu tượng đơn sắc */
+  function iconNode(name) {
+    if (!ICONS[name]) return el("span", "icon-text", name === "zalo" ? "Zalo" : "");
+    var ns = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("viewBox", "0 0 24 24");
+    svg.setAttribute("aria-hidden", "true");
+    if (STROKE_ICONS[name]) svg.setAttribute("class", "is-stroke");
+    var path = document.createElementNS(ns, "path");
+    path.setAttribute("d", ICONS[name]);
+    svg.appendChild(path);
+    return svg;
+  }
+
   function renderCommunity() {
     var grid = $("community-grid");
     grid.textContent = "";
-    data.community.forEach(function (c) {
-      var card = el(c.url ? "a" : "div", "community-card" + (c.primary ? " is-primary" : "") + (c.url ? "" : " is-off"));
+    data.community.filter(function (c) { return c.card !== false; }).forEach(function (c) {
+      var card = el(c.url ? "a" : "div", "community-card" + (c.icon ? " brand-" + c.icon : "") + (c.url ? "" : " is-off"));
       if (c.url) {
         card.href = c.url;
         card.target = "_blank";
         card.rel = "noopener";
       }
-      card.appendChild(el("strong", "", c.name));
-      card.appendChild(el("span", "", (state.lang === "en" && c.detailEn) || c.detail));
+      var text = el("div", "community-text");
+      text.appendChild(el("strong", "", c.name));
+      text.appendChild(el("span", "", (state.lang === "en" && c.detailEn) || c.detail));
+      card.appendChild(text);
+      if (c.icon) {
+        var mark = el("span", "community-icon");
+        mark.appendChild(iconNode(c.icon));
+        card.appendChild(mark);
+      }
       grid.appendChild(card);
+    });
+  }
+
+  /* Danh sách gạch đầu dòng dưới từng mục "Chúng tôi làm gì", lấy từ chuỗi ngăn bởi dấu | */
+  function renderAboutLists() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-list]"), function (ul) {
+      ul.textContent = "";
+      t(ul.getAttribute("data-list")).split("|").forEach(function (line) { ul.appendChild(el("li", "", line)); });
+    });
+  }
+
+  function footerLink(label, href, external) {
+    var li = el("li");
+    var a = el("a", "", label);
+    a.href = href;
+    if (external) { a.target = "_blank"; a.rel = "noopener"; }
+    li.appendChild(a);
+    return li;
+  }
+
+  /* Chân trang: cột game lấy từ GAMES, cột liên hệ và nút mạng xã hội lấy từ COMMUNITY */
+  function renderFooter() {
+    var gameList = $("footer-games");
+    gameList.textContent = "";
+    games.forEach(function (g) {
+      if (g.url) gameList.appendChild(footerLink(g.name, g.url));
+      else gameList.appendChild(el("li", "is-off", g.name + " · " + t("soon")));
+    });
+    var contact = $("footer-contact");
+    contact.textContent = "";
+    data.community.forEach(function (c) {
+      if (c.url) contact.appendChild(footerLink(c.name, c.url, true));
+    });
+    var socials = $("footer-socials");
+    socials.textContent = "";
+    /* Mỗi nền tảng một nút: lấy mục đầu tiên có icon đó */
+    var seen = {};
+    data.community.filter(function (c) {
+      if (!c.icon || !c.url || seen[c.icon]) return false;
+      seen[c.icon] = true;
+      return true;
+    }).forEach(function (c) {
+      var a = el("a", "social social-" + c.icon);
+      a.href = c.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.setAttribute("aria-label", c.name);
+      a.title = c.name;
+      a.appendChild(iconNode(c.icon));
+      socials.appendChild(a);
     });
   }
 
@@ -364,6 +450,8 @@
     renderGames();
     renderNews();
     renderCommunity();
+    renderAboutLists();
+    renderFooter();
   }
 
   function setLang(lang) {

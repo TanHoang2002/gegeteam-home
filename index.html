@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
 <body>
   <a class="skip" href="#games" data-i18n="skip">Đến danh mục game</a>
@@ -58,7 +58,7 @@
     <section class="news-section" id="news" aria-labelledby="news-title">
       <div class="wrap">
         <div class="head-row">
-          <h2 id="news-title" data-i18n="newsTitle">Chuyện gì đang xảy ra vậy?</h2>
+          <h2 id="news-title" data-i18n="newsTitle">Cập nhật mới nhất</h2>
           <button class="tag-btn" id="news-more" type="button">Xem tất cả</button>
         </div>
         <div class="news-grid">
@@ -96,15 +96,18 @@
         <div class="about-grid">
           <article>
             <h3 data-i18n="aboutCommunity">Cộng đồng</h3>
-            <p data-i18n="aboutCommunityText">Nơi anh em cập nhật tin game, hỏi đáp, tìm đội và cùng chơi qua Zalo, Facebook.</p>
+            <p data-i18n="aboutCommunityText">Nơi anh em cập nhật tin game, trao đổi, thảo luận và cùng chơi qua Zalo, Facebook, Discord.</p>
+            <ul class="about-list" data-list="aboutCommunityList"></ul>
           </article>
           <article>
             <h3 data-i18n="aboutBuy">Thu mua</h3>
-            <p data-i18n="aboutBuyText">Thu mua gold và item trong game, có bảng giá riêng cho từng game và thanh toán bằng VND hoặc USDT tùy game.</p>
+            <p data-i18n="aboutBuyText">Thu mua gold và item trong game, có bảng giá riêng cho từng game.</p>
+            <ul class="about-list" data-list="aboutBuyList"></ul>
           </article>
           <article>
-            <h3 data-i18n="aboutBoost">Cày thuê</h3>
-            <p data-i18n="aboutBoostText">Nhận cày thuê theo yêu cầu ở những game có mở dịch vụ, trao đổi trực tiếp với admin.</p>
+            <h3 data-i18n="aboutBoost">Booster</h3>
+            <p data-i18n="aboutBoostText">Nhận làm đơn theo yêu cầu ở những game có mở dịch vụ, trao đổi trực tiếp với admin.</p>
+            <ul class="about-list" data-list="aboutBoostList"></ul>
           </article>
         </div>
       </div>
@@ -120,19 +123,46 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-in">
-      <div class="footer-brand">
-        <a class="fox-home" href="/" title="Về trang chủ GeGe Team"><img src="assets/logo.webp" alt="Về trang chủ GeGe Team" width="48" height="48"></a>
-        <strong>GeGe Team</strong>
-        <span data-i18n="footerTag">Nhà Cáo · Cộng đồng và giao dịch game</span>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="fox-home" href="/" title="Về trang chủ GeGe Team"><img src="assets/logo.webp" alt="Về trang chủ GeGe Team" width="64" height="64"></a>
+          <div>
+            <strong>GeGe Team</strong>
+            <span data-i18n="footerTag">Nhà Cáo · Cộng đồng và giao dịch game</span>
+          </div>
+        </div>
+        <p class="footer-about" data-i18n="footerAbout">Cộng đồng game thủ và đội giao dịch game Việt Nam: tin tức, thu mua và booster cho các game anh em đang chơi.</p>
+        <div class="footer-socials" id="footer-socials"></div>
       </div>
-      <nav class="footer-nav" aria-label="Liên kết chân trang">
-        <a href="#news" data-i18n="navNews">Tin tức</a>
-        <a href="#games" data-i18n="footerGames">Game</a>
-        <a href="#about" data-i18n="navAbout">Dịch vụ</a>
-        <a href="#community" data-i18n="navCommunity">Cộng đồng</a>
-      </nav>
-      <p class="legal">© <span id="year"></span> GeGe Team · Nhà Cáo. <span data-i18n="legal">Tên và hình ảnh game thuộc về nhà phát hành tương ứng.</span></p>
+      <div class="footer-cols">
+        <nav aria-labelledby="f-games">
+          <h3 id="f-games" data-i18n="footerGamesTitle">Game</h3>
+          <ul id="footer-games"></ul>
+        </nav>
+        <nav aria-labelledby="f-explore">
+          <h3 id="f-explore" data-i18n="footerExplore">Khám phá</h3>
+          <ul>
+            <li><a href="#news" data-i18n="navNews">Tin tức</a></li>
+            <li><a href="#games" data-i18n="navGames">Game của chúng tôi</a></li>
+            <li><a href="#about" data-i18n="navAbout">Dịch vụ</a></li>
+            <li><a href="#community" data-i18n="navCommunity">Cộng đồng</a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="f-contact">
+          <h3 id="f-contact" data-i18n="footerContact">Liên hệ</h3>
+          <ul id="footer-contact"></ul>
+        </nav>
+        <div class="footer-card">
+          <span data-i18n="footerHours">Hỗ trợ qua Zalo mỗi ngày</span>
+          <a class="footer-phone" href="https://zalo.me/0936854505" target="_blank" rel="noopener">0936 854 505</a>
+          <a class="btn btn-primary" href="https://zalo.me/0936854505" target="_blank" rel="noopener" data-i18n="zaloFull">Liên hệ qua Zalo</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="legal">© <span id="year"></span> GeGe Team · Nhà Cáo. <span data-i18n="legal">Tên và hình ảnh game thuộc về nhà phát hành tương ứng.</span></p>
+        <a class="to-top" href="#top" data-i18n="backTop">Lên đầu trang</a>
+      </div>
     </div>
   </footer>
 
@@ -173,7 +203,7 @@
   </dialog>
 
   <!-- ?v= là số phiên bản: tăng lên mỗi khi sửa data.js/app.js/styles.css để trình duyệt không dùng bản cũ đã lưu -->
-  <script src="js/data.js?v=4"></script>
-  <script src="js/app.js?v=4"></script>
+  <script src="js/data.js?v=6"></script>
+  <script src="js/app.js?v=6"></script>
 </body>
 </html>
