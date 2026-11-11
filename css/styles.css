@@ -43,6 +43,11 @@ h1, h2, h3 { line-height: 1.12; letter-spacing: -.01em; text-wrap: balance; }
 .menu-panel { position: absolute; top: calc(100% + 10px); right: 0; z-index: 40; display: flex; flex-direction: column; min-width: 220px; padding: 8px; background: #171514; border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 20px 50px rgba(0, 0, 0, .6); }
 .menu-item { display: block; width: 100%; padding: 12px 14px; background: transparent; border: 0; border-radius: 6px; color: var(--text); font-size: 14px; font-weight: 600; text-align: left; text-decoration: none; cursor: pointer; }
 .menu-item:hover, .menu-item:focus-visible { background: var(--panel-2); color: var(--orange-bright); }
+.lang-item { display: flex; justify-content: space-between; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; background: transparent; border: 0; border-radius: 6px; color: var(--text); font-size: 14px; font-weight: 600; text-align: left; cursor: pointer; }
+.lang-item small { font-size: 11px; font-weight: 800; letter-spacing: .08em; opacity: .6; }
+.lang-item { white-space: nowrap; }
+.lang-item:hover, .lang-item:focus-visible { background: var(--panel-2); color: var(--orange-bright); }
+.lang-item[aria-pressed="true"] { color: var(--orange-bright); background: var(--panel-2); }
 .menu-item:nth-child(2) { border-bottom: 1px solid var(--line); border-radius: 6px 6px 0 0; margin-bottom: 6px; }
 .setting { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-weight: 600; }
 .setting select { min-height: 38px; padding: 4px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; color: var(--text); }
@@ -107,7 +112,7 @@ h2 { font-size: clamp(30px, 4.2vw, 52px); font-weight: 700; }
 .games-section::before { content: ""; position: absolute; inset: 0; background:
   radial-gradient(ellipse 40% 60% at 85% 30%, rgba(255, 255, 255, .05), transparent 70%),
   repeating-linear-gradient(115deg, transparent 0 120px, rgba(0, 0, 0, .12) 120px 124px); pointer-events: none; }
-.games-section > * { position: relative; }
+.games-section > * { position: relative; z-index: 1; }
 .games-section .head-row { margin-bottom: 20px; }
 .filters { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-bottom: 8px; }
 .search { flex: 1 1 240px; max-width: 320px; }
@@ -199,15 +204,16 @@ a.community-card:hover .community-icon, a.community-card:focus-visible .communit
 .social svg { width: 20px; height: 20px; fill: currentColor; }
 .social:hover { background: var(--orange); border-color: var(--orange); color: var(--on-orange); transform: translateY(-3px); }
 .social svg.is-stroke { fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
-.footer-cols { display: grid; grid-template-columns: repeat(3, 1fr) 1.3fr; gap: 32px; padding: 44px 0; }
+.footer-cols { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 32px; padding: 44px 0; }
 .footer-cols h3 { margin-bottom: 16px; color: var(--orange-bright); font-size: 12px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
 .footer-cols ul { display: grid; gap: 10px; padding: 0; list-style: none; }
 .footer-cols li a { color: var(--text); font-size: 15px; text-decoration: none; transition: color .15s; }
 .footer-cols li a:hover { color: var(--orange-bright); }
 .footer-cols li.is-off { color: var(--soft); font-size: 15px; }
-.footer-card { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 24px; background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--orange); border-radius: 8px; }
-.footer-card span { color: var(--soft); font-size: 14px; }
-.footer-phone { margin-bottom: 10px; font-size: 26px; font-weight: 800; letter-spacing: .02em; text-decoration: none; }
+.footer-card { align-self: start; justify-self: start; width: 100%; max-width: 280px; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 14px 16px; background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--orange); border-radius: 8px; }
+.footer-card span { color: var(--soft); font-size: 12.5px; }
+.footer-card .btn { min-height: 36px; padding: 6px 16px; font-size: 11.5px; }
+.footer-phone { margin-bottom: 6px; font-size: 19px; font-weight: 800; letter-spacing: .02em; text-decoration: none; }
 .footer-phone:hover { color: var(--orange-bright); }
 .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-top: 24px; border-top: 1px solid var(--line); }
 .legal { color: var(--soft); font-size: 13px; }
@@ -302,3 +308,14 @@ a.community-card:hover .community-icon, a.community-card:focus-visible .communit
 /* Logo cáo luôn dẫn về trang chủ */
 .fox-home { display: inline-flex; flex: none; border-radius: 50%; transition: transform .2s; }
 .fox-home:hover { transform: scale(1.08); }
+
+/* ---------- Chất GeGe: tiêu đề có huy hiệu cáo, cáo mờ cỡ lớn trong nền mục Trò chơi ---------- */
+.head-row h2 { display: flex; align-items: center; gap: 16px; }
+.head-row h2::before { content: ""; flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; background: url(../assets/logo.webp) center / cover; box-shadow: 0 0 0 3px rgba(245, 138, 31, .55), 0 6px 18px rgba(0, 0, 0, .45); }
+.head-row h2::after { content: ""; flex: 0 0 auto; width: 54px; height: 4px; margin-left: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--orange), transparent); align-self: flex-end; margin-bottom: .32em; }
+.games-section::after { content: ""; position: absolute; top: 2%; bottom: 2%; right: 0; aspect-ratio: 1 / 1; max-width: 70%; background: url(../assets/logo.webp) right center / contain no-repeat; opacity: .1; filter: grayscale(1) brightness(1.5); pointer-events: none; }
+@media (max-width: 760px) {
+  .head-row h2::before { width: 34px; height: 34px; }
+  .head-row h2::after { display: none; }
+  .games-section::after { top: 0; bottom: auto; width: 95%; max-width: none; right: -18%; opacity: .07; }
+}

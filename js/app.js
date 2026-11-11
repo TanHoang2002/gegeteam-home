@@ -12,7 +12,7 @@
     return b.date.localeCompare(a.date);
   });
 
-  var state = { query: "", game: ALL, newsAll: false, lang: "vi", auto: true };
+  var state = { query: "", game: ALL, newsAll: false, lang: "en", auto: true };
 
   var STRINGS = {
     vi: {
@@ -26,10 +26,10 @@
       aboutCommunity: "Cộng đồng", aboutCommunityText: "Nơi anh em cập nhật tin game, trao đổi, thảo luận và cùng chơi qua Zalo, Facebook, Discord.",
       aboutCommunityList: "Tin game mỗi ngày|Hỏi đáp, chia sẻ kinh nghiệm|Tìm đội, tuyển thành viên",
       aboutBuy: "Thu mua", aboutBuyText: "Thu mua gold và item trong game, có bảng giá riêng cho từng game.",
-      aboutBuyList: "AION 2: Kinah|POE 1: Divine Orb, Mirror|WoW Forever: gold|Blox Fruits: trái, skin, item limited",
+      aboutBuyList: "AION 2: Kinah|POE 1: Divine Orb, Mirror|Blox Fruits: trái, skin, item limited",
       aboutBoost: "Booster", aboutBoostText: "Nhận làm đơn theo yêu cầu ở những game có mở dịch vụ, trao đổi trực tiếp với admin.",
       aboutBoostList: "AION 2|POE 1|WoW Forever",
-      footerTag: "Nhà Cáo · Cộng đồng và giao dịch game", legal: "Tên và hình ảnh game thuộc về nhà phát hành tương ứng.",
+      brandTag: "GeGe Team · Nhà Cáo", footerTag: "Nhà Cáo · Cộng đồng và giao dịch game", legal: "Tên và hình ảnh game thuộc về nhà phát hành tương ứng.",
       footerAbout: "Cộng đồng game thủ và đội giao dịch game Việt Nam: tin tức, thu mua và booster cho các game anh em đang chơi.",
       footerGamesTitle: "Game", footerExplore: "Khám phá", footerContact: "Liên hệ", footerHours: "Hỗ trợ qua Zalo mỗi ngày", backTop: "Lên đầu trang",
       soonText: "Website riêng của game này sắp ra mắt. Trong lúc chờ, bạn có thể liên hệ admin để được hỗ trợ.",
@@ -48,24 +48,129 @@
       aboutCommunity: "Community", aboutCommunityText: "A place to catch up on game news, chat, discuss and play together through Zalo, Facebook and Discord.",
       aboutCommunityList: "Daily game news|Q&A and shared experience|Finding parties and recruiting",
       aboutBuy: "Buying", aboutBuyText: "We buy in-game gold and items, with a separate price list for each game.",
-      aboutBuyList: "AION 2: Kinah|POE 1: Divine Orb, Mirror|WoW Forever: gold|Blox Fruits: fruits, skins, limited items",
+      aboutBuyList: "AION 2: Kinah|POE 1: Divine Orb, Mirror|Blox Fruits: fruits, skins, limited items",
       aboutBoost: "Booster", aboutBoostText: "Orders on request for games where the service is open. Talk directly with the admin.",
       aboutBoostList: "AION 2|POE 1|WoW Forever",
-      footerTag: "Nha Cao · Gaming community and trading", legal: "Game names and images belong to their respective publishers.",
+      brandTag: "GeGe Team · Fox House", footerTag: "Fox House · Gaming community and trading", legal: "Game names and images belong to their respective publishers.",
       footerAbout: "A Vietnamese gaming community and trading team: news, buying and boosting for the games we play.",
       footerGamesTitle: "Games", footerExplore: "Explore", footerContact: "Contact", footerHours: "Zalo support every day", backTop: "Back to top",
       soonText: "This game's own website is coming soon. In the meantime, you can contact the admin for support.",
       accountText: "Member accounts are not open yet. You don't need to log in to read news and price lists. For support, contact the admin on Zalo.",
       zaloFull: "Contact on Zalo", close: "Close", setLang: "Language", setAuto: "Auto-advance the top slides",
       all: "All", visit: "Open site", soon: "Coming soon", watch: "Watch now", viewAll: "View all", collapse: "Show less"
+    },
+    id: {
+      skip: "Lewati ke daftar game", navLabel: "Navigasi utama", heroLabel: "Sorotan",
+      navNews: "Berita", navGames: "Game kami", navAbout: "Layanan", navCommunity: "Komunitas", footerGames: "Game",
+      menuLogin: "Masuk", menuRegister: "Daftar", menuFind: "Cari game", menuZalo: "Hubungi via Zalo", menuSettings: "Pengaturan",
+      newsTitle: "Kabar terbaru", gamesTitle: "Game kami", aboutTitle: "Apa yang kami lakukan",
+      communityTitle: "Gabung bersama tim", communityLead: "Berita cepat, tanya jawab, cari party, dan bantuan transaksi. Pilih saluran yang paling sering kamu pakai.",
+      searchPh: "Cari nama game", genreLabel: "Filter berdasarkan game", gameEmpty: "Tidak ada game yang cocok. Coba kata kunci lain atau pilih \"Semua\".",
+      prevGame: "Game sebelumnya", nextGame: "Game berikutnya", gameList: "Daftar game",
+      aboutCommunity: "Komunitas", aboutCommunityText: "Tempat mengikuti berita game, mengobrol, berdiskusi, dan bermain bersama lewat Zalo, Facebook, dan Discord.",
+      aboutCommunityList: "Berita game setiap hari|Tanya jawab dan berbagi pengalaman|Cari party dan rekrut anggota",
+      aboutBuy: "Pembelian", aboutBuyText: "Kami membeli gold dan item dalam game, dengan daftar harga terpisah untuk setiap game.",
+      aboutBuyList: "AION 2: Kinah|POE 1: Divine Orb, Mirror|Blox Fruits: buah, skin, item limited",
+      aboutBoost: "Booster", aboutBoostText: "Pesanan sesuai permintaan untuk game yang layanannya dibuka. Bicara langsung dengan admin.",
+      aboutBoostList: "AION 2|POE 1|WoW Forever",
+      footerTag: "Fox House · Komunitas dan jual beli game", legal: "Nama dan gambar game adalah milik penerbit masing-masing.",
+      footerAbout: "Komunitas gamer dan tim jual beli game asal Vietnam: berita, pembelian, dan boosting untuk game yang kami mainkan.",
+      footerGamesTitle: "Game", footerExplore: "Jelajahi", footerContact: "Kontak", footerHours: "Dukungan Zalo setiap hari", backTop: "Kembali ke atas",
+      soonText: "Situs khusus game ini segera hadir. Sementara itu, kamu bisa menghubungi admin untuk bantuan.",
+      accountText: "Akun anggota belum dibuka. Kamu tidak perlu masuk untuk membaca berita dan daftar harga. Untuk bantuan, hubungi admin via Zalo.",
+      zaloFull: "Hubungi via Zalo", close: "Tutup", setLang: "Bahasa", setAuto: "Ganti slide atas otomatis",
+      all: "Semua", visit: "Buka situs", soon: "Segera hadir", watch: "Lihat sekarang", viewAll: "Lihat semua", collapse: "Tampilkan lebih sedikit"
+    },
+    fil: {
+      skip: "Pumunta sa mga laro", navLabel: "Pangunahing nabigasyon", heroLabel: "Mga tampok",
+      navNews: "Balita", navGames: "Aming mga laro", navAbout: "Serbisyo", navCommunity: "Komunidad", footerGames: "Mga laro",
+      menuLogin: "Mag-log in", menuRegister: "Mag-sign up", menuFind: "Maghanap ng laro", menuZalo: "Kontakin sa Zalo", menuSettings: "Mga setting",
+      newsTitle: "Pinakabagong balita", gamesTitle: "Aming mga laro", aboutTitle: "Ano ang ginagawa namin",
+      communityTitle: "Sumali sa team", communityLead: "Mabilis na balita, Q&A, paghahanap ng party at tulong sa trading. Piliin ang channel na madalas mong gamitin.",
+      searchPh: "Maghanap ayon sa pangalan ng laro", genreLabel: "I-filter ayon sa laro", gameEmpty: "Walang tugmang laro. Subukan ang ibang keyword o piliin ang \"Lahat\".",
+      prevGame: "Nakaraang laro", nextGame: "Susunod na laro", gameList: "Listahan ng laro",
+      aboutCommunity: "Komunidad", aboutCommunityText: "Lugar para sa balita ng laro, kuwentuhan, talakayan at sabay na paglalaro sa Zalo, Facebook at Discord.",
+      aboutCommunityList: "Araw-araw na balita ng laro|Q&A at pagbabahagi ng karanasan|Paghahanap ng party at pag-recruit",
+      aboutBuy: "Pagbili", aboutBuyText: "Bumibili kami ng in-game gold at item, may hiwalay na price list para sa bawat laro.",
+      aboutBuyList: "AION 2: Kinah|POE 1: Divine Orb, Mirror|Blox Fruits: prutas, skin, limited item",
+      aboutBoost: "Booster", aboutBoostText: "Mga order ayon sa hiling para sa mga larong bukas ang serbisyo. Direktang makipag-usap sa admin.",
+      aboutBoostList: "AION 2|POE 1|WoW Forever",
+      footerTag: "Fox House · Gaming community at trading", legal: "Ang mga pangalan at larawan ng laro ay pag-aari ng kani-kanilang publisher.",
+      footerAbout: "Isang Vietnamese gaming community at trading team: balita, pagbili at boosting para sa mga larong nilalaro namin.",
+      footerGamesTitle: "Mga laro", footerExplore: "Tuklasin", footerContact: "Kontak", footerHours: "Suporta sa Zalo araw-araw", backTop: "Bumalik sa itaas",
+      soonText: "Malapit nang ilunsad ang sariling website ng larong ito. Habang naghihintay, puwede mong kontakin ang admin para sa tulong.",
+      accountText: "Hindi pa bukas ang member accounts. Hindi mo kailangang mag-log in para magbasa ng balita at price list. Para sa tulong, kontakin ang admin sa Zalo.",
+      zaloFull: "Kontakin sa Zalo", close: "Isara", setLang: "Wika", setAuto: "Awtomatikong ilipat ang slide sa itaas",
+      all: "Lahat", visit: "Buksan ang site", soon: "Malapit na", watch: "Panoorin", viewAll: "Tingnan lahat", collapse: "Ipakita nang mas kaunti"
+    },
+    ru: {
+      skip: "К списку игр",
+      navLabel: "Главное меню",
+      heroLabel: "Главное",
+      navNews: "Новости",
+      navGames: "Наши игры",
+      navAbout: "Услуги",
+      navCommunity: "Сообщество",
+      footerGames: "Игры",
+      menuLogin: "Войти",
+      menuRegister: "Регистрация",
+      menuFind: "Найти игру",
+      menuZalo: "Написать в Zalo",
+      menuSettings: "Настройки",
+      newsTitle: "Последние новости",
+      gamesTitle: "Наши игры",
+      aboutTitle: "Чем мы занимаемся",
+      communityTitle: "Присоединяйтесь к команде",
+      communityLead: "Быстрые новости, вопросы и ответы, поиск группы и помощь со сделками. Выберите удобный канал.",
+      searchPh: "Поиск по названию игры",
+      genreLabel: "Фильтр по игре",
+      gameEmpty: "Ничего не найдено. Попробуйте другое слово или выберите «Все».",
+      prevGame: "Предыдущая игра",
+      nextGame: "Следующая игра",
+      gameList: "Список игр",
+      aboutCommunity: "Сообщество",
+      aboutCommunityText: "Место, где можно следить за игровыми новостями, общаться, обсуждать и играть вместе через Zalo, Facebook и Discord.",
+      aboutCommunityList: "Игровые новости каждый день|Вопросы, ответы и обмен опытом|Поиск группы и набор участников",
+      aboutBuy: "Скупка",
+      aboutBuyText: "Покупаем игровое золото и предметы, с отдельным прайсом для каждой игры.",
+      aboutBuyList: "AION 2: Kinah|POE 1: Divine Orb, Mirror|Blox Fruits: фрукты, скины, лимитированные предметы",
+      aboutBoost: "Буст",
+      aboutBoostText: "Заказы на буст в играх, где открыта услуга. Общение напрямую с админом.",
+      aboutBoostList: "AION 2|POE 1|WoW Forever",
+      footerTag: "Fox House · Игровое сообщество и сделки",
+      legal: "Названия и изображения игр принадлежат их издателям.",
+      footerAbout: "Вьетнамское игровое сообщество и команда по сделкам: новости, скупка и буст в играх, в которые мы играем.",
+      footerGamesTitle: "Игры",
+      footerExplore: "Разделы",
+      footerContact: "Контакты",
+      footerHours: "Поддержка в Zalo каждый день",
+      backTop: "Наверх",
+      soonText: "Отдельный сайт этой игры скоро появится. Пока что вы можете обратиться к админу за помощью.",
+      accountText: "Аккаунты участников пока не открыты. Для чтения новостей и прайсов вход не нужен. За помощью обращайтесь к админу в Zalo.",
+      zaloFull: "Написать в Zalo",
+      close: "Закрыть",
+      setLang: "Язык",
+      setAuto: "Автопрокрутка слайдов вверху",
+      all: "Все",
+      visit: "Открыть сайт",
+      soon: "Скоро",
+      watch: "Смотреть",
+      viewAll: "Смотреть все",
+      collapse: "Свернуть"
     }
   };
+  var LANGS = ["en", "vi", "id", "fil", "ru"];
 
-  function t(key) { return STRINGS[state.lang][key] || STRINGS.vi[key] || key; }
+  function t(key) { return STRINGS[state.lang][key] || STRINGS.en[key] || key; }
 
-  /* Nội dung tiếng Anh nằm trong trường "en" của từng mục trong data.js, thiếu thì dùng tiếng Việt. */
+  /* Nội dung data.js: tiếng Việt ở trường gốc, tiếng Anh trong "en", Indonesia/Philippines trong "tr.id"/"tr.fil".
+     Thiếu bản dịch Indonesia/Philippines thì dùng tiếng Anh, thiếu tiếng Anh thì dùng tiếng Việt. */
   function loc(item, field) {
-    return (state.lang === "en" && item.en && item.en[field] !== undefined) ? item.en[field] : item[field];
+    if (state.lang === "vi") return item[field];
+    var own = state.lang === "en" ? item.en : item.tr && item.tr[state.lang];
+    if (own && own[field] !== undefined) return own[field];
+    if (item.en && item.en[field] !== undefined) return item.en[field];
+    return item[field];
   }
 
   function store(key, value) { try { localStorage.setItem(key, value); } catch (e) { /* trình duyệt chặn lưu trữ */ } }
@@ -131,17 +236,13 @@
     card.appendChild(art);
 
     var body = el("div", "game-body");
-    var meta = el("div", "game-meta");
-    meta.appendChild(el("span", game.url ? "status status-live" : "status", game.url ? t("visit") : t("soon")));
-    body.appendChild(meta);
+    if (!game.url) {
+      var meta = el("div", "game-meta");
+      meta.appendChild(el("span", "status", t("soon")));
+      body.appendChild(meta);
+    }
     body.appendChild(el("h3", "", game.name));
     body.appendChild(el("p", "", loc(game, "description")));
-    var services = loc(game, "services");
-    if (services.length) {
-      var tags = el("div", "tags");
-      services.forEach(function (s) { tags.appendChild(el("span", "tag", s)); });
-      body.appendChild(tags);
-    }
     card.appendChild(body);
     return card;
   }
@@ -265,7 +366,7 @@
       slide.classList.add("hero-plain");
     }
     var copy = el("div", "hero-copy");
-    copy.appendChild(el("p", "eyebrow", item.isGame ? "GeGe Team · Nhà Cáo" : (game ? game.name : "GeGe Team")));
+    copy.appendChild(el("p", "eyebrow", item.isGame ? t("brandTag") : (game ? game.name : "GeGe Team")));
     copy.appendChild(el(i === 0 ? "h1" : "h2", "hero-title", loc(item, "title")));
     copy.appendChild(el("p", "hero-text", loc(item, "summary")));
     var cta = el("a", "cta-pill");
@@ -311,7 +412,11 @@
     var gameSlides = games.filter(function (g) { return g.hero || g.image; }).map(function (g) {
       return {
         isGame: true, game: g.id, url: g.url, title: g.name, summary: g.description,
-        en: { title: g.name, summary: g.en && g.en.description }
+        en: { title: g.name, summary: g.en && g.en.description },
+        tr: g.tr && Object.keys(g.tr).reduce(function (out, l) {
+          out[l] = { title: g.name, summary: g.tr[l].description };
+          return out;
+        }, {})
       };
     });
     gameSlides.concat(news.slice(0, HERO_COUNT)).forEach(function (n, i) {
@@ -368,7 +473,7 @@
       }
       var text = el("div", "community-text");
       text.appendChild(el("strong", "", c.name));
-      text.appendChild(el("span", "", (state.lang === "en" && c.detailEn) || c.detail));
+      text.appendChild(el("span", "", loc(c, "detail")));
       card.appendChild(text);
       if (c.icon) {
         var mark = el("span", "community-icon");
@@ -440,7 +545,10 @@
     Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function (n) { n.textContent = t(n.getAttribute("data-i18n")); });
     Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-placeholder]"), function (n) { n.placeholder = t(n.getAttribute("data-i18n-placeholder")); });
     Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-aria]"), function (n) { n.setAttribute("aria-label", t(n.getAttribute("data-i18n-aria"))); });
-    $("lang-label").textContent = state.lang.toUpperCase();
+    $("lang-label").textContent = {en:"EN", vi:"VI", id:"ID", fil:"PH", ru:"RU"}[state.lang];
+    Array.prototype.forEach.call(document.querySelectorAll("#lang-panel [data-lang]"), function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === state.lang ? "true" : "false");
+    });
     $("set-lang").value = state.lang;
     $("set-auto").checked = state.auto;
   }
@@ -455,7 +563,7 @@
   }
 
   function setLang(lang) {
-    if (lang !== "vi" && lang !== "en") return;
+    if (LANGS.indexOf(lang) === -1) return;
     state.lang = lang;
     store("gege-lang", lang);
     applyStatic();
@@ -498,7 +606,30 @@
     }
   });
 
-  $("lang-btn").addEventListener("click", function () { setLang(state.lang === "vi" ? "en" : "vi"); });
+  /* Nút địa cầu mở danh sách 4 ngôn ngữ; chọn xong, bấm ra ngoài hoặc Esc thì đóng. */
+  var langBtn = $("lang-btn");
+  var langPanel = $("lang-panel");
+  function setLangOpen(open) {
+    langPanel.hidden = !open;
+    langBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  langBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    setMenu(false);
+    setLangOpen(langPanel.hidden);
+  });
+  langPanel.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-lang]");
+    if (!b) return;
+    setLangOpen(false);
+    setLang(b.getAttribute("data-lang"));
+  });
+  document.addEventListener("click", function (e) {
+    if (!langPanel.hidden && !langPanel.contains(e.target)) setLangOpen(false);
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !langPanel.hidden) { setLangOpen(false); langBtn.focus(); }
+  });
   $("set-lang").addEventListener("change", function (e) { setLang(e.target.value); });
   $("set-auto").addEventListener("change", function (e) {
     state.auto = e.target.checked;
@@ -530,8 +661,8 @@
   $("year").textContent = new Date().getFullYear();
 
   var savedLang = recall("gege-lang");
-  if (savedLang === "vi" || savedLang === "en") state.lang = savedLang;
-  else if ((navigator.language || "").toLowerCase().indexOf("vi") !== 0) state.lang = "en";
+  /* Mặc định tiếng Anh; người xem đã chọn ngôn ngữ thì nhớ lại lựa chọn đó. */
+  state.lang = LANGS.indexOf(savedLang) !== -1 ? savedLang : "en";
   state.auto = recall("gege-auto") !== "0";
 
   applyStatic();

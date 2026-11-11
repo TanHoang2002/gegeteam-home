@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link rel="stylesheet" href="css/styles.css?v=13">
 </head>
 <body>
   <a class="skip" href="#games" data-i18n="skip">Đến danh mục game</a>
@@ -25,15 +25,24 @@
         <span>GeGe Team</span>
       </a>
       <nav class="nav" aria-label="Điều hướng chính" data-i18n-aria="navLabel">
-        <a href="#news" data-i18n="navNews">Tin tức</a>
         <a href="#games" data-i18n="navGames">Game của chúng tôi</a>
+        <a href="#news" data-i18n="navNews">Tin tức</a>
         <a href="#about" data-i18n="navAbout">Dịch vụ</a>
         <a href="#community" data-i18n="navCommunity">Cộng đồng</a>
       </nav>
-      <button class="icon-btn lang-btn" id="lang-btn" type="button" aria-label="Ngôn ngữ / Language">
+      <div class="menu-wrap">
+      <button class="icon-btn lang-btn" id="lang-btn" type="button" aria-expanded="false" aria-controls="lang-panel" aria-label="Language / Ngôn ngữ">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.6 4.2 5.8 4.2 9.5s-1.4 6.9-4.2 9.5c-2.8-2.6-4.2-5.8-4.2-9.5S9.2 5.1 12 2.5z"/></svg>
-        <span id="lang-label">VI</span>
+        <span id="lang-label">EN</span>
       </button>
+        <div class="menu-panel lang-panel" id="lang-panel" role="group" aria-label="Language" hidden>
+          <button type="button" class="lang-item" data-lang="en" aria-pressed="true">English <small>EN</small></button>
+          <button type="button" class="lang-item" data-lang="vi" aria-pressed="false">Tiếng Việt <small>VI</small></button>
+          <button type="button" class="lang-item" data-lang="id" aria-pressed="false">Bahasa Indonesia <small>ID</small></button>
+          <button type="button" class="lang-item" data-lang="fil" aria-pressed="false">Filipino <small>PH</small></button>
+          <button type="button" class="lang-item" data-lang="ru" aria-pressed="false">Русский <small>RU</small></button>
+        </div>
+      </div>
       <div class="menu-wrap">
         <button class="icon-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel" aria-label="Menu">
           <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/></svg>
@@ -53,19 +62,6 @@
     <section class="hero" aria-roledescription="carousel" aria-label="Nổi bật" data-i18n-aria="heroLabel">
       <div class="hero-slides" id="hero-slides"></div>
       <div class="hero-dots" id="hero-dots" role="group" aria-label="Chọn slide"></div>
-    </section>
-
-    <section class="news-section" id="news" aria-labelledby="news-title">
-      <div class="wrap">
-        <div class="head-row">
-          <h2 id="news-title" data-i18n="newsTitle">Cập nhật mới nhất</h2>
-          <button class="tag-btn" id="news-more" type="button">Xem tất cả</button>
-        </div>
-        <div class="news-grid">
-          <div id="news-featured"></div>
-          <div class="news-list" id="news-list"></div>
-        </div>
-      </div>
     </section>
 
     <section class="games-section" id="games" aria-labelledby="games-title">
@@ -88,6 +84,19 @@
         <button class="arrow arrow-next" id="games-next" type="button" aria-label="Game sau" data-i18n-aria="nextGame">›</button>
       </div>
       <div class="wrap"><p class="empty" id="game-empty" hidden data-i18n="gameEmpty">Không có game phù hợp. Thử từ khóa khác hoặc chọn "Tất cả".</p></div>
+    </section>
+
+    <section class="news-section" id="news" aria-labelledby="news-title">
+      <div class="wrap">
+        <div class="head-row">
+          <h2 id="news-title" data-i18n="newsTitle">Cập nhật mới nhất</h2>
+          <button class="tag-btn" id="news-more" type="button">Xem tất cả</button>
+        </div>
+        <div class="news-grid">
+          <div id="news-featured"></div>
+          <div class="news-list" id="news-list"></div>
+        </div>
+      </div>
     </section>
 
     <section class="about-section" id="about" aria-labelledby="about-title">
@@ -143,8 +152,8 @@
         <nav aria-labelledby="f-explore">
           <h3 id="f-explore" data-i18n="footerExplore">Khám phá</h3>
           <ul>
-            <li><a href="#news" data-i18n="navNews">Tin tức</a></li>
             <li><a href="#games" data-i18n="navGames">Game của chúng tôi</a></li>
+            <li><a href="#news" data-i18n="navNews">Tin tức</a></li>
             <li><a href="#about" data-i18n="navAbout">Dịch vụ</a></li>
             <li><a href="#community" data-i18n="navCommunity">Cộng đồng</a></li>
           </ul>
@@ -160,7 +169,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="legal">© <span id="year"></span> GeGe Team · Nhà Cáo. <span data-i18n="legal">Tên và hình ảnh game thuộc về nhà phát hành tương ứng.</span></p>
+        <p class="legal">© <span id="year"></span> <span data-i18n="brandTag">GeGe Team · Nhà Cáo</span>. <span data-i18n="legal">Tên và hình ảnh game thuộc về nhà phát hành tương ứng.</span></p>
         <a class="to-top" href="#top" data-i18n="backTop">Lên đầu trang</a>
       </div>
     </div>
@@ -189,8 +198,11 @@
     <div class="setting">
       <label for="set-lang" data-i18n="setLang">Ngôn ngữ</label>
       <select id="set-lang">
-        <option value="vi">Tiếng Việt</option>
         <option value="en">English</option>
+        <option value="vi">Tiếng Việt</option>
+        <option value="id">Bahasa Indonesia</option>
+        <option value="fil">Filipino</option>
+        <option value="ru">Русский</option>
       </select>
     </div>
     <div class="setting">
@@ -203,7 +215,7 @@
   </dialog>
 
   <!-- ?v= là số phiên bản: tăng lên mỗi khi sửa data.js/app.js/styles.css để trình duyệt không dùng bản cũ đã lưu -->
-  <script src="js/data.js?v=6"></script>
-  <script src="js/app.js?v=6"></script>
+  <script src="js/data.js?v=13"></script>
+  <script src="js/app.js?v=13"></script>
 </body>
 </html>
