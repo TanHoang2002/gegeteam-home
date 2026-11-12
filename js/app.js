@@ -5,9 +5,8 @@
   var ALL = "all";
   var data = window.GEGE_DATA;
 
-  var games = data.games.slice().sort(function (a, b) {
-    return a.name.localeCompare(b.name, "vi", { sensitivity: "base", numeric: true });
-  });
+  /* Game hiện đúng thứ tự trong data.js (đổi vị trí game bằng cách đổi thứ tự ở đó) */
+  var games = data.games.slice();
   var news = data.news.slice().sort(function (a, b) {
     return b.date.localeCompare(a.date);
   });
@@ -361,11 +360,16 @@
       img.alt = "";
       if (item.isGame && game.heroFocusMobile) img.style.setProperty("--focus-m", game.heroFocusMobile);
       if (i > 0) img.loading = "lazy";
-      slide.appendChild(img);
+      /* Ảnh nằm trong khung riêng để hiệu ứng phóng to không tràn ra ngoài khung */
+      var media = el("div", "hero-media");
+      media.appendChild(img);
+      slide.appendChild(media);
     } else {
       slide.classList.add("hero-plain");
     }
     var copy = el("div", "hero-copy");
+    /* Tin có heroNoText: ảnh đã có chữ riêng, nên chỉ giữ nút mở tin (tiêu đề vẫn còn cho trình đọc màn hình) */
+    if (item.heroNoText) slide.classList.add("hero-notext");
     copy.appendChild(el("p", "eyebrow", item.isGame ? t("brandTag") : (game ? game.name : "GeGe Team")));
     copy.appendChild(el(i === 0 ? "h1" : "h2", "hero-title", loc(item, "title")));
     copy.appendChild(el("p", "hero-text", loc(item, "summary")));
@@ -397,7 +401,7 @@
     stopHero();
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!state.auto || $("hero-slides").children.length < 2) return;
-    heroTimer = setInterval(function () { showHero(heroIndex + 1); }, 7000);
+    heroTimer = setInterval(function () { showHero(heroIndex + 1); }, 4500);
   }
 
   function stopHero() { if (heroTimer) { clearInterval(heroTimer); heroTimer = null; } }
