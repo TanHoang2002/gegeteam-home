@@ -7,6 +7,7 @@
     genre: thể loại, tự sinh thành bộ lọc danh mục.
     hero:  ảnh lớn (~2000px) cho slide đầu trang; không có thì dùng image.
     focus: vị trí cắt ảnh khi thành poster đứng, ví dụ "75% 50%" (0% là mép trái, 100% là mép phải). Không điền thì lấy "50% 50%".
+    heroFocus: vị trí cắt ảnh hero trên máy tính, ví dụ "50% 20%" (giữ phần trên ảnh).
     heroFocusMobile: vị trí cắt ảnh hero trên điện thoại (màn hình dọc chỉ thấy một dải hẹp của ảnh), ví dụ "66% 50%".
   COMMUNITY: icon ("zalo", "facebook", "discord", "link") hiện trong thẻ khi rê chuột và ở nút tròn chân trang.
     card: false thì không hiện thẻ ở mục "Vào team cùng anh em" (vẫn có ở chân trang).
@@ -25,7 +26,7 @@ window.GEGE_DATA = {
       name: "AION 2",
       genre: "MMORPG",
       image: "assets/games/aion-2.webp",
-      hero: "assets/hero/aion-2-v3.webp",
+      hero: "assets/hero/aion-2-v4.webp",
       focus: "72% 50%",
       heroFocusMobile: "84% 50%",
       description: "Cộng đồng người chơi AION 2 Việt Nam: tin tức, hỏi đáp, tìm đội và tuyển thành viên Legion.",
@@ -65,8 +66,9 @@ window.GEGE_DATA = {
       name: "POE 1",
       genre: "ARPG",
       image: "assets/games/poe-1-v3.webp",
-      hero: "assets/hero/poe-1-v3.webp",
-      heroFocusMobile: "60% 50%",
+      hero: "assets/hero/poe-1-v7.webp",
+      heroFocus: "50% 12%",
+      heroFocusMobile: "50% 30%",
       description: "Thu mua Divine Orb và Mirror of Kalandra, nhận booster account và mua bán item hộ.",
       services: ["Thu mua Divine/Mirror", "Booster"],
       url: "games/poe-1/",
@@ -103,7 +105,7 @@ window.GEGE_DATA = {
       date: "2026-11-06",
       game: "poe-1",
       image: "assets/news/poe-1-covens-of-umbra.webp",
-      heroNoText: true,
+      hero: false,
       title: "POE 1: league Covens of Umbra (3.30) mở ngày 13/11",
       summary: "League mới mở rạng sáng 14/11 giờ Việt Nam. Các hội phù thủy làm nghi lễ để triệu hồi nữ hoàng của chúng; endgame thay đổi lớn, cây Atlas Passive được làm lại và có thêm nhiều unique mới.",
       url: "https://www.pathofexile.com/covens",
@@ -114,7 +116,7 @@ window.GEGE_DATA = {
       date: "2026-11-04",
       game: "aion-2",
       image: "assets/news/aion-2-ludra-v2.webp",
-      heroNoText: true,
+      hero: false,
       title: "AION 2 mở raid Sanctuary \"Abyssal Forge: Ludra\"",
       summary: "Bản cập nhật ngày 4/11 thêm raid Ludra với hai độ khó: Normal (item level 2.800) và Hard (3.000), mỗi lượt giới hạn 1 giờ. Sự kiện điểm danh Ludra Awakens tặng Kinah và trang bị đến ngày 18/11.",
       url: "https://aion2.plaync.com/en-us/eventon/board/event_notice/view?articleId=50000049",
@@ -144,8 +146,8 @@ window.GEGE_DATA = {
   ],
 
   community: [
-    { name: "Zalo Admin", detail: "Hỗ trợ và giao dịch · 0936 854 505", en: { detail: "Support and trading · 0936 854 505" }, tr: { id: { detail: "Dukungan dan transaksi · 0936 854 505" }, fil: { detail: "Suporta at trading · 0936 854 505" }, ru: { detail: "Поддержка и сделки · 0936 854 505" } }, url: "https://zalo.me/0936854505", icon: "zalo", card: false },
-    { name: "Nhóm Zalo", detail: "Tin nhanh và thông báo trong ngày", en: { detail: "Quick news and daily announcements" }, tr: { id: { detail: "Berita cepat dan pengumuman harian" }, fil: { detail: "Mabilis na balita at araw-araw na anunsyo" }, ru: { detail: "Быстрые новости и объявления дня" } }, url: "https://zalo.me/g/kmxfzujpa7akgrijn5hk", icon: "zalo" },
+    { name: "Discord Admin", detail: "Hỗ trợ, đặt câu hỏi và giao dịch", en: { detail: "Support, questions and trading" }, tr: { id: { detail: "Dukungan, pertanyaan, dan transaksi" }, fil: { detail: "Suporta, tanong at trading" }, ru: { detail: "Поддержка, вопросы и сделки" } }, url: "https://discord.gg/t2fPyUPGY", icon: "discord", card: false },
+    { name: "Nhóm Zalo", detail: "Kênh phụ · tin nhanh và thông báo", en: { name: "Zalo group", detail: "Secondary · quick news and announcements" }, tr: { id: { name: "Grup Zalo", detail: "Kanal sekunder · berita cepat dan pengumuman" }, fil: { name: "Zalo group", detail: "Pangalawang channel · mabilis na balita at anunsyo" }, ru: { name: "Группа Zalo", detail: "Дополнительный канал · новости и объявления" } }, url: "https://zalo.me/g/kmxfzujpa7akgrijn5hk", icon: "zalo" },
     { name: "Fanpage GeGe Team", detail: "Tin tức và sự kiện chính thức", en: { detail: "Official news and events" }, tr: { id: { detail: "Berita dan event resmi" }, fil: { detail: "Opisyal na balita at event" }, ru: { detail: "Официальные новости и события" } }, url: "https://www.facebook.com/GegeTeam.net/", icon: "facebook" },
     { name: "Group Facebook", detail: "Giao lưu, hỏi đáp và tìm đội", en: { detail: "Chat, Q&A and finding parties" }, tr: { id: { detail: "Ngobrol, tanya jawab, dan cari party" }, fil: { detail: "Kuwentuhan, Q&A at paghahanap ng party" }, ru: { detail: "Общение, вопросы и поиск группы" } }, url: "https://www.facebook.com/groups/457999664580741", icon: "facebook" },
     { name: "Discord", detail: "Kênh thoại, thảo luận và tìm đội", en: { detail: "Voice chat, discussion and finding parties" }, tr: { id: { detail: "Voice chat, diskusi, dan cari party" }, fil: { detail: "Voice chat, talakayan at paghahanap ng party" }, ru: { detail: "Голосовой чат, обсуждения и поиск группы" } }, url: "https://discord.gg/XN8j8yVnV", icon: "discord" },

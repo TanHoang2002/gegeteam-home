@@ -31,6 +31,9 @@ h1, h2, h3 { line-height: 1.12; letter-spacing: -.01em; text-wrap: balance; }
 
 /* Thanh trên: nằm đè lên hero, chữ hoa nhỏ như trang gốc */
 .topbar { position: fixed; inset: 0 0 auto 0; z-index: 30; background: linear-gradient(to bottom, rgba(0, 0, 0, .72), transparent); }
+/* Cuộn khỏi đầu trang: thanh menu có nền đen đặc để luôn đọc và bấm được */
+.topbar::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(12, 11, 10, .96); box-shadow: 0 8px 28px rgba(0, 0, 0, .5); border-bottom: 1px solid rgba(255, 255, 255, .06); opacity: 0; transition: opacity .25s ease; }
+.topbar.is-scrolled::before { opacity: 1; }
 .topbar-in { display: flex; align-items: center; gap: 28px; min-height: 72px; padding: 0 clamp(16px, 2.5vw, 36px); }
 .brand { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 800; letter-spacing: -.01em; text-decoration: none; white-space: nowrap; }
 .brand img { width: 40px; height: 40px; object-fit: contain; }
@@ -59,14 +62,13 @@ h1, h2, h3 { line-height: 1.12; letter-spacing: -.01em; text-wrap: balance; }
 .pill-solid:hover { background: var(--orange-bright); }
 
 /* Hero */
-.hero { position: relative; height: min(100vh, 860px, 60vw); min-height: 440px; overflow: hidden; background: #0c0b0a; }
+.hero { position: relative; height: min(70vh, 56vw); min-height: 420px; overflow: hidden; background: #0c0b0a; }
 .hero-slide { position: absolute; inset: 0; display: flex; align-items: center; opacity: 0; visibility: hidden; transition: opacity .6s, visibility .6s; }
 .hero-slide.is-active { opacity: 1; visibility: visible; }
 .hero-media { position: absolute; inset: 0; overflow: hidden; }
 .hero-img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1); transform-origin: 60% 50%; }
 /* Phóng to chậm khi slide đang hiện */
-.hero-slide.is-active .hero-img { animation: hero-zoom 5s ease-out forwards; }
-@keyframes hero-zoom { from { transform: scale(1); } to { transform: scale(1.06); } }
+/* Ảnh đứng yên (không phóng to), chỉ chuyển slide mờ dần */
 .hero-plain { background: radial-gradient(circle at 75% 40%, rgba(245, 138, 31, .4), transparent 50%), #1c1a19; }
 /* Ảnh đầu trang hiển thị nguyên bản: không lớp phủ, không phóng to; chữ dễ đọc nhờ bóng chữ */
 .hero-copy { position: relative; z-index: 2; text-shadow: 0 0 18px rgba(0, 0, 0, .9), 0 2px 6px rgba(0, 0, 0, .85), 0 1px 2px rgba(0, 0, 0, .9); width: min(620px, 100%); padding: 96px clamp(16px, 6vw, 96px) 72px; text-align: center; }
@@ -279,7 +281,7 @@ a.community-card:hover .community-icon, a.community-card:focus-visible .communit
 
 @media (min-width: 1440px) {
   .wrap { width: min(1760px, 92vw); }
-  .hero { height: 100vh; max-height: none; }
+  .hero { height: 70vh; max-height: none; }
   .hero-copy { width: min(860px, 46vw); padding-left: 4vw; padding-right: 2vw; }
   .eyebrow { font-size: 15px; }
   .hero-title { font-size: clamp(54px, 3.9vw, 84px); }
@@ -328,3 +330,46 @@ a.community-card:hover .community-icon, a.community-card:focus-visible .communit
 .hero-notext .hero-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .hero-notext .cta-pill { margin-top: 0; font-size: 18px; box-shadow: 0 8px 24px rgba(0, 0, 0, .5); }
 @media (max-width: 760px) { .hero-notext .hero-copy { padding-bottom: 60px; } }
+
+/* Mobile: nút chấm chuyển slide và link chân trang dễ bấm hơn bằng ngón tay */
+@media (max-width: 760px) {
+  .dot { position: relative; }
+  .dot::before { content: ""; position: absolute; inset: -14px -4px; }
+  .footer-cols a, .to-top { display: inline-block; padding: 6px 0; }
+}
+
+/* ---------- Chữ đầu trang nổi rõ trên mọi ảnh (không phủ màu lên ảnh) ---------- */
+.hero-copy .eyebrow { display: inline-block; margin-bottom: 16px; padding: 6px 14px; background: var(--orange); color: #1a0d02; border-radius: 999px; font-size: 12.5px; letter-spacing: .18em; text-shadow: none; box-shadow: 0 6px 18px rgba(0, 0, 0, .45); }
+.hero-title { font-size: clamp(38px, 5.4vw, 68px); font-weight: 900; color: #fff; -webkit-text-stroke: 2px rgba(10, 8, 6, .75); paint-order: stroke fill; text-shadow: 0 4px 0 rgba(0, 0, 0, .35), 0 8px 28px rgba(0, 0, 0, .85); letter-spacing: .01em; }
+.hero-text { display: inline-block; margin-top: 16px; padding: 10px 16px; max-width: 46ch; color: #fff; font-weight: 600; background: rgba(8, 7, 6, .58); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border: 1px solid rgba(255, 255, 255, .08); border-radius: 12px; text-shadow: 0 1px 2px rgba(0, 0, 0, .8); }
+@media (min-width: 1440px) { .hero-title { font-size: clamp(64px, 4.6vw, 96px); } .hero-copy .eyebrow { font-size: 14px; } }
+@media (max-width: 760px) { .hero-title { font-size: clamp(32px, 9vw, 44px); -webkit-text-stroke-width: 1.5px; } .hero-text { font-size: 15px; } }
+@media (min-width: 761px) {
+  .hero-copy { width: min(780px, 62%); padding-top: 84px; padding-bottom: 64px; }
+  .hero-title { font-size: clamp(36px, 4.6vw, 64px); }
+  .hero-copy .eyebrow { margin-bottom: 12px; }
+  .hero-text { margin-top: 12px; }
+  .hero-copy .cta-pill { margin-top: 22px; }
+}
+@media (min-width: 1440px) { .hero-copy { width: min(1000px, 52vw); } .hero-title { font-size: clamp(60px, 4.4vw, 92px); } }
+/* Slide tin tức: tiêu đề dài nên chữ nhỏ hơn, mô tả tối đa 3 dòng */
+.hero-news .hero-title { font-size: clamp(26px, 3vw, 42px); text-transform: none; -webkit-text-stroke-width: 1.5px; }
+.hero-news .hero-text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+@media (min-width: 1440px) { .hero-news .hero-title { font-size: clamp(40px, 2.8vw, 60px); } }
+@media (max-width: 760px) { .hero-news .hero-title { font-size: clamp(24px, 7vw, 32px); } }
+
+/* ---------- Bỏ nhãn/khung: chữ tự nổi bằng màu + cỡ chữ + viền tối quanh nét ---------- */
+.hero-copy .eyebrow { display: block; padding: 0; background: none; box-shadow: none; border-radius: 0; margin-bottom: 10px; color: #ffb547; font-size: clamp(14px, 1.25vw, 18px); font-weight: 900; letter-spacing: .2em; -webkit-text-stroke: 4px rgba(8, 6, 4, .85); paint-order: stroke fill; text-shadow: 0 2px 14px rgba(0, 0, 0, .9); }
+.hero-text { display: block; margin-left: auto; margin-right: auto; padding: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; border: 0; border-radius: 0; color: #fff; font-size: clamp(16px, 1.55vw, 21px); font-weight: 700; line-height: 1.5; -webkit-text-stroke: 4px rgba(8, 6, 4, .8); paint-order: stroke fill; text-shadow: 0 2px 16px rgba(0, 0, 0, .9); }
+@media (min-width: 1440px) { .hero-copy .eyebrow { font-size: 19px; } .hero-text { font-size: clamp(20px, 1.3vw, 25px); } }
+@media (max-width: 760px) { .hero-copy .eyebrow { font-size: 13px; -webkit-text-stroke-width: 3px; } .hero-text { font-size: 15.5px; -webkit-text-stroke-width: 3px; } }
+.hero-img { object-position: var(--focus-d, 50% 50%); }
+@media (max-width: 760px) { .hero-img { object-position: var(--focus-m, var(--focus-d, 50% 50%)); } }
+
+/* Chữ và nút ở đầu trang: dời xuống góc dưới bên trái */
+.hero-copy { text-align: left; }
+.hero-text { margin-left: 0; margin-right: 0; }
+@media (min-width: 761px) {
+  .hero-slide { align-items: flex-end; }
+  .hero-copy { padding-top: 84px; padding-bottom: 76px; padding-left: clamp(24px, 5vw, 88px); }
+}

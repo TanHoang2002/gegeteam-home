@@ -7,7 +7,18 @@
 
   /* Game hiện đúng thứ tự trong data.js (đổi vị trí game bằng cách đổi thứ tự ở đó) */
   var games = data.games.slice();
-  var news = data.news.slice().sort(function (a, b) {
+  /* Tin tự động (js/news-auto.js, cập nhật bởi GitHub Actions) chỉ hiện khi mới hơn tin đăng tay
+     mới nhất của cùng game; tin đăng tay (có bản dịch) luôn được ưu tiên */
+  var latestManual = {};
+  var manualUrls = {};
+  data.news.forEach(function (n) {
+    if (n.game && (!latestManual[n.game] || n.date > latestManual[n.game])) latestManual[n.game] = n.date;
+    if (n.url) manualUrls[n.url] = true;
+  });
+  var autoNews = (window.GEGE_NEWS_AUTO || []).filter(function (n) {
+    return n && n.date && !manualUrls[n.url] && !(n.game && latestManual[n.game] && n.date <= latestManual[n.game]);
+  });
+  var news = data.news.concat(autoNews).sort(function (a, b) {
     return b.date.localeCompare(a.date);
   });
 
@@ -17,7 +28,7 @@
     vi: {
       skip: "Đến danh mục game", navLabel: "Điều hướng chính", heroLabel: "Nổi bật",
       navNews: "Tin tức", navGames: "Game của chúng tôi", navAbout: "Dịch vụ", navCommunity: "Cộng đồng", footerGames: "Game",
-      menuLogin: "Đăng nhập", menuRegister: "Đăng ký", menuFind: "Tìm game", menuZalo: "Liên hệ Zalo", menuSettings: "Cài đặt",
+      menuLogin: "Đăng nhập", menuRegister: "Đăng ký", menuFind: "Tìm game", menuZalo: "Liên hệ Discord", menuSettings: "Cài đặt",
       newsTitle: "Cập nhật mới nhất", gamesTitle: "Trò chơi của chúng tôi", aboutTitle: "Chúng tôi làm gì",
       communityTitle: "Vào team cùng anh em", communityLead: "Tin nhanh, hỏi đáp, tìm đội và hỗ trợ giao dịch. Chọn kênh bạn quen dùng nhất.",
       searchPh: "Tìm theo tên game", genreLabel: "Lọc theo game", gameEmpty: "Không có game phù hợp. Thử từ khóa khác hoặc chọn \"Tất cả\".",
@@ -30,16 +41,16 @@
       aboutBoostList: "AION 2|POE 1|WoW Forever",
       brandTag: "GeGe Team · Nhà Cáo", footerTag: "Nhà Cáo · Cộng đồng và giao dịch game", legal: "Tên và hình ảnh game thuộc về nhà phát hành tương ứng.",
       footerAbout: "Cộng đồng game thủ và đội giao dịch game Việt Nam: tin tức, thu mua và booster cho các game anh em đang chơi.",
-      footerGamesTitle: "Game", footerExplore: "Khám phá", footerContact: "Liên hệ", footerHours: "Hỗ trợ qua Zalo mỗi ngày", backTop: "Lên đầu trang",
+      footerGamesTitle: "Game", footerExplore: "Khám phá", footerContact: "Liên hệ", footerHours: "Hỗ trợ qua Discord mỗi ngày", backTop: "Lên đầu trang",
       soonText: "Website riêng của game này sắp ra mắt. Trong lúc chờ, bạn có thể liên hệ admin để được hỗ trợ.",
-      accountText: "Tài khoản thành viên chưa mở. Hiện tại bạn không cần đăng nhập để xem tin và bảng giá. Cần hỗ trợ thì liên hệ admin qua Zalo.",
-      zaloFull: "Liên hệ qua Zalo", close: "Đóng", setLang: "Ngôn ngữ", setAuto: "Tự chuyển slide ở đầu trang",
+      accountText: "Tài khoản thành viên chưa mở. Hiện tại bạn không cần đăng nhập để xem tin và bảng giá. Cần hỗ trợ thì liên hệ admin qua Discord.",
+      zaloFull: "Liên hệ qua Discord", close: "Đóng", setLang: "Ngôn ngữ", setAuto: "Tự chuyển slide ở đầu trang",
       all: "Tất cả", visit: "Vào trang", soon: "Sắp ra mắt", watch: "Xem ngay", viewAll: "Xem tất cả", collapse: "Thu gọn"
     },
     en: {
       skip: "Skip to games", navLabel: "Main navigation", heroLabel: "Highlights",
       navNews: "News", navGames: "Our games", navAbout: "Services", navCommunity: "Community", footerGames: "Games",
-      menuLogin: "Log in", menuRegister: "Sign up", menuFind: "Find a game", menuZalo: "Contact on Zalo", menuSettings: "Settings",
+      menuLogin: "Log in", menuRegister: "Sign up", menuFind: "Find a game", menuZalo: "Contact on Discord", menuSettings: "Settings",
       newsTitle: "Latest updates", gamesTitle: "Our games", aboutTitle: "What we do",
       communityTitle: "Join the team", communityLead: "Quick news, Q&A, finding parties and trading support. Pick the channel you use most.",
       searchPh: "Search by game name", genreLabel: "Filter by game", gameEmpty: "No matching games. Try another keyword or choose \"All\".",
@@ -52,16 +63,16 @@
       aboutBoostList: "AION 2|POE 1|WoW Forever",
       brandTag: "GeGe Team · Fox House", footerTag: "Fox House · Gaming community and trading", legal: "Game names and images belong to their respective publishers.",
       footerAbout: "A Vietnamese gaming community and trading team: news, buying and boosting for the games we play.",
-      footerGamesTitle: "Games", footerExplore: "Explore", footerContact: "Contact", footerHours: "Zalo support every day", backTop: "Back to top",
+      footerGamesTitle: "Games", footerExplore: "Explore", footerContact: "Contact", footerHours: "Discord support every day", backTop: "Back to top",
       soonText: "This game's own website is coming soon. In the meantime, you can contact the admin for support.",
-      accountText: "Member accounts are not open yet. You don't need to log in to read news and price lists. For support, contact the admin on Zalo.",
-      zaloFull: "Contact on Zalo", close: "Close", setLang: "Language", setAuto: "Auto-advance the top slides",
+      accountText: "Member accounts are not open yet. You don't need to log in to read news and price lists. For support, contact the admin on Discord.",
+      zaloFull: "Contact on Discord", close: "Close", setLang: "Language", setAuto: "Auto-advance the top slides",
       all: "All", visit: "Open site", soon: "Coming soon", watch: "Watch now", viewAll: "View all", collapse: "Show less"
     },
     id: {
       skip: "Lewati ke daftar game", navLabel: "Navigasi utama", heroLabel: "Sorotan",
       navNews: "Berita", navGames: "Game kami", navAbout: "Layanan", navCommunity: "Komunitas", footerGames: "Game",
-      menuLogin: "Masuk", menuRegister: "Daftar", menuFind: "Cari game", menuZalo: "Hubungi via Zalo", menuSettings: "Pengaturan",
+      menuLogin: "Masuk", menuRegister: "Daftar", menuFind: "Cari game", menuZalo: "Hubungi via Discord", menuSettings: "Pengaturan",
       newsTitle: "Kabar terbaru", gamesTitle: "Game kami", aboutTitle: "Apa yang kami lakukan",
       communityTitle: "Gabung bersama tim", communityLead: "Berita cepat, tanya jawab, cari party, dan bantuan transaksi. Pilih saluran yang paling sering kamu pakai.",
       searchPh: "Cari nama game", genreLabel: "Filter berdasarkan game", gameEmpty: "Tidak ada game yang cocok. Coba kata kunci lain atau pilih \"Semua\".",
@@ -74,16 +85,16 @@
       aboutBoostList: "AION 2|POE 1|WoW Forever",
       footerTag: "Fox House · Komunitas dan jual beli game", legal: "Nama dan gambar game adalah milik penerbit masing-masing.",
       footerAbout: "Komunitas gamer dan tim jual beli game asal Vietnam: berita, pembelian, dan boosting untuk game yang kami mainkan.",
-      footerGamesTitle: "Game", footerExplore: "Jelajahi", footerContact: "Kontak", footerHours: "Dukungan Zalo setiap hari", backTop: "Kembali ke atas",
+      footerGamesTitle: "Game", footerExplore: "Jelajahi", footerContact: "Kontak", footerHours: "Dukungan Discord setiap hari", backTop: "Kembali ke atas",
       soonText: "Situs khusus game ini segera hadir. Sementara itu, kamu bisa menghubungi admin untuk bantuan.",
-      accountText: "Akun anggota belum dibuka. Kamu tidak perlu masuk untuk membaca berita dan daftar harga. Untuk bantuan, hubungi admin via Zalo.",
-      zaloFull: "Hubungi via Zalo", close: "Tutup", setLang: "Bahasa", setAuto: "Ganti slide atas otomatis",
+      accountText: "Akun anggota belum dibuka. Kamu tidak perlu masuk untuk membaca berita dan daftar harga. Untuk bantuan, hubungi admin via Discord.",
+      zaloFull: "Hubungi via Discord", close: "Tutup", setLang: "Bahasa", setAuto: "Ganti slide atas otomatis",
       all: "Semua", visit: "Buka situs", soon: "Segera hadir", watch: "Lihat sekarang", viewAll: "Lihat semua", collapse: "Tampilkan lebih sedikit"
     },
     fil: {
       skip: "Pumunta sa mga laro", navLabel: "Pangunahing nabigasyon", heroLabel: "Mga tampok",
       navNews: "Balita", navGames: "Aming mga laro", navAbout: "Serbisyo", navCommunity: "Komunidad", footerGames: "Mga laro",
-      menuLogin: "Mag-log in", menuRegister: "Mag-sign up", menuFind: "Maghanap ng laro", menuZalo: "Kontakin sa Zalo", menuSettings: "Mga setting",
+      menuLogin: "Mag-log in", menuRegister: "Mag-sign up", menuFind: "Maghanap ng laro", menuZalo: "Kontakin sa Discord", menuSettings: "Mga setting",
       newsTitle: "Pinakabagong balita", gamesTitle: "Aming mga laro", aboutTitle: "Ano ang ginagawa namin",
       communityTitle: "Sumali sa team", communityLead: "Mabilis na balita, Q&A, paghahanap ng party at tulong sa trading. Piliin ang channel na madalas mong gamitin.",
       searchPh: "Maghanap ayon sa pangalan ng laro", genreLabel: "I-filter ayon sa laro", gameEmpty: "Walang tugmang laro. Subukan ang ibang keyword o piliin ang \"Lahat\".",
@@ -96,10 +107,10 @@
       aboutBoostList: "AION 2|POE 1|WoW Forever",
       footerTag: "Fox House · Gaming community at trading", legal: "Ang mga pangalan at larawan ng laro ay pag-aari ng kani-kanilang publisher.",
       footerAbout: "Isang Vietnamese gaming community at trading team: balita, pagbili at boosting para sa mga larong nilalaro namin.",
-      footerGamesTitle: "Mga laro", footerExplore: "Tuklasin", footerContact: "Kontak", footerHours: "Suporta sa Zalo araw-araw", backTop: "Bumalik sa itaas",
+      footerGamesTitle: "Mga laro", footerExplore: "Tuklasin", footerContact: "Kontak", footerHours: "Suporta sa Discord araw-araw", backTop: "Bumalik sa itaas",
       soonText: "Malapit nang ilunsad ang sariling website ng larong ito. Habang naghihintay, puwede mong kontakin ang admin para sa tulong.",
-      accountText: "Hindi pa bukas ang member accounts. Hindi mo kailangang mag-log in para magbasa ng balita at price list. Para sa tulong, kontakin ang admin sa Zalo.",
-      zaloFull: "Kontakin sa Zalo", close: "Isara", setLang: "Wika", setAuto: "Awtomatikong ilipat ang slide sa itaas",
+      accountText: "Hindi pa bukas ang member accounts. Hindi mo kailangang mag-log in para magbasa ng balita at price list. Para sa tulong, kontakin ang admin sa Discord.",
+      zaloFull: "Kontakin sa Discord", close: "Isara", setLang: "Wika", setAuto: "Awtomatikong ilipat ang slide sa itaas",
       all: "Lahat", visit: "Buksan ang site", soon: "Malapit na", watch: "Panoorin", viewAll: "Tingnan lahat", collapse: "Ipakita nang mas kaunti"
     },
     ru: {
@@ -114,7 +125,7 @@
       menuLogin: "Войти",
       menuRegister: "Регистрация",
       menuFind: "Найти игру",
-      menuZalo: "Написать в Zalo",
+      menuZalo: "Написать в Discord",
       menuSettings: "Настройки",
       newsTitle: "Последние новости",
       gamesTitle: "Наши игры",
@@ -142,11 +153,11 @@
       footerGamesTitle: "Игры",
       footerExplore: "Разделы",
       footerContact: "Контакты",
-      footerHours: "Поддержка в Zalo каждый день",
+      footerHours: "Поддержка в Discord каждый день",
       backTop: "Наверх",
       soonText: "Отдельный сайт этой игры скоро появится. Пока что вы можете обратиться к админу за помощью.",
-      accountText: "Аккаунты участников пока не открыты. Для чтения новостей и прайсов вход не нужен. За помощью обращайтесь к админу в Zalo.",
-      zaloFull: "Написать в Zalo",
+      accountText: "Аккаунты участников пока не открыты. Для чтения новостей и прайсов вход не нужен. За помощью обращайтесь к админу в Discord.",
+      zaloFull: "Написать в Discord",
       close: "Закрыть",
       setLang: "Язык",
       setAuto: "Автопрокрутка слайдов вверху",
@@ -347,6 +358,7 @@
 
   /* Hero: giới thiệu lần lượt từng game (A–Z), sau đó là các tin mới nhất; nền là ảnh của game tương ứng. */
   var HERO_COUNT = 3;
+  var HERO_ORDER = ["wow-forever", "blox-fruits", "news", "aion-2", "poe-1", "diablo-4"];
   var heroIndex = 0;
   var heroTimer = null;
 
@@ -354,11 +366,13 @@
     var game = item.game ? gameById(item.game) : null;
     var slide = el("div", "hero-slide");
     slide.id = "hero-slide-" + i;
+    if (!item.isGame) slide.classList.add("hero-news");
     if (item.image || (game && game.image)) {
       var img = el("img", "hero-img");
       img.src = item.image || game.hero || game.image;
       img.alt = "";
       if (item.isGame && game.heroFocusMobile) img.style.setProperty("--focus-m", game.heroFocusMobile);
+      if (item.isGame && game.heroFocus) img.style.setProperty("--focus-d", game.heroFocus);
       if (i > 0) img.loading = "lazy";
       /* Ảnh nằm trong khung riêng để hiệu ứng phóng to không tràn ra ngoài khung */
       var media = el("div", "hero-media");
@@ -423,7 +437,17 @@
         }, {})
       };
     });
-    gameSlides.concat(news.slice(0, HERO_COUNT)).forEach(function (n, i) {
+    /* Tin có hero: false vẫn hiện ở mục Tin tức nhưng không chạy ở đầu trang */
+    var newsSlides = news.slice(0, HERO_COUNT).filter(function (n) { return n.hero !== false; });
+    /* Thứ tự slide đầu trang: "news" là chỗ chèn các slide tin; game không có trong danh sách xếp cuối */
+    var ordered = [];
+    HERO_ORDER.forEach(function (key) {
+      if (key === "news") ordered = ordered.concat(newsSlides);
+      else gameSlides.forEach(function (g) { if (g.game === key) ordered.push(g); });
+    });
+    gameSlides.forEach(function (g) { if (HERO_ORDER.indexOf(g.game) < 0) ordered.push(g); });
+    if (HERO_ORDER.indexOf("news") < 0) ordered = ordered.concat(newsSlides);
+    ordered.forEach(function (n, i) {
       slides.appendChild(heroSlide(n, i));
       var dot = el("button", "dot");
       dot.type = "button";
@@ -476,7 +500,7 @@
         card.rel = "noopener";
       }
       var text = el("div", "community-text");
-      text.appendChild(el("strong", "", c.name));
+      text.appendChild(el("strong", "", loc(c, "name")));
       text.appendChild(el("span", "", loc(c, "detail")));
       card.appendChild(text);
       if (c.icon) {
@@ -516,7 +540,7 @@
     var contact = $("footer-contact");
     contact.textContent = "";
     data.community.forEach(function (c) {
-      if (c.url) contact.appendChild(footerLink(c.name, c.url, true));
+      if (c.url) contact.appendChild(footerLink(loc(c, "name"), c.url, true));
     });
     var socials = $("footer-socials");
     socials.textContent = "";
@@ -649,6 +673,16 @@
     state.newsAll = !state.newsAll;
     renderNews();
   });
+  /* Thanh menu trên cùng: thêm nền đen khi đã cuộn xuống */
+  (function () {
+    var bar = document.querySelector(".topbar");
+    if (!bar) return;
+    var ticking = false;
+    function update() { ticking = false; bar.classList.toggle("is-scrolled", window.scrollY > 40); }
+    window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+    update();
+  })();
+
   function scrollGames(dir) {
     var box = $("game-grid");
     box.scrollBy({ left: dir * Math.max(280, box.clientWidth * 0.6), behavior: "smooth" });
