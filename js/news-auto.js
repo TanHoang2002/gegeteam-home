@@ -2,6 +2,17 @@
    Muốn dịch một tin: chép nó sang mục news trong js/data.js rồi thêm bản dịch. */
 window.GEGE_NEWS_AUTO = [
   {
+    "id": "steam-1849827110427896",
+    "game": "aion-2",
+    "date": "2026-11-19",
+    "title": "Abyss Point Boost",
+    "summary": "Your Saga Takes Flight Hello Daevas! This is AION 2. We're boosting the Abyss Point rewards obtainable from the Outer Abyss and Battlefield. Join the event, earn Abyss Points, and get stronger!",
+    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1849827110427896",
+    "image": "assets/news/auto/aion-2-steam-1849827110427896.webp",
+    "auto": true,
+    "hero": false
+  },
+  {
     "id": "wow-24316096",
     "game": "wow-forever",
     "date": "2026-11-13",
@@ -41,17 +52,6 @@ window.GEGE_NEWS_AUTO = [
     "summary": "Celebrate the launch of the new Sanctuary content with the Ludra Awakens event! Take on the challenge and begin your quest to defeat Ludra today! 1.",
     "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848557880478525",
     "image": "assets/news/auto/aion-2-steam-1848557880478525.webp",
-    "auto": true,
-    "hero": false
-  },
-  {
-    "id": "steam-1847286114037691",
-    "game": "aion-2",
-    "date": "2026-10-23",
-    "title": "Ludra Awakens on November 4th",
-    "summary": "Updated 10/30 at 17:00 PDT / 01:00 CET Twitch Drops were updated to combine some items into boxes. The items that are redeemable have not changed. Updated the names for the Ludra Hunt event titles.",
-    "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1847286114037691",
-    "image": "assets/news/auto/aion-2-steam-1847286114037691.webp",
     "auto": true,
     "hero": false
   }
