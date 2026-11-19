@@ -416,9 +416,37 @@
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!state.auto || $("hero-slides").children.length < 2) return;
     heroTimer = setInterval(function () { showHero(heroIndex + 1); }, 4500);
+    /* Bật thanh tiến trình trên chấm slide đang hiện (CSS .hero.is-auto) */
+    var hero = document.querySelector(".hero");
+    if (hero) hero.classList.add("is-auto");
   }
 
-  function stopHero() { if (heroTimer) { clearInterval(heroTimer); heroTimer = null; } }
+  function stopHero() {
+    if (heroTimer) { clearInterval(heroTimer); heroTimer = null; }
+    var hero = document.querySelector(".hero");
+    if (hero) hero.classList.remove("is-auto");
+  }
+
+  /* Tàn lửa cam bay lên trong hero — chất "Nhà Cáo" ấm và sống động */
+  function spawnEmbers() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var hero = document.querySelector(".hero");
+    if (!hero || hero.querySelector(".embers")) return;
+    var box = el("div", "embers");
+    box.setAttribute("aria-hidden", "true");
+    for (var i = 0; i < 16; i++) {
+      var s = el("span", "ember");
+      var size = 3 + Math.random() * 5;
+      s.style.left = (Math.random() * 100) + "%";
+      s.style.width = size + "px";
+      s.style.height = size + "px";
+      s.style.animationDuration = (7 + Math.random() * 9) + "s";
+      s.style.animationDelay = (-Math.random() * 16) + "s";
+      s.style.setProperty("--drift", (Math.random() * 120 - 60) + "px");
+      box.appendChild(s);
+    }
+    hero.appendChild(box);
+  }
 
   var heroBound = false;
 
@@ -581,13 +609,37 @@
     $("set-auto").checked = state.auto;
   }
 
+  /* Hiện dần khi cuộn: quan sát các khối nội dung, vào khung hình thì thêm .in-view.
+     Dùng translate (CSS) riêng nên không đè hiệu ứng hover của thẻ. */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var revealObserver = ("IntersectionObserver" in window && !reduceMotion) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add("in-view"); revealObserver.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }) : null;
+
+  function observeReveals() {
+    if (!revealObserver) return;
+    var nodes = document.querySelectorAll(".head-row, .filters, .feature, .side, .about-grid article, .community-card, .game-card, .footer-top, .footer-cols");
+    Array.prototype.forEach.call(nodes, function (n) {
+      if (n.classList.contains("reveal") || n.classList.contains("in-view")) return;
+      var idx = 0, sib = n;
+      while ((sib = sib.previousElementSibling)) idx++;
+      n.style.setProperty("--rd", Math.min(idx * 70, 350) + "ms");
+      n.classList.add("reveal");
+      revealObserver.observe(n);
+    });
+  }
+
   function renderAll() {
     renderHero();
+    spawnEmbers();
     renderGames();
     renderNews();
     renderCommunity();
     renderAboutLists();
     renderFooter();
+    observeReveals();
   }
 
   function setLang(lang) {
