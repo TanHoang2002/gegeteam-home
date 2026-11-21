@@ -13,6 +13,10 @@ Mọi dữ liệu nằm trong `js/data.js`:
 - Đăng tin: thêm một mục vào `news`. Tin mới nhất tự lên đầu.
 - Đổi kênh liên hệ: sửa `community`. Để `url` là `null` thì kênh hiện ở trạng thái chưa mở.
 
+## Hướng dẫn USDT (BEP20) — trang độc lập
+
+`guides/usdt-wallet/index.html` là trang hướng dẫn tạo ví USDT mạng BNB Smart Chain (BEP20), **tách biệt với trang chủ GeGe** (không link qua lại). Trang tự chứa (CSS/JS inline), 4 ngôn ngữ EN/VI/ID/PH, có menu chọn 4 mục: **Đăng ký · Lấy mã QR & địa chỉ · Rút tiền · Nạp tiền**, kèm ảnh chụp màn hình tiếng Anh (trong `guides/usdt-wallet/assets/`, nguồn Trust Wallet Help Center) và nút mở công cụ Binance `usdt.gegeteam.xyz`. Workflow deploy chép cả thư mục `guides` lên site tại `/guides/usdt-wallet/`.
+
 ## Tin tức tự động
 
 GitHub Actions (`.github/workflows/deploy.yml`) chạy `scripts/update_news.py` mỗi giờ một lần, lấy tin mới của POE 1, AION 2 (thông báo chính thức trên Steam) và WoW Forever (trang tin Blizzard), ghi vào `js/news-auto.js` và ảnh vào `assets/news/auto/`, rồi tự commit. Blox Fruits chưa có nguồn tin nên vẫn đăng tay.

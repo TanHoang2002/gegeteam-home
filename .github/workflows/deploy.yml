@@ -4,6 +4,7 @@
 #   /games/aion-2/       TanHoang2002/gegeteam-webAion2 (build bằng Vite)
 #   /games/blox-fruits/  TanHoang2002/gegeteam-blox-fruits
 #   /games/wow-forever/  TanHoang2002/gegeteam-wow-forever
+#   /guides/usdt-wallet/ hướng dẫn ví USDT (BEP20) — trang độc lập, không link từ trang chủ (repo này)
 # Mỗi lần chạy cũng lấy tin mới (scripts/update_news.py).
 # Chạy khi push lên main, mỗi giờ một lần (để nhận thay đổi của các repo game và tin mới),
 # hoặc bấm tay: tab Actions > Deploy site > Run workflow.
@@ -71,7 +72,7 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site/games
-          cp -r index.html css js assets _site/
+          cp -r index.html css js assets guides _site/
           for g in poe-1 blox-fruits wow-forever; do
             rsync -a --exclude '.git*' --exclude 'README*' --exclude '.github' "_src/$g/" "_site/games/$g/"
           done

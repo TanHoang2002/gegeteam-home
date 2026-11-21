@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%2326a17b'/%3E%3Ctext x='16' y='22' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3E%E2%82%AE%3C/text%3E%3C/svg%3E" type="image/svg+xml" />
+<title>USDT Wallet Guide — BSC BEP20</title>
+<meta name="description" content="Step-by-step USDT guide on BNB Smart Chain (BEP20): register a wallet, get your QR code & address, withdraw to cash, and deposit. English, Tiếng Việt, Bahasa Indonesia, Filipino." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0b0b0d; --bg2:#111114; --panel:#17171b; --panel2:#1f1f24;
+    --line:#2e2e36; --line-soft:#232329;
+    --fox:#f0762a; --fox-deep:#d35f17; --gold:#f2b84b;
+    --green:#3ecf8e; --usdt:#26a17b; --red:#ff7a6b;
+    --ink:#f5f5f7; --ink-dim:#b4b4be; --ink-faint:#7c7c87; --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6}
+  h1,h2,h3{font-weight:800;letter-spacing:-.01em;line-height:1.2;margin:0}
+  p{margin:0}
+  a{color:var(--gold)}
+  button{font:inherit;cursor:pointer;color:inherit}
+  img{display:block;max-width:100%}
+  :focus-visible{outline:2px solid var(--fox);outline-offset:2px}
+  [hidden]{display:none !important}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+
+  /* topbar */
+  .topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:14px;padding:12px 22px;background:rgba(11,11,13,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none}
+  .brand .logo{width:38px;height:38px;border-radius:50%;background:var(--usdt);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#fff;flex:0 0 auto}
+  .brand .bname{display:block;font-weight:800;font-size:17px;line-height:1.1}
+  .brand .bsub{display:block;font-size:10.5px;color:var(--ink-faint);letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+  .top-tools{display:flex;align-items:center;gap:10px;margin-left:auto}
+  .lang-menu{position:relative}
+  .lang-btn{display:flex;align-items:center;gap:7px;background:transparent;border:1px solid var(--line-soft);border-radius:10px;color:var(--ink);padding:8px 12px;min-height:42px;font-weight:800;font-size:13.5px;letter-spacing:.04em}
+  .lang-btn:hover,.lang-btn[aria-expanded="true"]{background:var(--panel)}
+  .lang-list{position:absolute;right:0;top:calc(100% + 8px);min-width:210px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px;box-shadow:0 14px 40px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:2px}
+  .lang-list button{display:flex;align-items:center;justify-content:space-between;gap:10px;background:transparent;border:0;border-radius:8px;padding:9px 12px;font-size:14px;font-weight:600;text-align:left}
+  .lang-list button small{color:var(--ink-faint);font-weight:700}
+  .lang-list button:hover{background:var(--panel2)}
+  .lang-list button[aria-pressed="true"],.lang-list button[aria-pressed="true"] small{color:var(--fox)}
+
+  /* hero */
+  .hero{position:relative;padding:48px 0 30px;background:radial-gradient(700px 340px at 85% -60px, rgba(38,161,123,.16), transparent 65%),radial-gradient(560px 300px at 8% -40px, rgba(240,118,42,.10), transparent 60%)}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--usdt);margin-bottom:14px}
+  .kicker::before{content:"";width:22px;height:2px;background:var(--usdt);border-radius:2px}
+  .hero h1{font-size:clamp(27px,5vw,42px);max-width:760px}
+  .hero .lead{margin-top:14px;color:var(--ink-dim);font-size:16px;max-width:720px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .chip{display:inline-flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line-soft);border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:700}
+  .chip .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:0 0 auto}
+  .chip.gold .dot{background:var(--gold)}
+  .chip.fox .dot{background:var(--fox)}
+
+  /* topic tabs */
+  .tabbar{position:sticky;top:63px;z-index:30;background:rgba(11,11,13,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+  .tabbar-in{max-width:920px;margin:0 auto;padding:10px 22px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+  .tabbar-in::-webkit-scrollbar{display:none}
+  .tab{flex:1 1 0;min-width:130px;display:flex;align-items:center;justify-content:center;gap:9px;background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:12px 14px;font-weight:700;font-size:14px;color:var(--ink-dim);white-space:nowrap;transition:.15s}
+  .tab .ic{font-size:17px;line-height:1}
+  .tab:hover{color:var(--ink);border-color:var(--ink-faint)}
+  .tab[aria-selected="true"]{background:linear-gradient(135deg,var(--fox),var(--fox-deep));border-color:transparent;color:#fff}
+
+  /* sections / steps */
+  section{padding:30px 0}
+  .sec-head{margin-bottom:20px}
+  .sec-head h2{font-size:clamp(21px,3.4vw,27px)}
+  .sec-head .sub{margin-top:8px;color:var(--ink-dim);font-size:15px;max-width:720px}
+  .steps{display:flex;flex-direction:column;gap:14px}
+  .step{display:flex;gap:16px;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--radius);padding:18px 20px}
+  .step .num{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#1a1206;background:linear-gradient(135deg,var(--gold),var(--fox));margin-top:2px}
+  .step .body{flex:1 1 auto;min-width:0}
+  .step h3{font-size:16px;margin-bottom:5px}
+  .step p{color:var(--ink-dim);font-size:14.5px}
+  .step p b{color:var(--ink)}
+  .step p code{background:var(--bg2);border:1px solid var(--line-soft);border-radius:6px;padding:1px 6px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:var(--green)}
+
+  /* figures */
+  figure{margin:14px 0 0;background:var(--bg2);border:1px solid var(--line-soft);border-radius:12px;padding:12px;text-align:center}
+  figure img{margin:0 auto;border-radius:8px;max-height:420px;width:auto;border:1px solid var(--line-soft)}
+  figcaption{margin-top:9px;color:var(--ink-faint);font-size:12.5px}
+
+  /* callouts */
+  .callout{border-radius:var(--radius);padding:18px 20px;margin-top:16px;border:1px solid}
+  .callout h3{font-size:15.5px;margin-bottom:6px;display:flex;align-items:center;gap:9px}
+  .callout p{font-size:14.5px}
+  .callout.danger{background:rgba(255,122,107,.07);border-color:rgba(255,122,107,.35)}
+  .callout.danger h3{color:var(--red)} .callout.danger p{color:#e8c9c4}
+  .callout.warn{background:rgba(242,184,75,.07);border-color:rgba(242,184,75,.35)}
+  .callout.warn h3{color:var(--gold)} .callout.warn p{color:#e5d9bd}
+  .callout.tool{background:rgba(38,161,123,.08);border-color:rgba(38,161,123,.4)}
+  .callout.tool h3{color:var(--green)} .callout.tool p{color:#cfe6dc}
+  .callout .btn{margin-top:12px}
+
+  .addr-example{margin-top:16px;background:var(--bg2);border:1px dashed var(--line);border-radius:12px;padding:14px 16px;font-size:14px}
+  .addr-example code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14.5px;color:var(--green);word-break:break-all}
+  .addr-example .note{display:block;margin-top:6px;color:var(--ink-faint);font-size:12.5px}
+
+  .pay-row{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+  .pay-item{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;padding:13px 16px;font-size:14px;color:var(--ink-dim)}
+  .pay-item .flag{font-size:20px;line-height:1}
+  .pay-item b{color:var(--ink)}
+
+  .safe-list{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+  .safe-list li{display:flex;gap:12px;background:var(--panel);border:1px solid var(--line-soft);border-left:3px solid var(--red);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--ink-dim)}
+  .safe-list li::before{content:"!";flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:rgba(255,122,107,.15);color:var(--red);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+
+  .faq{display:flex;flex-direction:column;gap:10px}
+  .faq details{background:var(--panel);border:1px solid var(--line-soft);border-radius:12px;overflow:hidden}
+  .faq summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 18px;font-weight:700;font-size:15px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--fox);font-size:20px;font-weight:800;flex:0 0 auto;transition:transform .15s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{padding:0 18px 16px;color:var(--ink-dim);font-size:14.5px}
+
+  .btn{display:inline-flex;align-items:center;gap:9px;background:linear-gradient(135deg,var(--fox),var(--fox-deep));color:#fff;text-decoration:none;font-weight:800;font-size:15px;border-radius:12px;padding:13px 22px;border:0}
+  .btn:hover{filter:brightness(1.08)}
+  .btn.green{background:linear-gradient(135deg,var(--usdt),#1c7d5f)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink-dim);font-weight:700}
+  .btn.ghost:hover{color:var(--ink);border-color:var(--ink-faint)}
+
+  .footer{border-top:1px solid var(--line-soft);margin-top:30px;padding:34px 0 46px;background:var(--bg2)}
+  .footer .cta{display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between}
+  .footer .note{color:var(--ink-dim);font-size:14.5px;max-width:520px}
+  .footer .legal{margin-top:22px;color:var(--ink-faint);font-size:12.5px}
+  .footer .legal a{color:var(--ink-faint)}
+
+  @media (max-width:640px){
+    .hero{padding:36px 0 24px}
+    .step{padding:16px}
+    .tab{min-width:118px;font-size:13px;padding:11px 10px}
+    .tabbar{top:62px}
+    .footer .cta{flex-direction:column;align-items:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#top">
+    <span class="logo">₮</span>
+    <span><span class="bname">USDT Guide</span><span class="bsub">BSC · BEP20</span></span>
+  </a>
+  <div class="top-tools">
+    <div class="lang-menu">
+      <button type="button" class="lang-btn" id="langBtn" aria-expanded="false" aria-controls="langList" aria-label="Language">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.6 4.2 5.8 4.2 9.5s-1.4 6.9-4.2 9.5c-2.8-2.6-4.2-5.8-4.2-9.5S9.2 5.1 12 2.5z"/></svg>
+        <span id="langLabel">EN</span>
+      </button>
+      <div class="lang-list" id="langList" role="group" aria-label="Language" hidden>
+        <button type="button" data-lang="en" aria-pressed="true">English <small>EN</small></button>
+        <button type="button" data-lang="vi" aria-pressed="false">Tiếng Việt <small>VI</small></button>
+        <button type="button" data-lang="id" aria-pressed="false">Bahasa Indonesia <small>ID</small></button>
+        <button type="button" data-lang="fil" aria-pressed="false">Filipino <small>PH</small></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <span class="kicker" data-i18n="hero_kicker">USDT payment guide · BNB Smart Chain</span>
+      <h1 data-i18n="hero_title">Register, get your address, withdraw &amp; deposit USDT</h1>
+      <p class="lead" data-i18n="hero_lead">A complete guide to receiving and cashing out USDT on the BNB Smart Chain (BEP20). Pick a topic below and follow the steps with screenshots.</p>
+      <div class="chips">
+        <span class="chip"><span class="dot"></span><span data-i18n="chip1">1 USDT ≈ 1 USD</span></span>
+        <span class="chip fox"><span class="dot"></span><span data-i18n="chip2">Network: BEP20 (BSC)</span></span>
+        <span class="chip gold"><span class="dot"></span><span data-i18n="chip3">Fee: under $0.10</span></span>
+        <span class="chip"><span class="dot"></span><span data-i18n="chip4">Arrives in minutes</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- topic selector -->
+  <div class="tabbar">
+    <div class="tabbar-in" role="tablist" aria-label="Guide topics">
+      <button class="tab" role="tab" id="tab-register" data-tab="register" aria-selected="true" aria-controls="panel-register"><span class="ic">📝</span><span data-i18n="tab_register">Register</span></button>
+      <button class="tab" role="tab" id="tab-address" data-tab="address" aria-selected="false" aria-controls="panel-address"><span class="ic">🔳</span><span data-i18n="tab_address">Get QR &amp; address</span></button>
+      <button class="tab" role="tab" id="tab-withdraw" data-tab="withdraw" aria-selected="false" aria-controls="panel-withdraw"><span class="ic">💸</span><span data-i18n="tab_withdraw">Withdraw</span></button>
+      <button class="tab" role="tab" id="tab-deposit" data-tab="deposit" aria-selected="false" aria-controls="panel-deposit"><span class="ic">📥</span><span data-i18n="tab_deposit">Deposit</span></button>
+    </div>
+  </div>
+
+  <!-- ===== REGISTER ===== -->
+  <section id="panel-register" role="tabpanel" aria-labelledby="tab-register">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="reg_title">Register · Create your wallet</h2>
+        <p class="sub" data-i18n="reg_lead">We use Trust Wallet — a free, self-custodial app. You hold your own money, no bank needed. Setup takes about 5 minutes.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div class="body"><h3 data-i18n="reg1_t">Download the official app</h3><p data-i18n="reg1_p">Install “Trust Wallet” from Google Play or the App Store, or from trustwallet.com. Check the developer name — fake wallet apps exist.</p></div></div>
+        <div class="step"><span class="num">2</span><div class="body"><h3 data-i18n="reg2_t">Create a new wallet</h3><p data-i18n="reg2_p">Open the app and choose “Create a New Wallet” (use “Import” only if you are restoring an old wallet). Accept the terms.</p></div></div>
+        <div class="step"><span class="num">3</span><div class="body"><h3 data-i18n="reg3_t">Set a PIN &amp; biometric lock</h3><p data-i18n="reg3_p">Set a PIN code, then enable fingerprint / Face ID if you like. The PIN lives only on your phone — if you forget it, restore the wallet with your 12 words.</p></div></div>
+        <div class="step"><span class="num">4</span><div class="body"><h3 data-i18n="reg4_t">Open the backup menu</h3><p data-i18n="reg4_p">Tap the wallet name at the top of the home screen → on the Wallets screen choose “Back up manually” → enter your PIN to reveal the phrase.</p>
+          <figure><img src="assets/backup-menu.webp" alt="Trust Wallet — Wallets screen, Back up manually" loading="lazy" /><figcaption data-i18n="cap_backup">Wallets screen → “Back up manually”.</figcaption></figure>
+        </div></div>
+        <div class="step"><span class="num">5</span><div class="body"><h3 data-i18n="reg5_t">Write down your 12 words</h3><p data-i18n="reg5_p">Your 12-word secret recovery phrase appears. Write all 12 words on paper in the exact order, then confirm by re-entering them. Keep the paper safe and offline.</p>
+          <figure><img src="assets/secret-phrase.webp" alt="Trust Wallet — Secret phrase screen" loading="lazy" /><figcaption data-i18n="cap_phrase">The secret phrase screen — write the words down, never screenshot.</figcaption></figure>
+        </div></div>
+        <div class="step"><span class="num">6</span><div class="body"><h3 data-i18n="reg6_t">Your wallet is ready</h3><p data-i18n="reg6_p">Done! You can now receive, send and hold crypto. Next, open “Get QR &amp; address” to enable USDT and find your receiving address.</p></div></div>
+      </div>
+      <div class="callout danger">
+        <h3>⚠ <span data-i18n="warn_seed_t">Your 12 words = your money</span></h3>
+        <p data-i18n="warn_seed_p">Anyone with these words can take everything in your wallet. Never share them with anyone — not even support. Never type them into a website or take a screenshot. No legitimate service will ever ask for them.</p>
+      </div>
+      <div class="callout tool">
+        <h3>🛠 <span data-i18n="tool_title">Prefer Binance? Use our setup tool</span></h3>
+        <p data-i18n="tool_text">Open usdt.gegeteam.xyz — our step-by-step Binance registration &amp; USDT guide (in Vietnamese).</p>
+        <a class="btn green" href="https://usdt.gegeteam.xyz" target="_blank" rel="noopener" data-i18n="tool_btn">Open usdt.gegeteam.xyz</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GET QR & ADDRESS ===== -->
+  <section id="panel-address" role="tabpanel" aria-labelledby="tab-address" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="addr_title">Get your QR code &amp; USDT address</h2>
+        <p class="sub" data-i18n="addr_lead">This is the address you send to GeGe Team (or anyone paying you) so they can send USDT to your wallet on BEP20.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div class="body"><h3 data-i18n="ad1_t">Enable USDT on BNB Smart Chain</h3><p data-i18n="ad1_p">On the home screen tap the filter / toggle icon → “Manage crypto” → search “USDT” → turn on the one labelled “BNB Smart Chain” (BEP20).</p>
+          <figure><img src="assets/manage-crypto.webp" alt="Trust Wallet — Manage crypto, enable USDT BNB Smart Chain" loading="lazy" /><figcaption data-i18n="cap_manage">Manage crypto → enable “USDT · BNB Smart Chain”.</figcaption></figure>
+        </div></div>
+        <div class="step"><span class="num">2</span><div class="body"><h3 data-i18n="ad2_t">Open USDT (BNB Smart Chain)</h3><p data-i18n="ad2_p">Back on the home screen, tap the USDT entry that shows “BNB Smart Chain”.</p></div></div>
+        <div class="step"><span class="num">3</span><div class="body"><h3 data-i18n="ad3_t">Tap Receive — see the QR &amp; address</h3><p data-i18n="ad3_p">Tap “Receive”. A QR code and your address (starting with 0x) appear, with the network shown as BNB Smart Chain.</p>
+          <figure><img src="assets/receive-qr.webp" alt="Trust Wallet — Receive screen with QR code and BNB Smart Chain address" loading="lazy" /><figcaption data-i18n="cap_qr">Receive screen: QR code + address on BNB Smart Chain.</figcaption></figure>
+        </div></div>
+        <div class="step"><span class="num">4</span><div class="body"><h3 data-i18n="ad4_t">Copy the address or share the QR</h3><p data-i18n="ad4_p">Tap “Copy” to copy the address, or “Share” to send the QR. The address is like a bank account number — safe to share. The QR lets the sender scan instead of typing.</p></div></div>
+        <div class="step"><span class="num">5</span><div class="body"><h3 data-i18n="ad5_t">Send it to GeGe Team</h3><p data-i18n="ad5_p">Message your USDT BEP20 address to the admin on Discord with your order details. Double-check the first and last characters before sending.</p></div></div>
+      </div>
+      <div class="addr-example">
+        <code>0x1a2B3c4D5e6F7a8B9c0D1e2F3a4B5c6D7e8F9F3c</code>
+        <span class="note" data-i18n="addr_note">Example address only — always copy the address shown in your own wallet.</span>
+      </div>
+      <div class="callout warn">
+        <h3>⚠ <span data-i18n="net_warn_t">Always use the BEP20 network</span></h3>
+        <p data-i18n="net_warn_p">When receiving or sending, both sides must select BNB Smart Chain (BEP20). Money sent on a different network can be lost forever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WITHDRAW ===== -->
+  <section id="panel-withdraw" role="tabpanel" aria-labelledby="tab-withdraw" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="wd_title">Withdraw · Turn USDT into cash</h2>
+        <p class="sub" data-i18n="wd_lead">Send USDT to an exchange, then sell it via P2P to your bank or e-wallet (IDR / PHP).</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div class="body"><h3 data-i18n="wd1_t">Create an exchange account</h3><p data-i18n="wd1_p">Register on Binance, OKX or Bybit and complete identity verification (KYC) with your ID. This is required before you can sell.</p></div></div>
+        <div class="step"><span class="num">2</span><div class="body"><h3 data-i18n="wd2_t">Get your USDT deposit address</h3><p data-i18n="wd2_p">In the exchange: Deposit → USDT → network “BNB Smart Chain (BEP20)” → copy the deposit address. The network must match or funds can be lost.</p></div></div>
+        <div class="step"><span class="num">3</span><div class="body"><h3 data-i18n="wd3_t">Send USDT from Trust Wallet</h3><p data-i18n="wd3_p">Trust Wallet → USDT (BEP20) → Send → paste the exchange deposit address → enter the amount → confirm. You need a little BNB (usually under $0.10) for the network fee. Tip: send a small test amount first.</p></div></div>
+        <div class="step"><span class="num">4</span><div class="body"><h3 data-i18n="wd4_t">Sell via P2P and get cash</h3><p data-i18n="wd4_p">In the exchange open P2P Trading → Sell → USDT → choose your currency (IDR / PHP) and payment method. Pick a buyer with many orders and a high completion rate. Release the USDT only after the money has actually arrived in your bank / e-wallet.</p></div></div>
+      </div>
+      <div class="pay-row">
+        <div class="pay-item"><span class="flag">🇮🇩</span><span><b>Indonesia:</b> <span data-i18n="pay_id_list">bank transfer (BCA, Mandiri, BRI…), DANA, OVO, GoPay</span></span></div>
+        <div class="pay-item"><span class="flag">🇵🇭</span><span><b>Philippines:</b> <span data-i18n="pay_ph_list">GCash, Maya, bank transfer (BDO, BPI, UnionBank…)</span></span></div>
+      </div>
+      <div class="callout warn">
+        <h3>⚠ <span data-i18n="wd_warn_t">P2P safety</span></h3>
+        <p data-i18n="wd_warn_p">Never release your crypto before the cash is visible in your own bank / e-wallet app. Ignore payment screenshots from the buyer — check your real balance.</p>
+      </div>
+      <div class="callout tool">
+        <h3>🛠 <span data-i18n="tool_title">Prefer Binance? Use our setup tool</span></h3>
+        <p data-i18n="tool_text">Open usdt.gegeteam.xyz — our step-by-step Binance registration &amp; USDT guide (in Vietnamese).</p>
+        <a class="btn green" href="https://usdt.gegeteam.xyz" target="_blank" rel="noopener" data-i18n="tool_btn">Open usdt.gegeteam.xyz</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DEPOSIT ===== -->
+  <section id="panel-deposit" role="tabpanel" aria-labelledby="tab-deposit" hidden>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-i18n="dp_title">Deposit · Put funds into your wallet</h2>
+        <p class="sub" data-i18n="dp_lead">Top up your wallet with USDT (to hold) or a little BNB (to pay sending fees). Receiving is always free.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><div class="body"><h3 data-i18n="dp1_t">From an exchange</h3><p data-i18n="dp1_p">In your exchange: Withdraw → USDT (or BNB) → network “BNB Smart Chain (BEP20)” → paste YOUR wallet address from “Get QR &amp; address” → confirm. Funds arrive in 1–5 minutes.</p>
+          <figure><img src="assets/receive-qr.webp" alt="Trust Wallet — Receive / Deposit from exchange" loading="lazy" /><figcaption data-i18n="cap_qr">Your Receive screen — use this address (or “Deposit from exchange”).</figcaption></figure>
+        </div></div>
+        <div class="step"><span class="num">2</span><div class="body"><h3 data-i18n="dp2_t">Buy inside the app</h3><p data-i18n="dp2_p">Trust Wallet → Buy → choose USDT or BNB → pay by card or local method where available. The crypto lands straight in your wallet.</p></div></div>
+        <div class="step"><span class="num">3</span><div class="body"><h3 data-i18n="dp3_t">From another wallet</h3><p data-i18n="dp3_p">In the other wallet: Send → paste your address → select the BNB Smart Chain (BEP20) network → confirm.</p></div></div>
+        <div class="step"><span class="num">4</span><div class="body"><h3 data-i18n="dp4_t">Receive payment from GeGe Team</h3><p data-i18n="dp4_p">Send your address to the admin on Discord (see “Get QR &amp; address”). After the in-game trade we send the agreed USDT — it arrives in 1–5 minutes.</p></div></div>
+      </div>
+      <div class="callout warn">
+        <h3>⚠ <span data-i18n="dp_note_t">Only send BEP20 assets here</span></h3>
+        <p data-i18n="dp_note_p">This address receives BNB Smart Chain (BEP20) assets. Receiving is free; you only need a little BNB when you later send. Keep about $1 of BNB for fees.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SAFETY ===== -->
+  <section id="safety">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-i18n="safe_title">Safety rules — read before sending money</h2></div>
+      <ul class="safe-list">
+        <li data-i18n="safe1">Never share your 12-word phrase or private key. No legitimate support will ever ask for it.</li>
+        <li data-i18n="safe2">Both sides must use the same network: BNB Smart Chain (BEP20).</li>
+        <li data-i18n="safe3">Check the address carefully — first and last 6 characters. Clipboard malware can swap addresses.</li>
+        <li data-i18n="safe4">Send a small test amount before moving a large sum.</li>
+        <li data-i18n="safe5">On P2P, never release crypto before the cash is visible in your own bank / e-wallet app. Ignore screenshots from the buyer.</li>
+        <li data-i18n="safe6">Only talk to admins through the official Discord. Beware of impersonators sending private messages.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><h2 data-i18n="faq_title">Frequently asked questions</h2></div>
+      <div class="faq">
+        <details><summary data-i18n="q1">What is BEP20?</summary><p data-i18n="a1">BEP20 is the token standard of BNB Smart Chain (BSC), the blockchain built by Binance. USDT on BEP20 transfers in minutes and costs only a few cents, which is why we use it for payments.</p></details>
+        <details><summary data-i18n="q2">Why do I need BNB if I get paid in USDT?</summary><p data-i18n="a2">Every transaction on BNB Smart Chain pays its network fee in BNB. Keeping about $1 of BNB covers many USDT transfers. Receiving USDT is free — you only need BNB when you send.</p></details>
+        <details><summary data-i18n="q3">What if I sent USDT on the wrong network?</summary><p data-i18n="a3">Contact the receiving platform's support immediately with the transaction ID (TXID). Recovery is sometimes possible if both networks share the same address format, but it is not guaranteed — always double-check the network before sending.</p></details>
+        <details><summary data-i18n="q4">How long does a transfer take?</summary><p data-i18n="a4">Wallet ↔ exchange: usually 1–5 minutes. P2P sale: depends on the buyer, often 5–30 minutes. Bank / e-wallet transfers are usually instant.</p></details>
+        <details><summary data-i18n="q5">Is there a minimum amount?</summary><p data-i18n="a5">There is no minimum to receive USDT in your wallet. Exchanges and P2P buyers set their own minimums, usually a few dollars.</p></details>
+        <details><summary data-i18n="q6">I lost my phone. Is my money gone?</summary><p data-i18n="a6">No — if you kept your 12-word phrase. Install Trust Wallet on a new phone, choose “Import wallet” and enter the 12 words. Your USDT will be there. If you lost both the phrase and the phone, the funds cannot be recovered.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="cta">
+      <p class="note" data-i18n="footer_note">Questions? Message us on Discord — we reply within 24 hours.</p>
+      <a class="btn" href="https://discord.gg/t2fPyUPGY" target="_blank" rel="noopener" data-i18n="discord_btn">Ask on Discord</a>
+    </div>
+    <p class="legal"><span data-i18n="credit">Screenshots: Trust Wallet Help Center (support.trustwallet.com), for education.</span> · USDT (BEP20) · BNB Smart Chain</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var I18N = {
+    en: {
+      page_title: "USDT Wallet Guide — BSC BEP20",
+      page_desc: "Step-by-step USDT guide on BNB Smart Chain (BEP20): register a wallet, get your QR code & address, withdraw to cash, and deposit.",
+      hero_kicker: "USDT payment guide · BNB Smart Chain",
+      hero_title: "Register, get your address, withdraw & deposit USDT",
+      hero_lead: "A complete guide to receiving and cashing out USDT on the BNB Smart Chain (BEP20). Pick a topic below and follow the steps with screenshots.",
+      chip1: "1 USDT ≈ 1 USD", chip2: "Network: BEP20 (BSC)", chip3: "Fee: under $0.10", chip4: "Arrives in minutes",
+      tab_register: "Register", tab_address: "Get QR & address", tab_withdraw: "Withdraw", tab_deposit: "Deposit",
+      reg_title: "Register · Create your wallet",
+      reg_lead: "We use Trust Wallet — a free, self-custodial app. You hold your own money, no bank needed. Setup takes about 5 minutes.",
+      reg1_t: "Download the official app", reg1_p: "Install “Trust Wallet” from Google Play or the App Store, or from trustwallet.com. Check the developer name — fake wallet apps exist.",
+      reg2_t: "Create a new wallet", reg2_p: "Open the app and choose “Create a New Wallet” (use “Import” only if you are restoring an old wallet). Accept the terms.",
+      reg3_t: "Set a PIN & biometric lock", reg3_p: "Set a PIN code, then enable fingerprint / Face ID if you like. The PIN lives only on your phone — if you forget it, restore the wallet with your 12 words.",
+      reg4_t: "Open the backup menu", reg4_p: "Tap the wallet name at the top of the home screen → on the Wallets screen choose “Back up manually” → enter your PIN to reveal the phrase.",
+      reg5_t: "Write down your 12 words", reg5_p: "Your 12-word secret recovery phrase appears. Write all 12 words on paper in the exact order, then confirm by re-entering them. Keep the paper safe and offline.",
+      reg6_t: "Your wallet is ready", reg6_p: "Done! You can now receive, send and hold crypto. Next, open “Get QR & address” to enable USDT and find your receiving address.",
+      cap_backup: "Wallets screen → “Back up manually”.", cap_phrase: "The secret phrase screen — write the words down, never screenshot.",
+      warn_seed_t: "Your 12 words = your money",
+      warn_seed_p: "Anyone with these words can take everything in your wallet. Never share them with anyone — not even support. Never type them into a website or take a screenshot. No legitimate service will ever ask for them.",
+      tool_title: "Prefer Binance? Use our setup tool",
+      tool_text: "Open usdt.gegeteam.xyz — our step-by-step Binance registration & USDT guide (in Vietnamese).",
+      tool_btn: "Open usdt.gegeteam.xyz",
+      addr_title: "Get your QR code & USDT address",
+      addr_lead: "This is the address you send to GeGe Team (or anyone paying you) so they can send USDT to your wallet on BEP20.",
+      ad1_t: "Enable USDT on BNB Smart Chain", ad1_p: "On the home screen tap the filter / toggle icon → “Manage crypto” → search “USDT” → turn on the one labelled “BNB Smart Chain” (BEP20).",
+      ad2_t: "Open USDT (BNB Smart Chain)", ad2_p: "Back on the home screen, tap the USDT entry that shows “BNB Smart Chain”.",
+      ad3_t: "Tap Receive — see the QR & address", ad3_p: "Tap “Receive”. A QR code and your address (starting with 0x) appear, with the network shown as BNB Smart Chain.",
+      ad4_t: "Copy the address or share the QR", ad4_p: "Tap “Copy” to copy the address, or “Share” to send the QR. The address is like a bank account number — safe to share. The QR lets the sender scan instead of typing.",
+      ad5_t: "Send it to GeGe Team", ad5_p: "Message your USDT BEP20 address to the admin on Discord with your order details. Double-check the first and last characters before sending.",
+      cap_manage: "Manage crypto → enable “USDT · BNB Smart Chain”.", cap_qr: "Receive screen: QR code + address on BNB Smart Chain.",
+      addr_note: "Example address only — always copy the address shown in your own wallet.",
+      net_warn_t: "Always use the BEP20 network", net_warn_p: "When receiving or sending, both sides must select BNB Smart Chain (BEP20). Money sent on a different network can be lost forever.",
+      wd_title: "Withdraw · Turn USDT into cash", wd_lead: "Send USDT to an exchange, then sell it via P2P to your bank or e-wallet (IDR / PHP).",
+      wd1_t: "Create an exchange account", wd1_p: "Register on Binance, OKX or Bybit and complete identity verification (KYC) with your ID. This is required before you can sell.",
+      wd2_t: "Get your USDT deposit address", wd2_p: "In the exchange: Deposit → USDT → network “BNB Smart Chain (BEP20)” → copy the deposit address. The network must match or funds can be lost.",
+      wd3_t: "Send USDT from Trust Wallet", wd3_p: "Trust Wallet → USDT (BEP20) → Send → paste the exchange deposit address → enter the amount → confirm. You need a little BNB (usually under $0.10) for the network fee. Tip: send a small test amount first.",
+      wd4_t: "Sell via P2P and get cash", wd4_p: "In the exchange open P2P Trading → Sell → USDT → choose your currency (IDR / PHP) and payment method. Pick a buyer with many orders and a high completion rate. Release the USDT only after the money has actually arrived in your bank / e-wallet.",
+      pay_id_list: "bank transfer (BCA, Mandiri, BRI…), DANA, OVO, GoPay", pay_ph_list: "GCash, Maya, bank transfer (BDO, BPI, UnionBank…)",
+      wd_warn_t: "P2P safety", wd_warn_p: "Never release your crypto before the cash is visible in your own bank / e-wallet app. Ignore payment screenshots from the buyer — check your real balance.",
+      dp_title: "Deposit · Put funds into your wallet", dp_lead: "Top up your wallet with USDT (to hold) or a little BNB (to pay sending fees). Receiving is always free.",
+      dp1_t: "From an exchange", dp1_p: "In your exchange: Withdraw → USDT (or BNB) → network “BNB Smart Chain (BEP20)” → paste YOUR wallet address from “Get QR & address” → confirm. Funds arrive in 1–5 minutes.",
+      dp2_t: "Buy inside the app", dp2_p: "Trust Wallet → Buy → choose USDT or BNB → pay by card or local method where available. The crypto lands straight in your wallet.",
+      dp3_t: "From another wallet", dp3_p: "In the other wallet: Send → paste your address → select the BNB Smart Chain (BEP20) network → confirm.",
+      dp4_t: "Receive payment from GeGe Team", dp4_p: "Send your address to the admin on Discord (see “Get QR & address”). After the in-game trade we send the agreed USDT — it arrives in 1–5 minutes.",
+      dp_note_t: "Only send BEP20 assets here", dp_note_p: "This address receives BNB Smart Chain (BEP20) assets. Receiving is free; you only need a little BNB when you later send. Keep about $1 of BNB for fees.",
+      safe_title: "Safety rules — read before sending money",
+      safe1: "Never share your 12-word phrase or private key. No legitimate support will ever ask for it.",
+      safe2: "Both sides must use the same network: BNB Smart Chain (BEP20).",
+      safe3: "Check the address carefully — first and last 6 characters. Clipboard malware can swap addresses.",
+      safe4: "Send a small test amount before moving a large sum.",
+      safe5: "On P2P, never release crypto before the cash is visible in your own bank / e-wallet app. Ignore screenshots from the buyer.",
+      safe6: "Only talk to admins through the official Discord. Beware of impersonators sending private messages.",
+      faq_title: "Frequently asked questions",
+      q1: "What is BEP20?", a1: "BEP20 is the token standard of BNB Smart Chain (BSC), the blockchain built by Binance. USDT on BEP20 transfers in minutes and costs only a few cents, which is why we use it for payments.",
+      q2: "Why do I need BNB if I get paid in USDT?", a2: "Every transaction on BNB Smart Chain pays its network fee in BNB. Keeping about $1 of BNB covers many USDT transfers. Receiving USDT is free — you only need BNB when you send.",
+      q3: "What if I sent USDT on the wrong network?", a3: "Contact the receiving platform's support immediately with the transaction ID (TXID). Recovery is sometimes possible if both networks share the same address format, but it is not guaranteed — always double-check the network before sending.",
+      q4: "How long does a transfer take?", a4: "Wallet ↔ exchange: usually 1–5 minutes. P2P sale: depends on the buyer, often 5–30 minutes. Bank / e-wallet transfers are usually instant.",
+      q5: "Is there a minimum amount?", a5: "There is no minimum to receive USDT in your wallet. Exchanges and P2P buyers set their own minimums, usually a few dollars.",
+      q6: "I lost my phone. Is my money gone?", a6: "No — if you kept your 12-word phrase. Install Trust Wallet on a new phone, choose “Import wallet” and enter the 12 words. Your USDT will be there. If you lost both the phrase and the phone, the funds cannot be recovered.",
+      footer_note: "Questions? Message us on Discord — we reply within 24 hours.",
+      discord_btn: "Ask on Discord",
+      credit: "Screenshots: Trust Wallet Help Center (support.trustwallet.com), for education."
+    },
+    vi: {
+      page_title: "Hướng dẫn ví USDT — BSC BEP20",
+      page_desc: "Hướng dẫn USDT từng bước trên BNB Smart Chain (BEP20): đăng ký ví, lấy mã QR & địa chỉ, rút tiền mặt và nạp tiền.",
+      hero_kicker: "Hướng dẫn thanh toán USDT · BNB Smart Chain",
+      hero_title: "Đăng ký, lấy địa chỉ, rút & nạp USDT",
+      hero_lead: "Hướng dẫn đầy đủ để nhận và rút USDT trên mạng BNB Smart Chain (BEP20). Chọn một mục bên dưới và làm theo từng bước có ảnh minh họa.",
+      chip1: "1 USDT ≈ 1 USD", chip2: "Mạng: BEP20 (BSC)", chip3: "Phí: dưới $0.10", chip4: "Nhận trong vài phút",
+      tab_register: "Đăng ký", tab_address: "Lấy mã QR & địa chỉ", tab_withdraw: "Rút tiền", tab_deposit: "Nạp tiền",
+      reg_title: "Đăng ký · Tạo ví của bạn",
+      reg_lead: "Chúng tôi dùng Trust Wallet — ứng dụng miễn phí, tự quản lý. Bạn tự giữ tiền, không cần ngân hàng. Cài đặt khoảng 5 phút.",
+      reg1_t: "Tải ứng dụng chính thức", reg1_p: "Cài “Trust Wallet” từ Google Play hoặc App Store, hoặc từ trustwallet.com. Kiểm tra tên nhà phát triển — có ứng dụng ví giả mạo.",
+      reg2_t: "Tạo ví mới", reg2_p: "Mở ứng dụng và chọn “Create a New Wallet” (chỉ dùng “Import” khi khôi phục ví cũ). Chấp nhận điều khoản.",
+      reg3_t: "Đặt mã PIN & khóa sinh trắc", reg3_p: "Đặt mã PIN, rồi bật vân tay / Face ID nếu muốn. PIN chỉ nằm trên điện thoại — nếu quên, khôi phục ví bằng 12 từ.",
+      reg4_t: "Mở menu sao lưu", reg4_p: "Bấm tên ví ở đầu màn hình chính → trong màn hình Wallets chọn “Back up manually” → nhập PIN để hiện 12 từ.",
+      reg5_t: "Ghi lại 12 từ", reg5_p: "12 từ khôi phục bí mật hiện ra. Ghi đủ 12 từ ra giấy đúng thứ tự, rồi xác nhận bằng cách nhập lại. Cất giấy ở nơi an toàn, offline.",
+      reg6_t: "Ví đã sẵn sàng", reg6_p: "Xong! Bạn có thể nhận, gửi và giữ crypto. Tiếp theo, mở “Lấy mã QR & địa chỉ” để bật USDT và tìm địa chỉ nhận.",
+      cap_backup: "Màn hình Wallets → “Back up manually”.", cap_phrase: "Màn hình 12 từ — ghi ra giấy, không chụp màn hình.",
+      warn_seed_t: "12 từ = tiền của bạn",
+      warn_seed_p: "Bất kỳ ai có 12 từ này đều lấy sạch tiền trong ví. Không chia sẻ với ai — kể cả support. Không nhập vào website, không chụp màn hình. Không dịch vụ uy tín nào hỏi 12 từ này.",
+      tool_title: "Muốn dùng Binance? Dùng công cụ của chúng tôi",
+      tool_text: "Mở usdt.gegeteam.xyz — hướng dẫn đăng ký Binance & USDT từng bước (tiếng Việt).",
+      tool_btn: "Mở usdt.gegeteam.xyz",
+      addr_title: "Lấy mã QR & địa chỉ USDT",
+      addr_lead: "Đây là địa chỉ bạn gửi cho GeGe Team (hoặc người trả tiền) để họ gửi USDT vào ví của bạn trên BEP20.",
+      ad1_t: "Bật USDT trên BNB Smart Chain", ad1_p: "Ở màn hình chính bấm biểu tượng lọc / gạt → “Manage crypto” → tìm “USDT” → bật đồng có nhãn “BNB Smart Chain” (BEP20).",
+      ad2_t: "Mở USDT (BNB Smart Chain)", ad2_p: "Về màn hình chính, bấm mục USDT có chữ “BNB Smart Chain”.",
+      ad3_t: "Bấm Receive — thấy QR & địa chỉ", ad3_p: "Bấm “Receive”. Mã QR và địa chỉ (bắt đầu 0x) hiện ra, mạng hiển thị là BNB Smart Chain.",
+      ad4_t: "Sao chép địa chỉ hoặc chia sẻ QR", ad4_p: "Bấm “Copy” để sao chép địa chỉ, hoặc “Share” để gửi QR. Địa chỉ như số tài khoản ngân hàng — an toàn để chia sẻ. QR giúp người gửi quét thay vì gõ.",
+      ad5_t: "Gửi cho GeGe Team", ad5_p: "Nhắn địa chỉ USDT BEP20 cho admin trên Discord kèm thông tin đơn hàng. Kiểm tra lại ký tự đầu và cuối trước khi gửi.",
+      cap_manage: "Manage crypto → bật “USDT · BNB Smart Chain”.", cap_qr: "Màn hình Receive: mã QR + địa chỉ trên BNB Smart Chain.",
+      addr_note: "Đây chỉ là địa chỉ ví dụ — luôn sao chép địa chỉ trong ví của chính bạn.",
+      net_warn_t: "Luôn dùng mạng BEP20", net_warn_p: "Khi nhận hoặc gửi, cả hai bên phải chọn BNB Smart Chain (BEP20). Gửi nhầm mạng khác có thể mất tiền vĩnh viễn.",
+      wd_title: "Rút tiền · Đổi USDT ra tiền mặt", wd_lead: "Gửi USDT lên sàn, rồi bán qua P2P về ngân hàng hoặc ví điện tử (IDR / PHP).",
+      wd1_t: "Tạo tài khoản sàn", wd1_p: "Đăng ký Binance, OKX hoặc Bybit và xác minh danh tính (KYC) bằng giấy tờ. Bắt buộc trước khi bán.",
+      wd2_t: "Lấy địa chỉ nạp USDT", wd2_p: "Trên sàn: Deposit → USDT → mạng “BNB Smart Chain (BEP20)” → sao chép địa chỉ nạp. Phải đúng mạng, nếu không tiền có thể mất.",
+      wd3_t: "Gửi USDT từ Trust Wallet", wd3_p: "Trust Wallet → USDT (BEP20) → Send → dán địa chỉ nạp của sàn → nhập số lượng → xác nhận. Cần một ít BNB (thường dưới $0.10) trả phí mạng. Mẹo: gửi thử khoản nhỏ trước.",
+      wd4_t: "Bán qua P2P và nhận tiền", wd4_p: "Trên sàn mở P2P Trading → Sell → USDT → chọn tiền tệ (IDR / PHP) và phương thức thanh toán. Chọn người mua nhiều lệnh, tỷ lệ hoàn thành cao. Chỉ nhả USDT khi tiền đã thực sự về ngân hàng / ví của bạn.",
+      pay_id_list: "chuyển khoản ngân hàng (BCA, Mandiri, BRI…), DANA, OVO, GoPay", pay_ph_list: "GCash, Maya, chuyển khoản ngân hàng (BDO, BPI, UnionBank…)",
+      wd_warn_t: "An toàn P2P", wd_warn_p: "Không nhả crypto trước khi tiền hiện trong ứng dụng ngân hàng / ví của chính bạn. Bỏ qua ảnh chụp màn hình của người mua — hãy kiểm tra số dư thật.",
+      dp_title: "Nạp tiền · Đưa tiền vào ví", dp_lead: "Nạp USDT (để giữ) hoặc một ít BNB (để trả phí gửi). Nhận tiền luôn miễn phí.",
+      dp1_t: "Từ sàn giao dịch", dp1_p: "Trên sàn: Withdraw → USDT (hoặc BNB) → mạng “BNB Smart Chain (BEP20)” → dán địa chỉ ví CỦA BẠN ở mục “Lấy mã QR & địa chỉ” → xác nhận. Tiền về trong 1–5 phút.",
+      dp2_t: "Mua ngay trong ứng dụng", dp2_p: "Trust Wallet → Buy → chọn USDT hoặc BNB → trả bằng thẻ hoặc phương thức địa phương (nếu có). Crypto vào thẳng ví.",
+      dp3_t: "Từ ví khác", dp3_p: "Ở ví kia: Send → dán địa chỉ của bạn → chọn mạng BNB Smart Chain (BEP20) → xác nhận.",
+      dp4_t: "Nhận thanh toán từ GeGe Team", dp4_p: "Gửi địa chỉ cho admin trên Discord (xem “Lấy mã QR & địa chỉ”). Sau giao dịch trong game chúng tôi gửi USDT đã thỏa thuận — về trong 1–5 phút.",
+      dp_note_t: "Chỉ gửi tài sản BEP20 vào đây", dp_note_p: "Địa chỉ này nhận tài sản BNB Smart Chain (BEP20). Nhận miễn phí; chỉ cần một ít BNB khi gửi đi. Giữ khoảng $1 BNB để trả phí.",
+      safe_title: "Quy tắc an toàn — đọc trước khi gửi tiền",
+      safe1: "Không chia sẻ 12 từ khôi phục hoặc private key. Support thật không bao giờ hỏi.",
+      safe2: "Cả hai bên phải dùng cùng mạng: BNB Smart Chain (BEP20).",
+      safe3: "Kiểm tra kỹ địa chỉ — 6 ký tự đầu và cuối. Malware clipboard có thể tráo địa chỉ.",
+      safe4: "Gửi thử khoản nhỏ trước khi chuyển số tiền lớn.",
+      safe5: "Bán P2P: không nhả crypto trước khi tiền hiện trong ứng dụng ngân hàng / ví của bạn. Bỏ qua ảnh chụp của người mua.",
+      safe6: "Chỉ liên hệ admin qua Discord chính thức. Cẩn thận kẻ giả mạo nhắn tin riêng.",
+      faq_title: "Câu hỏi thường gặp",
+      q1: "BEP20 là gì?", a1: "BEP20 là chuẩn token của BNB Smart Chain (BSC), blockchain do Binance xây dựng. USDT trên BEP20 chuyển trong vài phút, phí vài xu, nên chúng tôi dùng để thanh toán.",
+      q2: "Sao cần BNB nếu được trả USDT?", a2: "Mọi giao dịch trên BNB Smart Chain trả phí mạng bằng BNB. Giữ khoảng $1 BNB đủ cho nhiều lần chuyển USDT. Nhận USDT miễn phí — chỉ cần BNB khi gửi.",
+      q3: "Lỡ gửi nhầm mạng thì sao?", a3: "Liên hệ ngay support nền tảng nhận kèm mã giao dịch (TXID). Đôi khi lấy lại được nếu hai mạng chung định dạng địa chỉ, nhưng không đảm bảo — luôn kiểm tra mạng trước khi gửi.",
+      q4: "Chuyển tiền mất bao lâu?", a4: "Ví ↔ sàn: thường 1–5 phút. Bán P2P: tùy người mua, thường 5–30 phút. Chuyển khoản ngân hàng / ví thường tức thì.",
+      q5: "Có số tiền tối thiểu không?", a5: "Nhận USDT vào ví không có mức tối thiểu. Sàn và người mua P2P có mức riêng, thường vài đô.",
+      q6: "Mất điện thoại thì tiền có mất không?", a6: "Không — nếu còn giữ 12 từ. Cài Trust Wallet trên máy mới, chọn “Import wallet” và nhập 12 từ. USDT sẽ ở đó. Mất cả 12 từ lẫn điện thoại thì không khôi phục được.",
+      footer_note: "Có câu hỏi? Nhắn cho chúng tôi trên Discord — phản hồi trong 24 giờ.",
+      discord_btn: "Hỏi trên Discord",
+      credit: "Ảnh minh họa: Trust Wallet Help Center (support.trustwallet.com), dùng cho mục đích hướng dẫn."
+    },
+    id: {
+      page_title: "Panduan Dompet USDT — BSC BEP20",
+      page_desc: "Panduan USDT langkah demi langkah di BNB Smart Chain (BEP20): daftar dompet, ambil kode QR & alamat, tarik ke uang tunai, dan deposit.",
+      hero_kicker: "Panduan pembayaran USDT · BNB Smart Chain",
+      hero_title: "Daftar, ambil alamat, tarik & deposit USDT",
+      hero_lead: "Panduan lengkap menerima dan mencairkan USDT di BNB Smart Chain (BEP20). Pilih topik di bawah dan ikuti langkahnya dengan tangkapan layar.",
+      chip1: "1 USDT ≈ 1 USD", chip2: "Jaringan: BEP20 (BSC)", chip3: "Biaya: di bawah $0,10", chip4: "Masuk dalam hitungan menit",
+      tab_register: "Daftar", tab_address: "Ambil QR & alamat", tab_withdraw: "Tarik", tab_deposit: "Deposit",
+      reg_title: "Daftar · Buat dompetmu",
+      reg_lead: "Kami memakai Trust Wallet — aplikasi gratis, self-custodial. Kamu memegang uangmu sendiri, tanpa bank. Setup sekitar 5 menit.",
+      reg1_t: "Unduh aplikasi resmi", reg1_p: "Instal “Trust Wallet” dari Google Play atau App Store, atau dari trustwallet.com. Periksa nama developer — ada aplikasi palsu.",
+      reg2_t: "Buat dompet baru", reg2_p: "Buka aplikasi dan pilih “Create a New Wallet” (pakai “Import” hanya untuk memulihkan dompet lama). Setujui ketentuan.",
+      reg3_t: "Atur PIN & kunci biometrik", reg3_p: "Atur kode PIN, lalu aktifkan sidik jari / Face ID jika mau. PIN hanya di ponselmu — jika lupa, pulihkan dompet dengan 12 kata.",
+      reg4_t: "Buka menu backup", reg4_p: "Ketuk nama dompet di atas layar utama → di layar Wallets pilih “Back up manually” → masukkan PIN untuk menampilkan frase.",
+      reg5_t: "Tulis 12 katamu", reg5_p: "12 kata pemulihan rahasia muncul. Tulis semua 12 kata di kertas sesuai urutan, lalu konfirmasi dengan memasukkannya ulang. Simpan kertas aman dan offline.",
+      reg6_t: "Dompet siap", reg6_p: "Selesai! Kamu bisa menerima, mengirim, dan menyimpan kripto. Berikutnya buka “Ambil QR & alamat” untuk mengaktifkan USDT dan menemukan alamat penerima.",
+      cap_backup: "Layar Wallets → “Back up manually”.", cap_phrase: "Layar frase rahasia — tulis kata-katanya, jangan screenshot.",
+      warn_seed_t: "12 kata = uangmu",
+      warn_seed_p: "Siapa pun yang punya 12 kata ini bisa mengambil semua isi dompetmu. Jangan bagikan ke siapa pun — termasuk support. Jangan ketik di situs web atau screenshot. Layanan resmi tidak akan memintanya.",
+      tool_title: "Lebih suka Binance? Pakai alat kami",
+      tool_text: "Buka usdt.gegeteam.xyz — panduan pendaftaran Binance & USDT langkah demi langkah (bahasa Vietnam).",
+      tool_btn: "Buka usdt.gegeteam.xyz",
+      addr_title: "Ambil kode QR & alamat USDT",
+      addr_lead: "Ini alamat yang kamu kirim ke GeGe Team (atau pembayar) agar mereka bisa mengirim USDT ke dompetmu di BEP20.",
+      ad1_t: "Aktifkan USDT di BNB Smart Chain", ad1_p: "Di layar utama ketuk ikon filter / toggle → “Manage crypto” → cari “USDT” → aktifkan yang berlabel “BNB Smart Chain” (BEP20).",
+      ad2_t: "Buka USDT (BNB Smart Chain)", ad2_p: "Kembali ke layar utama, ketuk entri USDT yang bertuliskan “BNB Smart Chain”.",
+      ad3_t: "Ketuk Receive — lihat QR & alamat", ad3_p: "Ketuk “Receive”. Kode QR dan alamatmu (diawali 0x) muncul, dengan jaringan BNB Smart Chain.",
+      ad4_t: "Salin alamat atau bagikan QR", ad4_p: "Ketuk “Copy” untuk menyalin alamat, atau “Share” untuk mengirim QR. Alamat seperti nomor rekening — aman dibagikan. QR memudahkan pemindai daripada mengetik.",
+      ad5_t: "Kirim ke GeGe Team", ad5_p: "Kirim alamat USDT BEP20 ke admin lewat Discord beserta detail pesanan. Periksa lagi karakter awal dan akhir sebelum mengirim.",
+      cap_manage: "Manage crypto → aktifkan “USDT · BNB Smart Chain”.", cap_qr: "Layar Receive: kode QR + alamat di BNB Smart Chain.",
+      addr_note: "Ini hanya contoh alamat — selalu salin alamat yang tampil di dompetmu sendiri.",
+      net_warn_t: "Selalu pakai jaringan BEP20", net_warn_p: "Saat menerima atau mengirim, kedua pihak harus memilih BNB Smart Chain (BEP20). Uang di jaringan lain bisa hilang selamanya.",
+      wd_title: "Tarik · Ubah USDT jadi uang tunai", wd_lead: "Kirim USDT ke exchange, lalu jual via P2P ke bank atau e-wallet (IDR / PHP).",
+      wd1_t: "Buat akun exchange", wd1_p: "Daftar di Binance, OKX atau Bybit dan selesaikan verifikasi identitas (KYC) dengan KTP. Wajib sebelum menjual.",
+      wd2_t: "Ambil alamat deposit USDT", wd2_p: "Di exchange: Deposit → USDT → jaringan “BNB Smart Chain (BEP20)” → salin alamat deposit. Jaringan harus sama atau dana bisa hilang.",
+      wd3_t: "Kirim USDT dari Trust Wallet", wd3_p: "Trust Wallet → USDT (BEP20) → Send → tempel alamat deposit exchange → masukkan jumlah → konfirmasi. Butuh sedikit BNB (biasanya di bawah $0,10) untuk biaya. Tips: kirim jumlah kecil dulu.",
+      wd4_t: "Jual via P2P dan terima uang", wd4_p: "Di exchange buka P2P Trading → Sell → USDT → pilih mata uang (IDR / PHP) dan metode pembayaran. Pilih pembeli dengan banyak order dan tingkat penyelesaian tinggi. Lepas USDT hanya setelah uang benar-benar masuk ke bank / e-wallet kamu.",
+      pay_id_list: "transfer bank (BCA, Mandiri, BRI…), DANA, OVO, GoPay", pay_ph_list: "GCash, Maya, transfer bank (BDO, BPI, UnionBank…)",
+      wd_warn_t: "Keamanan P2P", wd_warn_p: "Jangan lepas kripto sebelum uang terlihat di aplikasi bank / e-wallet kamu sendiri. Abaikan screenshot pembayaran pembeli — cek saldo aslimu.",
+      dp_title: "Deposit · Masukkan dana ke dompet", dp_lead: "Isi dompet dengan USDT (untuk disimpan) atau sedikit BNB (untuk biaya kirim). Menerima selalu gratis.",
+      dp1_t: "Dari exchange", dp1_p: "Di exchange: Withdraw → USDT (atau BNB) → jaringan “BNB Smart Chain (BEP20)” → tempel alamat dompetMU dari “Ambil QR & alamat” → konfirmasi. Dana masuk 1–5 menit.",
+      dp2_t: "Beli di dalam aplikasi", dp2_p: "Trust Wallet → Buy → pilih USDT atau BNB → bayar dengan kartu atau metode lokal jika tersedia. Kripto langsung masuk dompet.",
+      dp3_t: "Dari dompet lain", dp3_p: "Di dompet lain: Send → tempel alamatmu → pilih jaringan BNB Smart Chain (BEP20) → konfirmasi.",
+      dp4_t: "Terima pembayaran dari GeGe Team", dp4_p: "Kirim alamatmu ke admin di Discord (lihat “Ambil QR & alamat”). Setelah trade in-game kami kirim USDT yang disepakati — masuk 1–5 menit.",
+      dp_note_t: "Hanya kirim aset BEP20 ke sini", dp_note_p: "Alamat ini menerima aset BNB Smart Chain (BEP20). Menerima gratis; hanya butuh sedikit BNB saat mengirim. Simpan sekitar $1 BNB untuk biaya.",
+      safe_title: "Aturan keamanan — baca sebelum mengirim uang",
+      safe1: "Jangan bagikan 12 kata atau private key. Support resmi tidak akan memintanya.",
+      safe2: "Kedua pihak harus memakai jaringan sama: BNB Smart Chain (BEP20).",
+      safe3: "Periksa alamat teliti — 6 karakter awal dan akhir. Malware clipboard bisa menukar alamat.",
+      safe4: "Kirim jumlah kecil dulu sebelum jumlah besar.",
+      safe5: "Di P2P, jangan lepas kripto sebelum uang terlihat di aplikasi bank / e-wallet kamu. Abaikan screenshot pembeli.",
+      safe6: "Hubungi admin hanya lewat Discord resmi. Waspadai peniru yang mengirim pesan pribadi.",
+      faq_title: "Pertanyaan yang sering diajukan",
+      q1: "Apa itu BEP20?", a1: "BEP20 adalah standar token BNB Smart Chain (BSC), blockchain buatan Binance. USDT di BEP20 masuk dalam menit dan biayanya beberapa sen, karena itu kami memakainya.",
+      q2: "Kenapa butuh BNB kalau dibayar USDT?", a2: "Setiap transaksi di BNB Smart Chain membayar biaya jaringan dengan BNB. Sekitar $1 BNB cukup untuk banyak transfer USDT. Menerima gratis — BNB hanya saat mengirim.",
+      q3: "Bagaimana kalau salah jaringan?", a3: "Segera hubungi support platform penerima dengan TXID. Pemulihan kadang mungkin jika format alamat sama, tapi tidak dijamin — selalu cek jaringan sebelum mengirim.",
+      q4: "Berapa lama transfer?", a4: "Dompet ↔ exchange: biasanya 1–5 menit. P2P: tergantung pembeli, 5–30 menit. Transfer bank / e-wallet biasanya instan.",
+      q5: "Ada minimum?", a5: "Tidak ada minimum menerima USDT di dompet. Exchange dan pembeli P2P punya minimum sendiri, biasanya beberapa dolar.",
+      q6: "Ponsel hilang, uang hilang?", a6: "Tidak — jika 12 kata tersimpan. Instal Trust Wallet di ponsel baru, pilih “Import wallet” dan masukkan 12 kata. USDT-mu ada di sana. Jika keduanya hilang, dana tak bisa dipulihkan.",
+      footer_note: "Ada pertanyaan? Hubungi kami di Discord — dibalas dalam 24 jam.",
+      discord_btn: "Tanya di Discord",
+      credit: "Tangkapan layar: Trust Wallet Help Center (support.trustwallet.com), untuk edukasi."
+    },
+    fil: {
+      page_title: "Gabay sa USDT Wallet — BSC BEP20",
+      page_desc: "Hakbang-hakbang na gabay sa USDT sa BNB Smart Chain (BEP20): mag-register ng wallet, kunin ang QR code at address, mag-withdraw sa cash, at mag-deposit.",
+      hero_kicker: "Gabay sa pagbabayad ng USDT · BNB Smart Chain",
+      hero_title: "Mag-register, kunin ang address, mag-withdraw at mag-deposit ng USDT",
+      hero_lead: "Kumpletong gabay sa pagtanggap at pag-cash out ng USDT sa BNB Smart Chain (BEP20). Pumili ng paksa sa ibaba at sundan ang mga hakbang na may screenshot.",
+      chip1: "1 USDT ≈ 1 USD", chip2: "Network: BEP20 (BSC)", chip3: "Bayad: mas mababa sa $0.10", chip4: "Dumarating sa ilang minuto",
+      tab_register: "Register", tab_address: "Kunin ang QR at address", tab_withdraw: "Withdraw", tab_deposit: "Deposit",
+      reg_title: "Register · Gumawa ng wallet",
+      reg_lead: "Gumagamit kami ng Trust Wallet — libre at self-custodial na app. Ikaw ang may hawak ng pera mo, hindi kailangan ng bangko. Mga 5 minuto ang setup.",
+      reg1_t: "I-download ang opisyal na app", reg1_p: "I-install ang “Trust Wallet” mula sa Google Play o App Store, o mula sa trustwallet.com. Tingnan ang developer — may pekeng app.",
+      reg2_t: "Gumawa ng bagong wallet", reg2_p: "Buksan ang app at piliin ang “Create a New Wallet” (“Import” lang kung nagre-restore ng lumang wallet). Tanggapin ang mga tuntunin.",
+      reg3_t: "Mag-set ng PIN at biometric lock", reg3_p: "Mag-set ng PIN, pagkatapos i-enable ang fingerprint / Face ID kung gusto. Nasa phone lang ang PIN — kung nakalimutan, i-restore gamit ang 12 salita.",
+      reg4_t: "Buksan ang backup menu", reg4_p: "I-tap ang pangalan ng wallet sa itaas ng home screen → sa Wallets screen piliin ang “Back up manually” → ilagay ang PIN para lumabas ang phrase.",
+      reg5_t: "Isulat ang 12 salita", reg5_p: "Lalabas ang 12-salitang secret recovery phrase. Isulat lahat ng 12 salita sa papel sa tamang order, pagkatapos kumpirmahin sa pagpasok muli. Itago ang papel nang ligtas at offline.",
+      reg6_t: "Ready na ang wallet", reg6_p: "Tapos! Puwede ka nang tumanggap, magpadala, at magtago ng crypto. Susunod, buksan ang “Kunin ang QR at address” para i-enable ang USDT at mahanap ang address.",
+      cap_backup: "Wallets screen → “Back up manually”.", cap_phrase: "Secret phrase screen — isulat ang mga salita, huwag i-screenshot.",
+      warn_seed_t: "Ang 12 salita = ang pera mo",
+      warn_seed_p: "Sinumang may hawak ng 12 salitang ito ay puwedeng kunin ang lahat sa wallet mo. Huwag ibahagi kaninuman — kahit support. Huwag i-type sa website o i-screenshot. Hindi ito hinihingi ng tunay na serbisyo.",
+      tool_title: "Mas gusto ang Binance? Gamitin ang tool namin",
+      tool_text: "Buksan ang usdt.gegeteam.xyz — hakbang-hakbang na gabay sa pag-register sa Binance at USDT (Vietnamese).",
+      tool_btn: "Buksan ang usdt.gegeteam.xyz",
+      addr_title: "Kunin ang QR code at USDT address",
+      addr_lead: "Ito ang address na ipapadala mo sa GeGe Team (o sinumang magbabayad) para makapagpadala sila ng USDT sa wallet mo sa BEP20.",
+      ad1_t: "I-enable ang USDT sa BNB Smart Chain", ad1_p: "Sa home screen i-tap ang filter / toggle icon → “Manage crypto” → hanapin ang “USDT” → i-on ang may label na “BNB Smart Chain” (BEP20).",
+      ad2_t: "Buksan ang USDT (BNB Smart Chain)", ad2_p: "Balik sa home screen, i-tap ang USDT entry na may “BNB Smart Chain”.",
+      ad3_t: "I-tap ang Receive — tingnan ang QR at address", ad3_p: "I-tap ang “Receive”. Lalabas ang QR code at address mo (nagsisimula sa 0x), na may network na BNB Smart Chain.",
+      ad4_t: "Kopyahin ang address o ibahagi ang QR", ad4_p: "I-tap ang “Copy” para kopyahin ang address, o “Share” para ipadala ang QR. Parang bank account number ang address — ligtas ibahagi. Ang QR ay puwedeng i-scan sa halip na i-type.",
+      ad5_t: "Ipadala sa GeGe Team", ad5_p: "I-message ang USDT BEP20 address mo sa admin sa Discord kasama ang order details. I-double-check ang unang at huling character bago ipadala.",
+      cap_manage: "Manage crypto → i-enable ang “USDT · BNB Smart Chain”.", cap_qr: "Receive screen: QR code + address sa BNB Smart Chain.",
+      addr_note: "Halimbawang address lang — palaging kopyahin ang address sa sarili mong wallet.",
+      net_warn_t: "Palaging gamitin ang BEP20 network", net_warn_p: "Sa pagtanggap o pagpapadala, dapat parehong piliin ang BNB Smart Chain (BEP20). Ang pera sa ibang network ay puwedeng mawala nang tuluyan.",
+      wd_title: "Withdraw · Gawing cash ang USDT", wd_lead: "Ipadala ang USDT sa exchange, pagkatapos ibenta via P2P sa bangko o e-wallet (IDR / PHP).",
+      wd1_t: "Gumawa ng exchange account", wd1_p: "Mag-register sa Binance, OKX o Bybit at kumpletuhin ang identity verification (KYC) gamit ang ID. Kailangan bago makapagbenta.",
+      wd2_t: "Kunin ang USDT deposit address", wd2_p: "Sa exchange: Deposit → USDT → network “BNB Smart Chain (BEP20)” → kopyahin ang deposit address. Dapat magkapareho ang network o puwedeng mawala ang pondo.",
+      wd3_t: "Magpadala ng USDT mula sa Trust Wallet", wd3_p: "Trust Wallet → USDT (BEP20) → Send → i-paste ang exchange deposit address → ilagay ang halaga → kumpirmahin. Kailangan ng kaunting BNB (mas mababa sa $0.10) para sa fee. Tip: magpadala muna ng maliit na test.",
+      wd4_t: "Ibenta via P2P at tumanggap ng cash", wd4_p: "Sa exchange buksan ang P2P Trading → Sell → USDT → piliin ang currency (IDR / PHP) at payment method. Pumili ng buyer na maraming order at mataas ang completion rate. I-release lang ang USDT pagkatapos talagang dumating ang pera sa bangko / e-wallet mo.",
+      pay_id_list: "bank transfer (BCA, Mandiri, BRI…), DANA, OVO, GoPay", pay_ph_list: "GCash, Maya, bank transfer (BDO, BPI, UnionBank…)",
+      wd_warn_t: "Kaligtasan sa P2P", wd_warn_p: "Huwag i-release ang crypto hangga't hindi nakikita ang cash sa sarili mong bank / e-wallet app. Huwag pansinin ang screenshot ng buyer — tingnan ang totoong balanse.",
+      dp_title: "Deposit · Maglagay ng pondo sa wallet", dp_lead: "I-top up ang wallet ng USDT (para itago) o kaunting BNB (para sa sending fee). Libre palagi ang pagtanggap.",
+      dp1_t: "Mula sa exchange", dp1_p: "Sa exchange: Withdraw → USDT (o BNB) → network “BNB Smart Chain (BEP20)” → i-paste ang address ng wallet MO mula sa “Kunin ang QR at address” → kumpirmahin. Dumarating sa 1–5 minuto.",
+      dp2_t: "Bumili sa loob ng app", dp2_p: "Trust Wallet → Buy → piliin ang USDT o BNB → magbayad gamit ang card o lokal na method kung available. Diretso sa wallet ang crypto.",
+      dp3_t: "Mula sa ibang wallet", dp3_p: "Sa kabilang wallet: Send → i-paste ang address mo → piliin ang BNB Smart Chain (BEP20) network → kumpirmahin.",
+      dp4_t: "Tumanggap ng bayad mula sa GeGe Team", dp4_p: "Ipadala ang address mo sa admin sa Discord (tingnan ang “Kunin ang QR at address”). Pagkatapos ng in-game trade ipapadala namin ang napagkasunduang USDT — dumarating sa 1–5 minuto.",
+      dp_note_t: "BEP20 assets lang ang ipadala rito", dp_note_p: "Ang address na ito ay tumatanggap ng BNB Smart Chain (BEP20) assets. Libre ang pagtanggap; kailangan lang ng kaunting BNB kapag nagpadala. Magtago ng mga $1 na BNB para sa fee.",
+      safe_title: "Mga tuntunin sa kaligtasan — basahin bago magpadala",
+      safe1: "Huwag ibahagi ang 12 salita o private key. Hindi ito hinihingi ng tunay na support.",
+      safe2: "Dapat parehong gumamit ng iisang network: BNB Smart Chain (BEP20).",
+      safe3: "Suriing mabuti ang address — unang at huling 6 character. Puwedeng palitan ng clipboard malware ang address.",
+      safe4: "Magpadala muna ng maliit na test bago ang malaking halaga.",
+      safe5: "Sa P2P, huwag i-release ang crypto hangga't hindi nakikita ang cash sa sarili mong bank / e-wallet app. Huwag pansinin ang screenshot ng buyer.",
+      safe6: "Kausapin lang ang admin sa opisyal na Discord. Mag-ingat sa nagpapanggap na nagme-message nang pribado.",
+      faq_title: "Mga madalas itanong",
+      q1: "Ano ang BEP20?", a1: "Ang BEP20 ay ang token standard ng BNB Smart Chain (BSC), blockchain ng Binance. Ang USDT sa BEP20 ay dumarating sa minuto at ilang sentimo lang ang bayad, kaya ito ang gamit namin.",
+      q2: "Bakit kailangan ng BNB kung USDT ang bayad?", a2: "Bawat transaksyon sa BNB Smart Chain ay nagbabayad ng fee sa BNB. Ang mga $1 na BNB ay sapat sa maraming USDT transfer. Libre ang pagtanggap — BNB lang kapag nagpadala.",
+      q3: "Paano kung maling network?", a3: "Agad kontakin ang support ng receiving platform kasama ang TXID. Minsan posible ang recovery kung parehong format ang address, pero hindi garantisado — palaging i-check ang network.",
+      q4: "Gaano katagal ang transfer?", a4: "Wallet ↔ exchange: 1–5 minuto. P2P: depende sa buyer, 5–30 minuto. Bank / e-wallet transfer: karaniwang instant.",
+      q5: "May minimum ba?", a5: "Walang minimum sa pagtanggap ng USDT sa wallet. Ang exchange at P2P buyer ay may sariling minimum, karaniwang ilang dolyar.",
+      q6: "Nawala ang phone, wala na ang pera?", a6: "Hindi — kung naitago ang 12 salita. Mag-install ng Trust Wallet sa bagong phone, piliin ang “Import wallet” at ilagay ang 12 salita. Nandoon ang USDT mo. Kung parehong nawala, hindi na mare-recover.",
+      footer_note: "May tanong? I-message kami sa Discord — sumasagot sa loob ng 24 oras.",
+      discord_btn: "Magtanong sa Discord",
+      credit: "Screenshots: Trust Wallet Help Center (support.trustwallet.com), para sa edukasyon."
+    }
+  };
+
+  var LANGS = ["en", "vi", "id", "fil"];
+  var LABELS = { en: "EN", vi: "VI", id: "ID", fil: "PH" };
+  var lang = "en";
+  function t(k) { return (I18N[lang] && I18N[lang][k]) || I18N.en[k] || k; }
+
+  function applyLang() {
+    document.documentElement.lang = lang;
+    document.title = t("page_title");
+    var d = document.querySelector('meta[name="description"]');
+    if (d) d.setAttribute("content", t("page_desc"));
+    document.querySelectorAll("[data-i18n]").forEach(function (n) { n.textContent = t(n.getAttribute("data-i18n")); });
+    document.getElementById("langLabel").textContent = LABELS[lang];
+    document.querySelectorAll("#langList [data-lang]").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+  }
+
+  /* language menu */
+  var langBtn = document.getElementById("langBtn"), langList = document.getElementById("langList");
+  function setLangOpen(o) { langList.hidden = !o; langBtn.setAttribute("aria-expanded", String(o)); }
+  langBtn.addEventListener("click", function (e) { e.stopPropagation(); setLangOpen(langList.hidden); });
+  document.addEventListener("click", function (e) { if (!langList.hidden && !langList.contains(e.target)) setLangOpen(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !langList.hidden) { setLangOpen(false); langBtn.focus(); } });
+  langList.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-lang]"); if (!b) return;
+    lang = b.getAttribute("data-lang");
+    try { localStorage.setItem("usdt-guide-lang", lang); } catch (err) {}
+    setLangOpen(false); applyLang();
+  });
+
+  /* topic tabs */
+  var TABS = ["register", "address", "withdraw", "deposit"];
+  function showTab(name, scroll) {
+    if (TABS.indexOf(name) === -1) name = "register";
+    TABS.forEach(function (n) {
+      document.getElementById("tab-" + n).setAttribute("aria-selected", String(n === name));
+      document.getElementById("panel-" + n).hidden = (n !== name);
+    });
+    try { localStorage.setItem("usdt-guide-tab", name); } catch (err) {}
+    if (history.replaceState) history.replaceState(null, "", "#" + name);
+    if (scroll) document.querySelector(".tabbar").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  document.querySelectorAll(".tab").forEach(function (b) {
+    b.addEventListener("click", function () { showTab(b.getAttribute("data-tab"), true); });
+  });
+
+  /* init */
+  try { var sl = localStorage.getItem("usdt-guide-lang"); if (LANGS.indexOf(sl) !== -1) lang = sl; } catch (err) {}
+  applyLang();
+  var startTab = (location.hash || "").replace("#", "");
+  if (TABS.indexOf(startTab) === -1) { try { startTab = localStorage.getItem("usdt-guide-tab"); } catch (err) {} }
+  showTab(startTab, false);
+})();
+</script>
+</body>
+</html>

@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <meta name="theme-color" content="#131211">
-  <link rel="stylesheet" href="css/styles.css?v=56">
+  <link rel="stylesheet" href="css/styles.css?v=69">
 </head>
 <body>
   <a class="skip" href="#games" data-i18n="skip">Đến danh mục game</a>
@@ -29,6 +29,7 @@
         <a href="#games" data-i18n="navGames">Game của chúng tôi</a>
         <a href="#news" data-i18n="navNews">Tin tức</a>
         <a href="#about" data-i18n="navAbout">Dịch vụ</a>
+        <a href="#recruit" data-i18n="navRecruit">Tuyển dụng</a>
         <a href="#community" data-i18n="navCommunity">Cộng đồng</a>
       </nav>
       <div class="menu-wrap">
@@ -71,6 +72,7 @@
           <h2 id="games-title" data-i18n="gamesTitle">Trò chơi của chúng tôi</h2>
           
         </div>
+        <p class="games-lead" data-i18n="gamesLead">Mỗi thẻ game là một trang dịch vụ — bấm vào thẻ để xem bảng giá thu mua, booster và tin tức của game đó.</p>
         <div class="filters">
           <label class="search">
             <span class="sr-only" data-i18n="menuFind">Tìm game</span>
@@ -85,6 +87,61 @@
         <button class="arrow arrow-next" id="games-next" type="button" aria-label="Game sau" data-i18n-aria="nextGame">›</button>
       </div>
       <div class="wrap"><p class="empty" id="game-empty" hidden data-i18n="gameEmpty">Không có game phù hợp. Thử từ khóa khác hoặc chọn "Tất cả".</p></div>
+      <div class="wrap svc-in-games" id="about">
+        <div class="head-row"><h2 id="about-title" data-i18n="aboutTitle">Dịch vụ của Nhà Cáo</h2></div>
+        <p class="services-lead" data-i18n="servicesLead">Thu mua và booster — hai mảng dịch vụ cốt lõi của Nhà Cáo, phục vụ anh em mỗi ngày.</p>
+        <div class="svc-list" id="svc-list"></div>
+      </div>
+    </section>
+
+    <div class="flow">
+    <section class="why" id="why" aria-labelledby="why-title">
+      <div class="wrap">
+        <div class="why-stats">
+          <div class="why-stat"><strong>43.8k</strong><span data-i18n="whyS1">Đơn hàng hoàn tất</span></div>
+          <div class="why-stat"><strong>100%</strong><span data-i18n="whyS2">Đánh giá tốt (G2G)</span></div>
+          <div class="why-stat"><strong>99.914%</strong><span data-i18n="whyS3">Khách hàng hài lòng (G2G)</span></div>
+          <div class="why-stat"><strong>24/7</strong><span data-i18n="whyS4">Hỗ trợ mỗi ngày</span></div>
+        </div>
+        <div class="why-statement">
+          <div>
+            <p class="why-eyebrow" data-i18n="whyLead">Tiến độ của bạn. Ưu tiên của chúng tôi.</p>
+            <h2 id="why-title" data-i18n="whyTitle">Tại sao chọn GeGeTeam?</h2>
+            <p class="why-story" data-i18n="whyStory1">Nhà Cáo quy tụ anh em game thủ chuyên nghiệp để giúp bạn tận hưởng trọn vẹn tựa game mình yêu. Chúng tôi nói ngôn ngữ của bạn và hiểu rằng game không chỉ là sở thích — đó là đam mê.</p>
+            <p class="why-story" data-i18n="whyStory2">Mỗi cột mốc bạn đạt được trong game cũng là lý do chúng tôi lớn lên. GeGeTeam ở đây để giúp bạn đi xa hơn, nhanh hơn và an toàn hơn.</p>
+            <p class="why-story why-note-inline" data-i18n="whyNote">Hỗ trợ tận tình kể cả khi bạn chưa mua hàng · Dịch vụ chuyên nghiệp, đúng như mô tả.</p>
+          </div>
+          <div class="why-giant">
+            <strong>100%</strong>
+            <span class="why-giant-word" data-i18n="whyGiantWord">đánh giá tốt</span>
+            <span class="why-giant-sub" data-i18n="whyGiantSub">trên G2G · 90 ngày qua</span>
+          </div>
+        </div>
+        <div class="why-panel">
+          <div class="why-grid">
+            <article class="why-card">
+              <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+              <h3 data-i18n="why1Title">Giao hàng nhanh, thanh toán ngay</h3>
+              <p data-i18n="why1Text">Dịch vụ nhanh chóng, hiệu quả; thanh toán ngay sau khi hoàn tất thành công.</p>
+            </article>
+            <article class="why-card">
+              <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="m9 11.5 2 2 4-4.5"/></svg></span>
+              <h3 data-i18n="why2Title">Ưu tiên an toàn & bảo mật</h3>
+              <p data-i18n="why2Text">An toàn tài khoản và thông tin cá nhân đặt lên hàng đầu; thông tin khu vực, tài khoản được giữ bí mật.</p>
+            </article>
+            <article class="why-card">
+              <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.6 4.2 5.8 4.2 9.5s-1.4 6.9-4.2 9.5c-2.8-2.6-4.2-5.8-4.2-9.5S9.2 5.1 12 2.5z"/></svg></span>
+              <h3 data-i18n="why3Title">Phục vụ khách hàng toàn cầu</h3>
+              <p data-i18n="why3Text">Dù bạn ở đâu, chúng tôi luôn sẵn sàng hỗ trợ, linh hoạt theo từng khu vực và yêu cầu.</p>
+            </article>
+            <article class="why-card">
+              <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></span>
+              <h3 data-i18n="why4Title">Dịch vụ linh hoạt cho mọi nhu cầu</h3>
+              <p data-i18n="why4Text">Từ đơn ngắn hạn đến dài hạn, nhỏ lẻ đến quy mô lớn — luôn có giải pháp hợp nhu cầu và ngân sách.</p>
+            </article>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="news-section" id="news" aria-labelledby="news-title">
@@ -100,36 +157,34 @@
       </div>
     </section>
 
-    <section class="about-section" id="about" aria-labelledby="about-title">
+    <section class="recruit" id="recruit" aria-labelledby="recruit-title">
       <div class="wrap">
-        <div class="head-row"><h2 id="about-title" data-i18n="aboutTitle">Chúng tôi làm gì</h2></div>
-        <div class="about-grid">
-          <article>
-            <h3 data-i18n="aboutCommunity">Cộng đồng</h3>
-            <p data-i18n="aboutCommunityText">Nơi anh em cập nhật tin game, trao đổi, thảo luận và cùng chơi qua Zalo, Facebook, Discord.</p>
-            <ul class="about-list" data-list="aboutCommunityList"></ul>
+        <div class="head-row"><h2 id="recruit-title" data-i18n="recruitTitle">Tuyển dụng Nhà Cáo</h2></div>
+        <p class="services-lead" data-i18n="recruitLead">Team đang mở rộng — tìm anh em cùng làm, cùng chơi, cùng kiếm tiền từ game.</p>
+        <div class="rec-grid">
+          <article class="rec-card">
+            <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+            <h3 data-i18n="recruit1Title">Booster (cày thuê)</h3>
+            <p data-i18n="recruit1Text">Nhận đơn cày cấp, dungeon, raid, PvP theo game bạn thạo. Chủ động thời gian, chia sẻ doanh thu rõ ràng.</p>
+            <a class="rec-apply" href="https://discord.gg/t2fPyUPGY" target="_blank" rel="noopener"><span data-i18n="recruitApply">Ứng tuyển</span> →</a>
           </article>
-          <article>
-            <h3 data-i18n="aboutBuy">Thu mua</h3>
-            <p data-i18n="aboutBuyText">Thu mua gold và item trong game, có bảng giá riêng cho từng game.</p>
-            <ul class="about-list" data-list="aboutBuyList"></ul>
-          </article>
-          <article>
-            <h3 data-i18n="aboutBoost">Booster</h3>
-            <p data-i18n="aboutBoostText">Nhận làm đơn theo yêu cầu ở những game có mở dịch vụ, trao đổi trực tiếp với admin.</p>
-            <ul class="about-list" data-list="aboutBoostList"></ul>
+          <article class="rec-card">
+            <span class="why-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></span>
+            <h3 data-i18n="recruit2Title">Support & trực đơn</h3>
+            <p data-i18n="recruit2Text">Trực Discord/Zalo, báo giá và chăm sóc khách. Ca linh hoạt, đào tạo từ đầu.</p>
+            <a class="rec-apply" href="https://discord.gg/t2fPyUPGY" target="_blank" rel="noopener"><span data-i18n="recruitApply">Ứng tuyển</span> →</a>
           </article>
         </div>
+        <p class="rec-note" data-i18n="recruitNote">Ứng tuyển qua Discord admin — phản hồi trong 24 giờ.</p>
       </div>
     </section>
 
-    <section class="cta" id="community" aria-labelledby="community-title">
+    <section class="cta" id="community">
       <div class="wrap">
-        <h2 id="community-title" data-i18n="communityTitle">Vào team cùng anh em</h2>
-        <p class="lead" data-i18n="communityLead">Tin nhanh, hỏi đáp, tìm đội và hỗ trợ giao dịch. Chọn kênh bạn quen dùng nhất.</p>
         <div class="community-grid" id="community-grid"></div>
       </div>
     </section>
+    </div>
   </main>
 
   <footer class="footer">
@@ -156,6 +211,8 @@
             <li><a href="#games" data-i18n="navGames">Game của chúng tôi</a></li>
             <li><a href="#news" data-i18n="navNews">Tin tức</a></li>
             <li><a href="#about" data-i18n="navAbout">Dịch vụ</a></li>
+            <li><a href="#why" data-i18n="navWhy">Vì sao chọn chúng tôi</a></li>
+            <li><a href="#recruit" data-i18n="navRecruit">Tuyển dụng</a></li>
             <li><a href="#community" data-i18n="navCommunity">Cộng đồng</a></li>
           </ul>
         </nav>
@@ -216,8 +273,8 @@
   </dialog>
 
   <!-- ?v= là số phiên bản: tăng lên mỗi khi sửa data.js/app.js/styles.css để trình duyệt không dùng bản cũ đã lưu -->
-  <script src="js/data.js?v=55"></script>
+  <script src="js/data.js?v=69"></script>
   <script src="js/news-auto.js"></script>
-  <script src="js/app.js?v=56"></script>
+  <script src="js/app.js?v=69"></script>
 </body>
 </html>

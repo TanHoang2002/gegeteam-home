@@ -29,7 +29,7 @@
       skip: "Đến danh mục game", navLabel: "Điều hướng chính", heroLabel: "Nổi bật",
       navNews: "Tin tức", navGames: "Game của chúng tôi", navAbout: "Dịch vụ", navCommunity: "Cộng đồng", footerGames: "Game",
       menuLogin: "Đăng nhập", menuRegister: "Đăng ký", menuFind: "Tìm game", menuZalo: "Liên hệ Discord", menuSettings: "Cài đặt",
-      newsTitle: "Cập nhật mới nhất", gamesTitle: "Trò chơi của chúng tôi", aboutTitle: "Chúng tôi làm gì",
+      newsTitle: "Cập nhật mới nhất", gamesTitle: "Trò chơi của chúng tôi", aboutTitle: "Dịch vụ của Nhà Cáo",
       communityTitle: "Vào team cùng anh em", communityLead: "Tin nhanh, hỏi đáp, tìm đội và hỗ trợ giao dịch. Chọn kênh bạn quen dùng nhất.",
       searchPh: "Tìm theo tên game", genreLabel: "Lọc theo game", gameEmpty: "Không có game phù hợp. Thử từ khóa khác hoặc chọn \"Tất cả\".",
       prevGame: "Game trước", nextGame: "Game sau", gameList: "Danh sách game",
@@ -45,13 +45,34 @@
       soonText: "Website riêng của game này sắp ra mắt. Trong lúc chờ, bạn có thể liên hệ admin để được hỗ trợ.",
       accountText: "Tài khoản thành viên chưa mở. Hiện tại bạn không cần đăng nhập để xem tin và bảng giá. Cần hỗ trợ thì liên hệ admin qua Discord.",
       zaloFull: "Liên hệ qua Discord", close: "Đóng", setLang: "Ngôn ngữ", setAuto: "Tự chuyển slide ở đầu trang",
-      all: "Tất cả", visit: "Vào trang", soon: "Sắp ra mắt", watch: "Xem ngay", viewAll: "Xem tất cả", collapse: "Thu gọn"
+      all: "Tất cả", visit: "Vào trang", soon: "Sắp ra mắt", watch: "Xem ngay", viewAll: "Xem tất cả", collapse: "Thu gọn",
+      servicesLead: "Thu mua và booster — hai mảng dịch vụ cốt lõi của Nhà Cáo, phục vụ anh em mỗi ngày.",
+      gamesLead: "Mỗi thẻ game là một trang dịch vụ — bấm vào thẻ để xem bảng giá thu mua, booster và tin tức của game đó.",
+      svcBuyTag: "Thu mua", svcBoostTag: "Booster", gameCta: "Xem dịch vụ",
+      navWhy: "Vì sao chọn chúng tôi", whyTitle: "Tại sao chọn GeGeTeam?", whyLead: "Tiến độ của bạn. Ưu tiên của chúng tôi.",
+      whyPositive: "Đánh giá tốt trên G2G trong 90 ngày qua", whyNegative: "Đánh giá xấu (38/43,8k đơn)",
+      why1Title: "Giao hàng nhanh, thanh toán ngay", why1Text: "Dịch vụ nhanh chóng, hiệu quả; thanh toán ngay sau khi hoàn tất thành công.",
+      why2Title: "Ưu tiên an toàn & bảo mật", why2Text: "An toàn tài khoản và thông tin cá nhân đặt lên hàng đầu; thông tin khu vực, tài khoản được giữ bí mật.",
+      why3Title: "Phục vụ khách hàng toàn cầu", why3Text: "Dù bạn ở đâu, chúng tôi luôn sẵn sàng hỗ trợ, linh hoạt theo từng khu vực và yêu cầu.",
+      why4Title: "Dịch vụ linh hoạt cho mọi nhu cầu", why4Text: "Từ đơn ngắn hạn đến dài hạn, nhỏ lẻ đến quy mô lớn — luôn có giải pháp hợp nhu cầu và ngân sách.",
+      whyNote: "Hỗ trợ tận tình kể cả khi bạn chưa mua hàng · Dịch vụ chuyên nghiệp, đúng như mô tả.",
+      whyStory1: "Nhà Cáo quy tụ anh em game thủ chuyên nghiệp để giúp bạn tận hưởng trọn vẹn tựa game mình yêu. Chúng tôi nói ngôn ngữ của bạn và hiểu rằng game không chỉ là sở thích — đó là đam mê.",
+      whyStory2: "Mỗi cột mốc bạn đạt được trong game cũng là lý do chúng tôi lớn lên. GeGeTeam ở đây để giúp bạn đi xa hơn, nhanh hơn và an toàn hơn.",
+      whyGiantWord: "đánh giá tốt", whyGiantSub: "trên G2G · 90 ngày qua",
+      whyS1: "Đơn hàng hoàn tất", whyS2: "Đánh giá tốt (G2G)", whyS3: "Khách hàng hài lòng (G2G)", whyS4: "Hỗ trợ mỗi ngày",
+      svcQuote: "Báo giá thu mua qua admin", svcRecruit: "Ứng tuyển làm booster",
+      svcBuyMeta: "Thanh toán USDT / VND ngay sau giao dịch", svcBoostMeta: "Báo giá trước khi làm · screenshot tiến độ",
+      navRecruit: "Tuyển dụng", recruitTitle: "Tuyển dụng Nhà Cáo",
+      recruitLead: "Team đang mở rộng — tìm anh em cùng làm, cùng chơi, cùng kiếm tiền từ game.",
+      recruit1Title: "Booster (cày thuê)", recruit1Text: "Nhận đơn cày cấp, dungeon, raid, PvP theo game bạn thạo. Chủ động thời gian, chia sẻ doanh thu rõ ràng.",
+      recruit2Title: "Support & trực đơn", recruit2Text: "Trực Discord/Zalo, báo giá và chăm sóc khách. Ca linh hoạt, đào tạo từ đầu.",
+      recruitApply: "Ứng tuyển", recruitNote: "Ứng tuyển qua Discord admin — phản hồi trong 24 giờ."
     },
     en: {
       skip: "Skip to games", navLabel: "Main navigation", heroLabel: "Highlights",
       navNews: "News", navGames: "Our games", navAbout: "Services", navCommunity: "Community", footerGames: "Games",
       menuLogin: "Log in", menuRegister: "Sign up", menuFind: "Find a game", menuZalo: "Contact on Discord", menuSettings: "Settings",
-      newsTitle: "Latest updates", gamesTitle: "Our games", aboutTitle: "What we do",
+      newsTitle: "Latest updates", gamesTitle: "Our games", aboutTitle: "Fox House services",
       communityTitle: "Join the team", communityLead: "Quick news, Q&A, finding parties and trading support. Pick the channel you use most.",
       searchPh: "Search by game name", genreLabel: "Filter by game", gameEmpty: "No matching games. Try another keyword or choose \"All\".",
       prevGame: "Previous game", nextGame: "Next game", gameList: "Game list",
@@ -67,13 +88,34 @@
       soonText: "This game's own website is coming soon. In the meantime, you can contact the admin for support.",
       accountText: "Member accounts are not open yet. You don't need to log in to read news and price lists. For support, contact the admin on Discord.",
       zaloFull: "Contact on Discord", close: "Close", setLang: "Language", setAuto: "Auto-advance the top slides",
-      all: "All", visit: "Open site", soon: "Coming soon", watch: "Watch now", viewAll: "View all", collapse: "Show less"
+      all: "All", visit: "Open site", soon: "Coming soon", watch: "Watch now", viewAll: "View all", collapse: "Show less",
+      servicesLead: "Buying and boosting — the two core services of Fox House, ready for you every day.",
+      gamesLead: "Each game card is its own service page — tap a card for buying prices, boosting and news.",
+      svcBuyTag: "Buying", svcBoostTag: "Booster", gameCta: "View services",
+      navWhy: "Why us", whyTitle: "Why choose GeGeTeam?", whyLead: "Your progress. Our priority.",
+      whyPositive: "Positive reviews on G2G in the last 90 days", whyNegative: "Negative reviews (38 of 43.8k orders)",
+      why1Title: "Fast delivery, instant payment", why1Text: "Fast, efficient service — payment processed immediately upon successful completion.",
+      why2Title: "Security & privacy first", why2Text: "Account security and personal data come first; region and account details stay strictly confidential.",
+      why3Title: "Worldwide service coverage", why3Text: "Wherever you play from, we're ready to assist, adapting to every region and requirement.",
+      why4Title: "Flexible services for everyone", why4Text: "From short sessions to long-term orders, small tasks to large scale — solutions tailored to your needs and budget.",
+      whyNote: "Warm support even before you buy · Professional service, exactly as described.",
+      whyStory1: "Fox House brings together seasoned professional gamers to help you fully enjoy the games you love. We speak your language and know gaming is more than a hobby — it's a passion.",
+      whyStory2: "Every milestone you reach in game is why we grow. GeGeTeam is here to help you go further, faster and safer.",
+      whyGiantWord: "positive", whyGiantSub: "on G2G · last 90 days",
+      whyS1: "Completed orders", whyS2: "Positive reviews (G2G)", whyS3: "Happy customers (G2G)", whyS4: "Daily support",
+      svcQuote: "Get a buying quote from admin", svcRecruit: "Apply as a booster",
+      svcBuyMeta: "Paid in USDT / VND right after the trade", svcBoostMeta: "Quote before start · progress screenshots",
+      navRecruit: "Careers", recruitTitle: "Join the Fox House team",
+      recruitLead: "We're expanding — looking for people to work, play and earn from games together.",
+      recruit1Title: "Booster", recruit1Text: "Take leveling, dungeon, raid and PvP orders in games you master. Flexible hours, transparent revenue share.",
+      recruit2Title: "Support & order desk", recruit2Text: "Staff Discord/Zalo, quote prices and care for customers. Flexible shifts, training provided.",
+      recruitApply: "Apply", recruitNote: "Apply via admin Discord — reply within 24 hours."
     },
     id: {
       skip: "Lewati ke daftar game", navLabel: "Navigasi utama", heroLabel: "Sorotan",
       navNews: "Berita", navGames: "Game kami", navAbout: "Layanan", navCommunity: "Komunitas", footerGames: "Game",
       menuLogin: "Masuk", menuRegister: "Daftar", menuFind: "Cari game", menuZalo: "Hubungi via Discord", menuSettings: "Pengaturan",
-      newsTitle: "Kabar terbaru", gamesTitle: "Game kami", aboutTitle: "Apa yang kami lakukan",
+      newsTitle: "Kabar terbaru", gamesTitle: "Game kami", aboutTitle: "Layanan Fox House",
       communityTitle: "Gabung bersama tim", communityLead: "Berita cepat, tanya jawab, cari party, dan bantuan transaksi. Pilih saluran yang paling sering kamu pakai.",
       searchPh: "Cari nama game", genreLabel: "Filter berdasarkan game", gameEmpty: "Tidak ada game yang cocok. Coba kata kunci lain atau pilih \"Semua\".",
       prevGame: "Game sebelumnya", nextGame: "Game berikutnya", gameList: "Daftar game",
@@ -89,13 +131,32 @@
       soonText: "Situs khusus game ini segera hadir. Sementara itu, kamu bisa menghubungi admin untuk bantuan.",
       accountText: "Akun anggota belum dibuka. Kamu tidak perlu masuk untuk membaca berita dan daftar harga. Untuk bantuan, hubungi admin via Discord.",
       zaloFull: "Hubungi via Discord", close: "Tutup", setLang: "Bahasa", setAuto: "Ganti slide atas otomatis",
-      all: "Semua", visit: "Buka situs", soon: "Segera hadir", watch: "Lihat sekarang", viewAll: "Lihat semua", collapse: "Tampilkan lebih sedikit"
+      all: "Semua", visit: "Buka situs", soon: "Segera hadir", watch: "Lihat sekarang", viewAll: "Lihat semua", collapse: "Tampilkan lebih sedikit",
+      servicesLead: "Pembelian dan boosting — dua layanan inti Fox House, siap setiap hari.",
+      navWhy: "Mengapa kami", whyTitle: "Mengapa memilih GeGeTeam?", whyLead: "Progres kamu. Prioritas kami.",
+      whyPositive: "Ulasan positif di G2G dalam 90 hari terakhir", whyNegative: "Ulasan negatif (38 dari 43,8rb pesanan)",
+      why1Title: "Pengiriman cepat, bayar langsung", why1Text: "Layanan cepat dan efisien — pembayaran diproses segera setelah pesanan selesai.",
+      why2Title: "Keamanan & privasi utama", why2Text: "Keamanan akun dan data pribadi diutamakan; info region dan akun dijaga ketat.",
+      why3Title: "Melayani pelanggan global", why3Text: "Di mana pun kamu bermain, kami siap membantu, fleksibel mengikuti region dan kebutuhan.",
+      why4Title: "Layanan fleksibel untuk semua", why4Text: "Dari pesanan singkat hingga jangka panjang, kecil hingga besar — selalu ada solusi sesuai kebutuhan dan budget.",
+      whyNote: "Dukungan ramah bahkan sebelum kamu membeli · Layanan profesional, sesuai deskripsi.",
+      whyStory1: "Fox House mengumpulkan gamer profesional berpengalaman agar kamu menikmati penuh game yang kamu cintai. Kami berbicara bahasamu dan paham game bukan sekadar hobi — ini passion.",
+      whyStory2: "Setiap pencapaianmu dalam game adalah alasan kami bertumbuh. GeGeTeam hadir membantumu melangkah lebih jauh, lebih cepat, dan lebih aman.",
+      whyGiantWord: "ulasan positif", whyGiantSub: "di G2G · 90 hari terakhir",
+      whyS1: "Pesanan selesai", whyS2: "Ulasan positif (G2G)", whyS3: "Pelanggan puas (G2G)", whyS4: "Dukungan setiap hari",
+      svcQuote: "Minta harga beli ke admin", svcRecruit: "Daftar jadi booster",
+      svcBuyMeta: "Dibayar USDT / VND segera setelah transaksi", svcBoostMeta: "Harga sebelum mulai · screenshot progres",
+      navRecruit: "Karier", recruitTitle: "Rekrutmen Fox House",
+      recruitLead: "Tim sedang berkembang — cari rekan untuk kerja, main, dan hasilkan uang dari game bersama.",
+      recruit1Title: "Booster", recruit1Text: "Ambil order leveling, dungeon, raid, PvP di game yang kamu kuasai. Jam fleksibel, bagi hasil transparan.",
+      recruit2Title: "Support & jaga order", recruit2Text: "Jaga Discord/Zalo, beri harga dan rawat pelanggan. Shift fleksibel, ada pelatihan.",
+      recruitApply: "Lamar", recruitNote: "Lamar lewat Discord admin — dibalas dalam 24 jam."
     },
     fil: {
       skip: "Pumunta sa mga laro", navLabel: "Pangunahing nabigasyon", heroLabel: "Mga tampok",
       navNews: "Balita", navGames: "Aming mga laro", navAbout: "Serbisyo", navCommunity: "Komunidad", footerGames: "Mga laro",
       menuLogin: "Mag-log in", menuRegister: "Mag-sign up", menuFind: "Maghanap ng laro", menuZalo: "Kontakin sa Discord", menuSettings: "Mga setting",
-      newsTitle: "Pinakabagong balita", gamesTitle: "Aming mga laro", aboutTitle: "Ano ang ginagawa namin",
+      newsTitle: "Pinakabagong balita", gamesTitle: "Aming mga laro", aboutTitle: "Mga serbisyo ng Fox House",
       communityTitle: "Sumali sa team", communityLead: "Mabilis na balita, Q&A, paghahanap ng party at tulong sa trading. Piliin ang channel na madalas mong gamitin.",
       searchPh: "Maghanap ayon sa pangalan ng laro", genreLabel: "I-filter ayon sa laro", gameEmpty: "Walang tugmang laro. Subukan ang ibang keyword o piliin ang \"Lahat\".",
       prevGame: "Nakaraang laro", nextGame: "Susunod na laro", gameList: "Listahan ng laro",
@@ -111,7 +172,26 @@
       soonText: "Malapit nang ilunsad ang sariling website ng larong ito. Habang naghihintay, puwede mong kontakin ang admin para sa tulong.",
       accountText: "Hindi pa bukas ang member accounts. Hindi mo kailangang mag-log in para magbasa ng balita at price list. Para sa tulong, kontakin ang admin sa Discord.",
       zaloFull: "Kontakin sa Discord", close: "Isara", setLang: "Wika", setAuto: "Awtomatikong ilipat ang slide sa itaas",
-      all: "Lahat", visit: "Buksan ang site", soon: "Malapit na", watch: "Panoorin", viewAll: "Tingnan lahat", collapse: "Ipakita nang mas kaunti"
+      all: "Lahat", visit: "Buksan ang site", soon: "Malapit na", watch: "Panoorin", viewAll: "Tingnan lahat", collapse: "Ipakita nang mas kaunti",
+      servicesLead: "Pagbili at boosting — dalawang pangunahing serbisyo ng Fox House, araw-araw.",
+      navWhy: "Bakit kami", whyTitle: "Bakit piliin ang GeGeTeam?", whyLead: "Ang progress mo. Priority namin.",
+      whyPositive: "Positibong review sa G2G sa huling 90 araw", whyNegative: "Negatibong review (38 sa 43.8k order)",
+      why1Title: "Mabilis na delivery, instant na bayad", why1Text: "Mabilis at efficient na serbisyo — bayad agad pagkatapos matagumpay na makumpleto.",
+      why2Title: "Seguridad at privacy muna", why2Text: "Una ang seguridad ng account at personal na data; striktong kumpidensyal ang region at account info.",
+      why3Title: "Serbisyong worldwide", why3Text: "Saan ka man maglaro, ready kaming tumulong, flexible sa bawat region at requirement.",
+      why4Title: "Flexible na serbisyo para sa lahat", why4Text: "Mula short session hanggang long-term, maliit hanggang malaking order — laging may solusyon sa needs at budget mo.",
+      whyNote: "Mainit na suporta kahit bago ka bumili · Propesyonal na serbisyo, exactly as described.",
+      whyStory1: "Pinagsasama ng Fox House ang mga seasoned professional gamer para lubos mong ma-enjoy ang mga larong mahal mo. Nagsasalita kami ng wika mo at alam naming higit sa hobby ang gaming — passion ito.",
+      whyStory2: "Bawat milestone mo sa laro ang dahilan ng paglago namin. Nandito ang GeGeTeam para tulungan kang umabot sa mas malayo, mas mabilis, at mas ligtas.",
+      whyGiantWord: "positibong review", whyGiantSub: "sa G2G · huling 90 araw",
+      whyS1: "Natapos na order", whyS2: "Positibong review (G2G)", whyS3: "Nasiyahan na customer (G2G)", whyS4: "Suporta araw-araw",
+      svcQuote: "Kumuha ng buying quote sa admin", svcRecruit: "Mag-apply bilang booster",
+      svcBuyMeta: "Bayad sa USDT / VND agad pagkatapos ng trade", svcBoostMeta: "Quote bago magsimula · screenshot ng progress",
+      navRecruit: "Karera", recruitTitle: "Sumali sa team ng Fox House",
+      recruitLead: "Lumalawak kami — naghahanap ng kasama sa trabaho, laro, at kita mula sa games.",
+      recruit1Title: "Booster", recruit1Text: "Kumuha ng order sa leveling, dungeon, raid, PvP sa mga larong master mo. Flexible na oras, malinaw na hatian.",
+      recruit2Title: "Support & order desk", recruit2Text: "Bantay sa Discord/Zalo, mag-quote at alagaan ang customer. Flexible shift, may training.",
+      recruitApply: "Mag-apply", recruitNote: "Mag-apply sa admin Discord — sagot sa loob ng 24 oras."
     },
     ru: {
       skip: "К списку игр",
@@ -129,7 +209,7 @@
       menuSettings: "Настройки",
       newsTitle: "Последние новости",
       gamesTitle: "Наши игры",
-      aboutTitle: "Чем мы занимаемся",
+      aboutTitle: "Услуги Fox House",
       communityTitle: "Присоединяйтесь к команде",
       communityLead: "Быстрые новости, вопросы и ответы, поиск группы и помощь со сделками. Выберите удобный канал.",
       searchPh: "Поиск по названию игры",
@@ -166,7 +246,26 @@
       soon: "Скоро",
       watch: "Смотреть",
       viewAll: "Смотреть все",
-      collapse: "Свернуть"
+      collapse: "Свернуть",
+      servicesLead: "Скупка и буст — две основные услуги Fox House, каждый день для вас.",
+      navWhy: "Почему мы", whyTitle: "Почему GeGeTeam?", whyLead: "Ваш прогресс. Наш приоритет.",
+      whyPositive: "Положительных отзывов на G2G за 90 дней", whyNegative: "Отрицательных отзывов (38 из 43,8 тыс. заказов)",
+      why1Title: "Быстрая доставка, мгновенная оплата", why1Text: "Быстрый и эффективный сервис — оплата сразу после успешного выполнения заказа.",
+      why2Title: "Безопасность и приватность прежде всего", why2Text: "Безопасность аккаунта и личные данные — в приоритете; информация о регионе и аккаунте строго конфиденциальна.",
+      why3Title: "Обслуживаем по всему миру", why3Text: "Где бы вы ни играли, мы готовы помочь, адаптируясь к любому региону и требованиям.",
+      why4Title: "Гибкие услуги для всех", why4Text: "От коротких сессий до долгосрочных заказов, от мелких задач до крупных — решения под ваши задачи и бюджет.",
+      whyNote: "Тёплая поддержка даже до покупки · Профессиональный сервис, точно как описано.",
+      whyStory1: "Fox House объединяет опытных профессиональных геймеров, чтобы вы полностью наслаждались любимыми играми. Мы говорим на вашем языке и знаем: игры — больше чем хобби, это страсть.",
+      whyStory2: "Каждое ваше достижение в игре — причина нашего роста. GeGeTeam помогает идти дальше, быстрее и безопаснее.",
+      whyGiantWord: "положительных", whyGiantSub: "на G2G · за 90 дней",
+      whyS1: "Завершённых заказов", whyS2: "Положительных отзывов (G2G)", whyS3: "Довольных клиентов (G2G)", whyS4: "Поддержка каждый день",
+      svcQuote: "Запросить цену скупки у админа", svcRecruit: "Подать заявку на бустера",
+      svcBuyMeta: "Оплата USDT / VND сразу после сделки", svcBoostMeta: "Цена до старта · скриншоты прогресса",
+      navRecruit: "Вакансии", recruitTitle: "Команда Fox House набирает",
+      recruitLead: "Мы растём — ищем тех, кто хочет работать, играть и зарабатывать на играх вместе.",
+      recruit1Title: "Бустер", recruit1Text: "Заказы на прокачку, подземелья, рейды и PvP в играх, которые вы знаете. Гибкий график, прозрачное разделение дохода.",
+      recruit2Title: "Поддержка и приём заказов", recruit2Text: "Дежурство в Discord/Zalo, цены и забота о клиентах. Гибкие смены, обучение с нуля.",
+      recruitApply: "Откликнуться", recruitNote: "Отклик через Discord админа — ответ в течение 24 часов."
     }
   };
   var LANGS = ["en", "vi", "id", "fil", "ru"];
@@ -222,6 +321,7 @@
 
   function gameCard(game) {
     var card = el(game.url ? "a" : "button", "game-card");
+    if (game.color) card.style.setProperty("--card-brand", game.color);
     if (game.url) {
       /* Mở trang game ngay trong tab đang xem: trình duyệt nhúng (như trong VS Code) không mở được tab mới,
          và từ trang game bấm logo là về lại trang chủ */
@@ -253,6 +353,18 @@
     }
     body.appendChild(el("h3", "", game.name));
     body.appendChild(el("p", "", loc(game, "description")));
+    /* Nhãn dịch vụ + nút "Xem dịch vụ": người chơi biết bấm vào đâu để tìm dịch vụ */
+    var sv = game.svc || {};
+    if (sv.buy || sv.boost) {
+      var tags = el("div", "tags");
+      if (sv.buy) tags.appendChild(el("span", "tag tag-svc", t("svcBuyTag")));
+      if (sv.boost) tags.appendChild(el("span", "tag tag-svc", t("svcBoostTag")));
+      body.appendChild(tags);
+    }
+    var gcta = el("span", "game-cta" + (game.url ? "" : " is-soon"));
+    gcta.appendChild(el("span", "", t(game.url ? "gameCta" : "soon")));
+    gcta.appendChild(el("span", "game-cta-arrow", "→"));
+    body.appendChild(gcta);
     card.appendChild(body);
     return card;
   }
@@ -324,6 +436,8 @@
 
   function featuredCard(item) {
     var card = el("article", "feature");
+    var fg = item.game ? gameById(item.game) : null;
+    if (fg && fg.color) card.style.setProperty("--card-brand", fg.color);
     card.appendChild(newsThumb(item, "feature-art"));
     card.appendChild(newsTitle(item));
     card.appendChild(el("p", "", loc(item, "summary")));
@@ -333,6 +447,8 @@
 
   function sideCard(item) {
     var card = el("article", "side");
+    var sg = item.game ? gameById(item.game) : null;
+    if (sg && sg.color) card.style.setProperty("--card-brand", sg.color);
     var text = el("div", "side-text");
     text.appendChild(newsTitle(item));
     text.appendChild(newsMeta(item));
@@ -427,27 +543,6 @@
     if (hero) hero.classList.remove("is-auto");
   }
 
-  /* Tàn lửa cam bay lên trong hero — chất "Nhà Cáo" ấm và sống động */
-  function spawnEmbers() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    var hero = document.querySelector(".hero");
-    if (!hero || hero.querySelector(".embers")) return;
-    var box = el("div", "embers");
-    box.setAttribute("aria-hidden", "true");
-    for (var i = 0; i < 16; i++) {
-      var s = el("span", "ember");
-      var size = 3 + Math.random() * 5;
-      s.style.left = (Math.random() * 100) + "%";
-      s.style.width = size + "px";
-      s.style.height = size + "px";
-      s.style.animationDuration = (7 + Math.random() * 9) + "s";
-      s.style.animationDelay = (-Math.random() * 16) + "s";
-      s.style.setProperty("--drift", (Math.random() * 120 - 60) + "px");
-      box.appendChild(s);
-    }
-    hero.appendChild(box);
-  }
-
   var heroBound = false;
 
   function renderHero() {
@@ -540,6 +635,60 @@
     });
   }
 
+  /* Dịch vụ: hai thẻ Thu mua / Booster, mỗi thẻ liệt kê game (trang riêng) + nút liên hệ admin */
+  var SVC_GAMES = { buy: ["blox-fruits", "poe-1", "aion-2"], boost: ["wow-forever", "poe-1", "aion-2"] };
+  function adminUrl() {
+    var a = data.community.filter(function (c) { return c.card === false && c.url; })[0];
+    return a ? a.url : "https://discord.gg/t2fPyUPGY";
+  }
+  function svcLinks(id) {
+    return SVC_GAMES[id].map(function (gid) {
+      var g = gameById(gid);
+      if (!g || !g.url) return null;
+      var sv = loc(g, "svc");
+      return { name: g.name, href: g.url, detail: sv && sv[id] };
+    }).filter(Boolean);
+  }
+  function renderServices() {
+    var box = $("svc-list");
+    box.textContent = "";
+    [["buy", "01", "aboutBuy", "aboutBuyText", "svcQuote"],
+     ["boost", "02", "aboutBoost", "aboutBoostText", "svcRecruit"]].forEach(function (def) {
+      var id = def[0];
+      var card = el("article", "svc-card");
+      var head = el("div", "svc-card-head");
+      head.appendChild(el("span", "svc-num", def[1]));
+      var titles = el("div", "svc-titles");
+      titles.appendChild(el("strong", "", t(def[2])));
+      titles.appendChild(el("small", "", t(def[3])));
+      head.appendChild(titles);
+      card.appendChild(head);
+      card.appendChild(el("p", "svc-card-meta", t(id === "buy" ? "svcBuyMeta" : "svcBoostMeta")));
+      var ul = el("ul", "svc-links");
+      svcLinks(id).forEach(function (l) {
+        var li = el("li");
+        var a = el("a");
+        a.href = l.href;
+        var txt = el("span", "svc-link-text");
+        txt.appendChild(el("strong", "", l.name));
+        if (l.detail) txt.appendChild(el("small", "", l.detail));
+        a.appendChild(txt);
+        a.appendChild(el("span", "svc-link-tag", t("visit")));
+        a.appendChild(el("span", "svc-arrow", "→"));
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+      var cta = el("a", "svc-cta", t(def[4]));
+      cta.href = adminUrl();
+      cta.target = "_blank";
+      cta.rel = "noopener";
+      cta.appendChild(el("span", "svc-arrow", "→"));
+      card.appendChild(cta);
+      box.appendChild(card);
+    });
+  }
+
   /* Danh sách gạch đầu dòng dưới từng mục "Chúng tôi làm gì", lấy từ chuỗi ngăn bởi dấu | */
   function renderAboutLists() {
     Array.prototype.forEach.call(document.querySelectorAll("[data-list]"), function (ul) {
@@ -620,7 +769,7 @@
 
   function observeReveals() {
     if (!revealObserver) return;
-    var nodes = document.querySelectorAll(".head-row, .filters, .feature, .side, .about-grid article, .community-card, .game-card, .footer-top, .footer-cols");
+    var nodes = document.querySelectorAll(".head-row, .filters, .feature, .side, .rec-card, .community-card, .game-card, .why-statement, .why-stat, .why-panel, .footer-top, .footer-cols");
     Array.prototype.forEach.call(nodes, function (n) {
       if (n.classList.contains("reveal") || n.classList.contains("in-view")) return;
       var idx = 0, sib = n;
@@ -633,10 +782,10 @@
 
   function renderAll() {
     renderHero();
-    spawnEmbers();
     renderGames();
     renderNews();
     renderCommunity();
+    renderServices();
     renderAboutLists();
     renderFooter();
     observeReveals();
