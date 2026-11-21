@@ -319,6 +319,16 @@
     });
   }
 
+  /* Mục dịch vụ trong trang game: thu mua (buy) và booster (boost); chưa có mục riêng thì mở trang game */
+  var SVC_ANCHORS = { "poe-1": { buy: "#sell-divine" }, "blox-fruits": { buy: "#bang-gia" } };
+  function svcTag(game, kind, label) {
+    var a = el("a", "tag tag-svc", label);
+    var hash = (SVC_ANCHORS[game.id] || {})[kind] || "";
+    a.href = (game.url || "#") + hash;
+    a.addEventListener("click", function (e) { e.stopPropagation(); });
+    return a;
+  }
+
   function gameCard(game) {
     var card = el(game.url ? "a" : "button", "game-card");
     if (game.color) card.style.setProperty("--card-brand", game.color);
@@ -357,14 +367,10 @@
     var sv = game.svc || {};
     if (sv.buy || sv.boost) {
       var tags = el("div", "tags");
-      if (sv.buy) tags.appendChild(el("span", "tag tag-svc", t("svcBuyTag")));
-      if (sv.boost) tags.appendChild(el("span", "tag tag-svc", t("svcBoostTag")));
+      if (sv.buy) tags.appendChild(svcTag(game, "buy", t("svcBuyTag")));
+      if (sv.boost) tags.appendChild(svcTag(game, "boost", t("svcBoostTag")));
       body.appendChild(tags);
     }
-    var gcta = el("span", "game-cta" + (game.url ? "" : " is-soon"));
-    gcta.appendChild(el("span", "", t(game.url ? "gameCta" : "soon")));
-    gcta.appendChild(el("span", "game-cta-arrow", "→"));
-    body.appendChild(gcta);
     card.appendChild(body);
     return card;
   }
@@ -785,7 +791,6 @@
     renderGames();
     renderNews();
     renderCommunity();
-    renderServices();
     renderAboutLists();
     renderFooter();
     observeReveals();

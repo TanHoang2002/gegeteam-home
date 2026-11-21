@@ -1007,3 +1007,9 @@ a.community-card:hover .community-icon, a.community-card:focus-visible .communit
 .game-card:hover .game-cta { transform: translateY(-1px); filter: brightness(1.08); }
 .game-cta.is-soon { background: rgba(255, 255, 255, .14); color: var(--text); box-shadow: none; }
 .games-lead { margin: -20px 0 28px; color: var(--soft); font-size: 15px; line-height: 1.6; max-width: 62ch; }
+
+/* v70 — bỏ logo trước tiêu đề; nhãn Thu mua/Booster trên thẻ game là liên kết */
+.head-row h2::before { display: none; }
+.head-row h2 { gap: 0; }
+a.tag-svc { text-decoration: none; transition: background-color .18s ease, border-color .18s ease, color .18s ease; }
+a.tag-svc:hover { background: var(--orange); border-color: var(--orange); color: var(--on-orange); }
