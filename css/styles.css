@@ -1691,3 +1691,18 @@ body {
   min-width: 116px;
   max-width: 46%;
 }
+
+/* v81 — 2 nút trên thẻ game: nổi khối rõ như nút thật, dễ bấm */
+.game-card .game-body .tags a.tag-svc {
+  background: rgba(255, 255, 255, .12) !important;
+  border: 1.5px solid rgba(255, 255, 255, .85) !important;
+  color: #fff !important;
+  font-size: 13px;
+  min-height: 44px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .65), inset 0 1px 0 rgba(255, 255, 255, .25);
+}
+.game-card .game-body .tags a.tag-svc:active {
+  background: #fff !important;
+  color: #111 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .6);
+}

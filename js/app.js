@@ -323,7 +323,8 @@
   var SVC_ANCHORS = {
     "aion-2": { buy: "#pricing", boost: "#boost" },
     "blox-fruits": { buy: "#bang-gia" },
-    "poe-1": { buy: "#sell-divine" }
+    "poe-1": { buy: "#sell-divine", boost: "#catalogView" },
+    "wow-forever": { boost: "#catalogView" }
   };
   function svcTag(game, kind, label) {
     var a = el("a", "tag tag-svc", label);
