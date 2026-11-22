@@ -1706,3 +1706,7 @@ body {
   color: #111 !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, .6);
 }
+
+/* v82 — Giảm tải cho trang chủ: bỏ animation zoom hero (chạy liên tục rất nặng) */
+.hero-slide.is-active .hero-img { animation: none !important; }
+.hero-img { transform: none !important; }

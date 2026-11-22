@@ -501,10 +501,17 @@
     if (!item.isGame) slide.classList.add("hero-news");
     if (item.image || (game && game.image)) {
       var img = el("img", "hero-img");
-      img.src = item.image || game.hero || game.image;
+      var srcUrl = item.image || game.hero || game.image;
+      /* Chỉ tải ảnh slide đang xem + slide kế, tránh tải 6 ảnh lớn cùng lúc */
+      if (i === 0) {
+        img.src = srcUrl;
+        img.setAttribute("fetchpriority", "high");
+      } else {
+        img.setAttribute("data-src", srcUrl);
+        img.loading = "lazy";
+      }
       img.alt = "";
       img.decoding = "async";
-      if (i === 0) img.setAttribute("fetchpriority", "high");
       if (item.isGame && game.heroFocusMobile) img.style.setProperty("--focus-m", game.heroFocusMobile);
       if (item.isGame && game.heroFocus) img.style.setProperty("--focus-d", game.heroFocus);
       if (i > 0) img.loading = "lazy";
@@ -536,6 +543,15 @@
     var slides = $("hero-slides").children;
     var dots = $("hero-dots").children;
     heroIndex = (i + slides.length) % slides.length;
+    /* Nạp ảnh cho slide hiện tại và slide kế tiếp (trình duyệt giải mã dần) */
+    [heroIndex, (heroIndex + 1) % slides.length].forEach(function (n) {
+      var s = slides[n];
+      if (!s) return;
+      var img = s.querySelector(".hero-img");
+      if (img && !img.getAttribute("src") && img.getAttribute("data-src")) {
+        img.src = img.getAttribute("data-src");
+      }
+    });
     Array.prototype.forEach.call(slides, function (s, n) {
       s.classList.toggle("is-active", n === heroIndex);
       s.setAttribute("aria-hidden", String(n !== heroIndex));
