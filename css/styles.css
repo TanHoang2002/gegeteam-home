@@ -1013,3 +1013,681 @@ a.community-card:hover .community-icon, a.community-card:focus-visible .communit
 .head-row h2 { gap: 0; }
 a.tag-svc { text-decoration: none; transition: background-color .18s ease, border-color .18s ease, color .18s ease; }
 a.tag-svc:hover { background: var(--orange); border-color: var(--orange); color: var(--on-orange); }
+
+/* ============================================================
+   v71 — Nút Thu mua / Booster to, rõ, đa màu; tăng cỡ chữ nhỏ;
+   thêm màu nhấn đa dạng (không đụng nút cam CTA)
+   ============================================================ */
+:root {
+  --c-buy: #2fd39a;
+  --c-boost: #a98bff;
+  --c-accent-2: #4dc3ff;
+  --c-accent-3: #ff6fa3;
+}
+
+/* Hai nút trên thẻ game: to, rõ, mỗi nút một màu */
+.game-card .game-body .tags { margin-top: 14px; gap: 10px; justify-content: center; }
+.game-card a.tag-svc {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  background: rgba(10, 9, 8, .72);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .45);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.game-card a.tag-svc:nth-child(1) { color: var(--c-buy); }
+.game-card a.tag-svc:nth-child(2) { color: var(--c-boost); }
+.game-card a.tag-svc::after { content: "→"; font-size: 15px; transition: transform .2s ease; }
+.game-card a.tag-svc:nth-child(1):hover { background: var(--c-buy); color: #04140d; }
+.game-card a.tag-svc:nth-child(2):hover { background: var(--c-boost); color: #120b25; }
+.game-card a.tag-svc:hover::after { transform: translateX(3px); }
+
+/* Tăng cỡ chữ nhỏ trên toàn trang */
+.news-meta { font-size: 13px; }
+.badge { font-size: 12.5px; }
+.side h3 { font-size: 16.5px; }
+.feature p { font-size: 16.5px; }
+.feature h3 { font-size: clamp(22px, 2.4vw, 30px); }
+.side-text { gap: 12px; }
+.game-meta { font-size: 12.5px; }
+.tag { font-size: 12.5px; }
+.game-body p { font-size: 15px; }
+.game-body h3 { font-size: 28px; }
+.game-card .game-body .tags:empty { display: none; }
+.community-card strong { font-size: 18px; }
+.community-card .community-text span { font-size: 14.5px; }
+.about-grid p, .about-list li { font-size: 16px; }
+.about-grid h3 { font-size: 24px; }
+.services-lead, .lead { font-size: 18px; }
+.why-story { font-size: 17px; }
+.why-note-inline { font-size: 15px; }
+.why-stat span { font-size: 15px; }
+.why-card h3 { font-size: 19px; }
+.why-card p { font-size: 16px; }
+.why-eyebrow { font-size: 14px; }
+.why-giant-sub { font-size: clamp(16px, 2vw, 24px); }
+.rec-card p { font-size: 17px; }
+.rec-card h3 { font-size: 22px; }
+.rec-apply { font-size: 15px; }
+.rec-note, .why-note { font-size: 15px; }
+.step p { font-size: 15.5px; }
+.step h3 { font-size: 19px; }
+.faq-item summary { font-size: 17px; }
+.faq-item p { font-size: 16px; }
+.footer-cols li a, .footer-cols li.is-off { font-size: 16px; }
+.footer-cols h3 { font-size: 14px; }
+.footer-about { font-size: 16px; }
+.legal, .to-top { font-size: 14px; }
+.chip { font-size: 14.5px; }
+.search input { font-size: 16px; }
+.tag-btn { font-size: 14px; }
+.stat span { font-size: 15px; }
+.svc-card-meta { font-size: 14px; }
+.svc-link-text small { font-size: 14px; }
+
+/* Màu nhấn đa dạng */
+.why-stat:nth-child(1) strong { color: #ffb347; }
+.why-stat:nth-child(2) strong { color: var(--c-buy); }
+.why-stat:nth-child(3) strong { color: var(--c-accent-2); }
+.why-stat:nth-child(4) strong { color: var(--c-boost); }
+.why-icon { border-color: transparent; background: linear-gradient(135deg, rgba(255, 179, 71, .22), rgba(255, 111, 163, .18)); }
+.why-card:nth-child(2) .why-icon { background: linear-gradient(135deg, rgba(47, 211, 154, .22), rgba(77, 195, 255, .18)); }
+.why-card:nth-child(3) .why-icon { background: linear-gradient(135deg, rgba(77, 195, 255, .22), rgba(169, 139, 255, .18)); }
+.why-card:nth-child(4) .why-icon { background: linear-gradient(135deg, rgba(169, 139, 255, .24), rgba(255, 111, 163, .18)); }
+.why-icon { color: #fff; }
+.rec-card:nth-child(1) .why-icon { background: linear-gradient(135deg, rgba(47, 211, 154, .25), rgba(77, 195, 255, .2)); }
+.rec-card:nth-child(2) .why-icon { background: linear-gradient(135deg, rgba(169, 139, 255, .25), rgba(255, 111, 163, .2)); }
+.rec-card:nth-child(1) .rec-apply { color: var(--c-buy); }
+.rec-card:nth-child(2) .rec-apply { color: var(--c-boost); }
+.rec-apply { font-size: 16px; padding: 10px 18px; border: 2px solid currentColor; border-radius: 999px; }
+.rec-card:nth-child(1) .rec-apply:hover { background: var(--c-buy); color: #04140d; }
+.rec-card:nth-child(2) .rec-apply:hover { background: var(--c-boost); color: #120b25; }
+.tag { background: rgba(77, 195, 255, .16); border-color: rgba(77, 195, 255, .4); color: #bfe6ff; }
+.tag:nth-child(3n+2) { background: rgba(47, 211, 154, .16); border-color: rgba(47, 211, 154, .4); color: #b8f5dc; }
+.tag:nth-child(3n) { background: rgba(255, 111, 163, .16); border-color: rgba(255, 111, 163, .4); color: #ffc4da; }
+.side:nth-child(odd) .badge { background: rgba(77, 195, 255, .18); border-color: rgba(77, 195, 255, .4); color: #bfe6ff; }
+.side:nth-child(even) .badge { background: rgba(255, 111, 163, .18); border-color: rgba(255, 111, 163, .4); color: #ffc4da; }
+.community-card:nth-child(1) { --brand: #0068ff; }
+.community-card:nth-child(2) { --brand: #1877f2; }
+.community-card:nth-child(3) { --brand: #5865f2; }
+.community-card:nth-child(4) { --brand: #5865f2; }
+.community-card:nth-child(5) { --brand: var(--orange); }
+
+/* ============================================================
+   v72 — Nút rõ ràng cho người dùng điện thoại: màu đặc, có chữ
+   hành động, không dùng viền/bóng sáng
+   ============================================================ */
+
+/* Nhãn Thu mua / Booster trên thẻ game: nền đặc, chữ tối */
+.game-card a.tag-svc {
+  border: 0;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  color: #0b0a09;
+  background: var(--c-buy);
+  padding: 10px 22px;
+}
+.game-card a.tag-svc:nth-child(2) { background: var(--c-boost); }
+.game-card a.tag-svc:nth-child(1):hover { background: #5ff0bd; color: #0b0a09; }
+.game-card a.tag-svc:nth-child(2):hover { background: #c4b1ff; color: #0b0a09; }
+.game-card a.tag-svc::after { content: ""; }
+
+/* Thẻ kênh cộng đồng: icon màu đặc + nhãn MỞ rõ ràng */
+.community-card {
+  padding-right: 96px;
+  background: var(--panel-2);
+  border-color: transparent;
+  min-height: 104px;
+}
+.community-card::before { display: none; }
+.community-icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 46px;
+  height: 46px;
+  transform: translateY(-50%);
+  background: var(--brand);
+  border: 0;
+  color: #fff;
+  opacity: 1;
+}
+.community-icon svg { width: 22px; height: 22px; }
+.community-card::after {
+  content: "MỞ →";
+  position: absolute;
+  right: 14px;
+  bottom: 9px;
+  padding: 2px 8px;
+  background: var(--brand);
+  border-radius: 6px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.community-card.is-off::after { display: none; }
+a.community-card:hover, a.community-card:focus-visible {
+  background: color-mix(in srgb, var(--brand) 26%, var(--panel-2));
+  border-color: transparent;
+  box-shadow: none;
+  transform: none;
+}
+a.community-card:hover .community-icon, a.community-card:focus-visible .community-icon {
+  background: #fff;
+  color: var(--brand);
+  transform: translateY(-50%) scale(1.06);
+}
+.community-card.is-off { opacity: .6; }
+
+/* Nút ứng tuyển: nền đặc */
+.rec-apply { border: 0; border-radius: 12px; padding: 12px 20px; color: #0b0a09; }
+.rec-card:nth-child(1) .rec-apply { background: var(--c-buy); }
+.rec-card:nth-child(2) .rec-apply { background: var(--c-boost); }
+.rec-card:nth-child(1) .rec-apply:hover { background: #5ff0bd; color: #0b0a09; }
+.rec-card:nth-child(2) .rec-apply:hover { background: #c4b1ff; color: #0b0a09; }
+.game-card .game-body .tags a.tag-svc { color: #0b0a09; }
+.game-card .game-body .tags a.tag-svc:nth-child(1) { background: var(--c-buy); }
+.game-card .game-body .tags a.tag-svc:nth-child(2) { background: var(--c-boost); }
+
+/* ============================================================
+   v74 — Hệ thống nút & màu đồng bộ cho GeGe Team
+   • Một ngôn ngữ nút: nền tối mờ + viền mảnh → hover đổ cam
+   • Bảng màu tinh tế: hổ phách / đồng / kem (bỏ mint, tím, hồng)
+   • Sửa lỗi chữ cùng màu nền ở nút Ứng tuyển
+   ============================================================ */
+:root {
+  --btn-bg: rgba(255, 255, 255, .05);
+  --btn-line: rgba(255, 255, 255, .18);
+  --accent-1: #ffb347;
+  --accent-2: #e08a3c;
+  --accent-3: #b9702c;
+  --accent-4: #f2e6d8;
+}
+
+/* --- Nút phụ dùng chung: Thu mua, Booster, Ứng tuyển --- */
+.game-card .game-body .tags a.tag-svc,
+.rec-apply {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 22px;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-line);
+  border-radius: 12px;
+  color: var(--text) !important;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
+}
+.game-card .game-body .tags a.tag-svc::after { content: ""; }
+.game-card .game-body .tags a.tag-svc:hover,
+.game-card .game-body .tags a.tag-svc:focus-visible,
+.rec-apply:hover,
+.rec-apply:focus-visible {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--on-orange) !important;
+  transform: translateY(-1px);
+}
+.game-card .game-body .tags a.tag-svc:hover::after,
+.rec-apply:hover::after { color: var(--on-orange); }
+
+.rec-card:nth-child(1) .rec-apply,
+.rec-card:nth-child(2) .rec-apply {
+  background: var(--btn-bg);
+  color: var(--text) !important;
+}
+.rec-apply { margin-top: 16px; font-size: 14.5px; }
+
+/* --- Thẻ kênh cộng đồng: bỏ badge MỞ, icon màu thương hiệu, hover tinh tế --- */
+.community-card { padding: 20px 20px 20px 22px; min-height: 100px; }
+.community-card::after { display: none !important; }
+.community-icon {
+  position: static;
+  transform: none;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  background: color-mix(in srgb, var(--brand) 22%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand) 45%, transparent);
+  color: var(--brand);
+}
+.community-icon svg { width: 20px; height: 20px; }
+a.community-card:hover, a.community-card:focus-visible {
+  background: color-mix(in srgb, var(--brand) 10%, var(--panel));
+  border-color: color-mix(in srgb, var(--brand) 45%, transparent);
+  transform: none;
+}
+a.community-card:hover .community-icon, a.community-card:focus-visible .community-icon {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  transform: none;
+}
+
+/* --- Bảng màu tinh tế cho số liệu & icon (thay mint/tím/hồng) --- */
+.why-stat:nth-child(1) strong { color: var(--accent-4); }
+.why-stat:nth-child(2) strong { color: var(--accent-1); }
+.why-stat:nth-child(3) strong { color: var(--accent-2); }
+.why-stat:nth-child(4) strong { color: var(--accent-3); }
+.why-icon,
+.why-card:nth-child(2) .why-icon,
+.why-card:nth-child(3) .why-icon,
+.why-card:nth-child(4) .why-icon,
+.rec-card:nth-child(1) .why-icon,
+.rec-card:nth-child(2) .why-icon {
+  background: radial-gradient(circle at 30% 25%, rgba(255, 179, 71, .22), rgba(255, 255, 255, .03));
+  border: 1px solid rgba(255, 179, 71, .35);
+  color: var(--accent-1);
+}
+
+/* --- Nhãn phụ (tag) đồng bộ tông ấm --- */
+.tag { background: rgba(255, 179, 71, .12); border: 1px solid rgba(255, 179, 71, .3); color: #ffcf9b; }
+.tag:nth-child(3n+2), .tag:nth-child(3n) { background: rgba(255, 179, 71, .12); border-color: rgba(255, 179, 71, .3); color: #ffcf9b; }
+.side:nth-child(odd) .badge, .side:nth-child(even) .badge { background: rgba(255, 179, 71, .14); border-color: rgba(255, 179, 71, .32); color: #ffcf9b; }
+
+/* Hover cho mọi nút chính: sáng cam rõ ràng */
+.tag-btn:hover, .chip:hover { background: var(--orange); border-color: var(--orange); color: var(--on-orange); }
+
+/* ============================================================
+   v75 — Bảng màu sang trọng: espresso + vàng champagne + đồng
+   • Nút: viền vàng mảnh, hover đổ vàng champagne, chữ nâu đậm
+   • Sửa triệt để nút còn sót màu mint/tím
+   ============================================================ */
+:root {
+  --lux-ink: #0b0908;
+  --lux-bg: #100d0b;
+  --lux-panel: #191411;
+  --lux-panel-2: #221b16;
+  --lux-line: rgba(216, 180, 122, .18);
+  --lux-line-strong: rgba(216, 180, 122, .38);
+  --lux-gold: #d8b47a;
+  --lux-gold-2: #f0d9ae;
+  --lux-copper: #b87333;
+  --lux-ivory: #f4efe8;
+  --lux-muted: #b6a894;
+}
+
+/* --- Nền & chữ toàn trang --- */
+body { background: var(--lux-bg); color: var(--lux-ivory); }
+.flow {
+  background:
+    radial-gradient(ellipse 80% 30% at 50% 0%, rgba(216, 180, 122, .07), transparent 65%),
+    linear-gradient(180deg, #171210 0%, #100d0b 18%, #100d0b 82%, #171210 100%);
+}
+.games-section { background: #14100d; }
+.games-section::before {
+  background:
+    radial-gradient(ellipse 45% 55% at 12% 18%, rgba(216, 180, 122, .07), transparent 70%),
+    radial-gradient(ellipse 40% 60% at 85% 30%, rgba(255, 255, 255, .03), transparent 70%),
+    repeating-linear-gradient(115deg, transparent 0 120px, rgba(0, 0, 0, .14) 120px 124px);
+}
+.footer { background: linear-gradient(180deg, #0e0b09, #090706); }
+.footer::before { background: linear-gradient(90deg, transparent, var(--lux-gold) 32%, var(--lux-gold-2) 50%, var(--lux-gold) 68%, transparent); height: 1px; }
+
+/* --- Khối tiêu đề: chữ ngà, chữ nhỏ màu đồng nhạt --- */
+h2, .hero-title, .brand, .game-body h3, .feature h3, .side h3, .why-card h3, .rec-card h3, .about-grid h3 { color: var(--lux-ivory); }
+.head-row h2 { text-shadow: 0 0 42px rgba(216, 180, 122, .16); }
+.legal, .why-note, .rec-note, .game-empty, .count, .empty, .services-lead, .lead { color: var(--lux-muted); }
+.why-eyebrow, .news-meta, .footer-cols h3, .svc-card-meta { color: var(--lux-gold); }
+
+/* --- Nút phụ (Thu mua / Booster / Ứng tuyển): viền vàng mảnh --- */
+.game-card .game-body .tags a.tag-svc,
+.game-card .game-body .tags a.tag-svc:nth-child(1),
+.game-card .game-body .tags a.tag-svc:nth-child(2),
+.rec-card:nth-child(1) .rec-apply,
+.rec-card:nth-child(2) .rec-apply,
+.rec-apply {
+  background: rgba(20, 16, 13, .72) !important;
+  border: 1px solid var(--lux-line-strong) !important;
+  border-radius: 10px;
+  color: var(--lux-gold-2) !important;
+  box-shadow: none;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+.game-card .game-body .tags a.tag-svc:hover,
+.game-card .game-body .tags a.tag-svc:focus-visible,
+.rec-apply:hover,
+.rec-apply:focus-visible {
+  background: linear-gradient(100deg, var(--lux-gold-2), var(--lux-gold)) !important;
+  border-color: var(--lux-gold-2) !important;
+  color: #2a1c0c !important;
+}
+
+/* --- Nút cam chính đổi sang vàng champagne --- */
+.cta-pill, .btn-primary, .svc-cta {
+  background: linear-gradient(100deg, var(--lux-gold-2), var(--lux-gold));
+  color: #2a1c0c;
+  box-shadow: 0 10px 28px rgba(216, 180, 122, .22);
+}
+.cta-pill:hover, .btn-primary:hover, .svc-cta:hover { background: linear-gradient(100deg, #fdf1dc, #e8c894); }
+.cta-play { background: #14100d; color: var(--lux-gold); }
+.game-cta { background: var(--lux-gold); }
+
+/* --- Chips / tag: tông vàng mờ --- */
+.chip { border-color: var(--lux-line); color: var(--lux-muted); }
+.chip:hover { border-color: var(--lux-gold); color: var(--lux-ivory); background: rgba(216, 180, 122, .08); }
+.chip[aria-pressed="true"] { background: var(--lux-gold); border-color: var(--lux-gold); color: #2a1c0c; }
+.tag-btn { border-color: var(--lux-line-strong); color: var(--lux-gold-2); }
+.tag-btn:hover { background: var(--lux-gold); border-color: var(--lux-gold); color: #2a1c0c; }
+.tag, .tag:nth-child(3n+2), .tag:nth-child(3n) { background: rgba(216, 180, 122, .1); border: 1px solid var(--lux-line); color: var(--lux-gold-2); }
+.badge, .side:nth-child(odd) .badge, .side:nth-child(even) .badge { background: rgba(216, 180, 122, .12); border: 1px solid var(--lux-line-strong); color: var(--lux-gold-2); }
+
+/* --- Số liệu Why: dải vàng → đồng, sang trọng --- */
+.why-stat:nth-child(1) strong { color: var(--lux-ivory); }
+.why-stat:nth-child(2) strong { color: var(--lux-gold-2); }
+.why-stat:nth-child(3) strong { color: var(--lux-gold); }
+.why-stat:nth-child(4) strong { color: var(--lux-copper); }
+.why-stat + .why-stat::before { background: var(--lux-line); }
+.why-stat span { color: var(--lux-muted); }
+
+/* --- Panel Why: viền vàng mờ thay vì cam cháy --- */
+.why-statement {
+  background: linear-gradient(100deg, #17120f 36%, #2a1e13 66%, #6b4a1c 100%);
+  border: 1px solid var(--lux-line);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
+}
+.why-statement::before { background: radial-gradient(ellipse 60% 80% at 88% 20%, rgba(216, 180, 122, .28), transparent 62%); }
+.why-story { color: rgba(244, 239, 232, .82); }
+.why-giant strong { background: linear-gradient(180deg, #fffaf0 22%, rgba(216, 180, 122, .06) 92%); -webkit-background-clip: text; background-clip: text; }
+.why-giant-word { color: var(--lux-ivory); }
+.why-giant-sub { color: rgba(240, 217, 174, .72); }
+
+/* --- Icon trụ cột / tuyển dụng: vòng vàng --- */
+.why-icon, .why-card:nth-child(2) .why-icon, .why-card:nth-child(3) .why-icon, .why-card:nth-child(4) .why-icon,
+.rec-card:nth-child(1) .why-icon, .rec-card:nth-child(2) .why-icon {
+  background: radial-gradient(circle at 30% 25%, rgba(216, 180, 122, .16), rgba(255, 255, 255, .02));
+  border: 1px solid var(--lux-line-strong);
+  color: var(--lux-gold);
+}
+
+/* --- Thẻ kênh cộng đồng: icon mờ theo thương hiệu, viền vàng --- */
+.community-grid { background: var(--lux-line); border: 1px solid var(--lux-line); }
+.community-card { background: var(--lux-panel); }
+.community-card strong { color: var(--lux-ivory); }
+.community-card .community-text span { color: var(--lux-muted); }
+
+/* --- Footer --- */
+.footer-brand strong { color: var(--lux-ivory); }
+.footer-cols li a { color: rgba(244, 239, 232, .82); }
+.footer-cols li a:hover { color: var(--lux-gold-2); }
+.social { border-color: var(--lux-line); background: var(--lux-panel); }
+.social:hover { background: var(--lux-gold); border-color: var(--lux-gold); color: #2a1c0c; }
+.footer-card { border-top: 1px solid var(--lux-line-strong); background: var(--lux-panel); }
+.footer-phone:hover { color: var(--lux-gold-2); }
+.to-top::after { color: var(--lux-gold); }
+
+/* --- Viền/bóng các thẻ dùng tông vàng mờ --- */
+.game-card, .feature, .side, .why-panel, .rec-card, .footer-card, .dialog { border-color: var(--lux-line); }
+.game-card::before { border-color: rgba(216, 180, 122, .22); }
+.game-card:hover::before { border-color: rgba(216, 180, 122, .5); }
+.side:hover, .feature:hover .feature-art { border-color: var(--lux-line-strong); }
+.dialog { border-color: var(--lux-line-strong); }
+:focus-visible { outline: 2px solid var(--lux-gold); }
+::selection { background: rgba(216, 180, 122, .85); color: #20150a; }
+
+/* ============================================================
+   v76 — Trang trí tinh tế: đường kẻ vàng mảnh giữa các khối,
+   gạch vàng dọc trước tiêu đề, góc vàng trên thẻ game.
+   Nút: hover ĐỔ ĐẶC cả nút + nổi khối, KHÔNG sáng viền.
+   ============================================================ */
+
+/* --- Gạch vàng dọc ngắn trước mỗi tiêu đề khối --- */
+.head-row h2 { display: flex; align-items: center; }
+.head-row h2::before {
+  content: "";
+  display: inline-block;
+  flex: none;
+  width: 4px;
+  height: .82em;
+  margin-right: 14px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--lux-gold-2), var(--lux-copper));
+}
+
+/* --- Đường kẻ vàng mảnh phân cách các khối --- */
+.flow > section { position: relative; }
+.flow > section + section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(1120px, 88%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--lux-line-strong), transparent);
+}
+.games-section { border-top: 0; }
+.games-section::after { opacity: .04; }
+
+/* --- Thẻ game: khung góc vàng mảnh --- */
+.game-card::before {
+  inset: 10px;
+  border: 0;
+  border-radius: 8px;
+  opacity: .5;
+  background:
+    linear-gradient(var(--lux-gold), var(--lux-gold)) left top / 20px 1px no-repeat,
+    linear-gradient(var(--lux-gold), var(--lux-gold)) left top / 1px 20px no-repeat,
+    linear-gradient(var(--lux-gold), var(--lux-gold)) right top / 20px 1px no-repeat,
+    linear-gradient(var(--lux-gold), var(--lux-gold)) right top / 1px 20px no-repeat,
+    linear-gradient(var(--lux-gold), var(--lux-gold)) left bottom / 20px 1px no-repeat,
+    linear-gradient(var(--lux-gold), var(--lux-gold)) left bottom / 1px 20px no-repeat,
+    linear-gradient(var(--lux-gold), var(--lux-gold)) right bottom / 20px 1px no-repeat,
+    linear-gradient(var(--lux-gold), var(--lux-gold)) right bottom / 1px 20px no-repeat;
+  transition: opacity .25s ease;
+}
+.game-card:hover::before, .game-card:focus-visible::before { opacity: 1; }
+
+/* --- Nút: hover đổ đặc cả nút + nổi khối (không sáng viền) --- */
+.game-card .game-body .tags a.tag-svc,
+.rec-apply {
+  transition: background-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.game-card .game-body .tags a.tag-svc:hover,
+.game-card .game-body .tags a.tag-svc:focus-visible,
+.rec-apply:hover,
+.rec-apply:focus-visible {
+  background: linear-gradient(100deg, var(--lux-gold-2), var(--lux-gold)) !important;
+  color: #2a1c0c !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .55);
+  transform: translateY(-2px);
+}
+.svc-links a:hover { background: rgba(216, 180, 122, .08); }
+.tag-btn:hover, .chip:hover, .chip[aria-pressed="true"] { box-shadow: 0 10px 22px rgba(0, 0, 0, .45); }
+
+/* --- Nút chính (CTA): nổi khối rõ khi hover --- */
+.cta-pill:hover, .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .55);
+  filter: none;
+}
+
+/* --- Thẻ tin / cộng đồng / dịch vụ: hover nổi khối, không sáng viền --- */
+.feature:hover, .side:hover, .rec-card:hover {
+  box-shadow: 0 20px 44px rgba(0, 0, 0, .5);
+}
+.community-card:hover, a.community-card:focus-visible { box-shadow: 0 14px 30px rgba(0, 0, 0, .45); }
+
+/* v77 — Thẻ game: liên kết phủ toàn thẻ + nút dịch vụ bấm riêng */
+.game-card.has-link { cursor: pointer; }
+.game-hit { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.game-body { position: relative; z-index: 2; pointer-events: none; }
+.game-body .tags { pointer-events: auto; }
+.game-body .tags a.tag-svc { position: relative; z-index: 3; cursor: pointer; }
+.game-card button, .game-card a { -webkit-tap-highlight-color: transparent; }
+
+/* Phản hồi khi chạm/nhấn giữ: cả nút đổ vàng */
+.game-body .tags a.tag-svc:active,
+.rec-apply:active {
+  background: linear-gradient(100deg, #fdf1dc, #e8c894) !important;
+  color: #2a1c0c !important;
+  transform: translateY(0) scale(.98);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .5);
+}
+
+/* ============================================================
+   v78 — HIỆU NĂNG + NỀN CARBON ĐEN + NÚT TRẮNG
+   1) Bỏ lớp nhiễu SVG phủ toàn trang (nguyên nhân lag chính)
+   2) Bỏ toàn bộ backdrop-filter (blur) — rất nặng khi cuộn
+   3) Bỏ animation lặp vô hạn ở nút play
+   4) Nền đen carbon + hoạ tiết đường uốn lượn mảnh
+   5) Nút chữ trắng, viền trắng; hover đổ vàng
+   ============================================================ */
+
+/* 1. Bỏ lớp nhiễu SVG (render cả trang mỗi khung hình) */
+body::after { display: none !important; content: none !important; }
+
+/* 2 + 3. Bỏ blur & animation vô hạn */
+.topbar::before, .menu-panel, .hero-text, .game-body p, .community-icon,
+.game-card a.tag-svc, .rec-apply, .cta-pill::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.cta-play { animation: none !important; box-shadow: none; }
+.brand img { filter: none; }
+.about-grid article::before { filter: none; }
+
+/* 4. Nền đen carbon + hoạ tiết uốn lượn + lưới chéo mảnh */
+body {
+  background-color: #050607;
+  background-image:
+    radial-gradient(ellipse 90% 45% at 50% -8%, rgba(255, 255, 255, .05), transparent 62%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='700' viewBox='0 0 900 700'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.055' stroke-width='1.2'%3E%3Cpath d='M-60 150C120 40 260 240 430 150S700 30 960 150'/%3E%3Cpath d='M-60 300C140 200 300 380 470 300S740 190 960 300'/%3E%3Cpath d='M-60 470C120 380 280 540 450 470S720 360 960 470'/%3E%3Cpath d='M-60 620C160 540 320 680 500 620S760 520 960 620'/%3E%3C/g%3E%3C/svg%3E"),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, .022) 0 1px, transparent 1px 96px),
+    linear-gradient(180deg, #0a0b0d 0%, #050607 100%);
+  background-size: auto, 900px 700px, auto, auto;
+  background-repeat: no-repeat, repeat, repeat, no-repeat;
+}
+.flow {
+  background:
+    radial-gradient(ellipse 80% 30% at 50% 0%, rgba(255, 255, 255, .045), transparent 65%),
+    linear-gradient(180deg, #0a0b0d 0%, #060708 20%, #060708 80%, #0a0b0d 100%);
+}
+.games-section { background: #08090b; }
+.games-section::before {
+  background:
+    radial-gradient(ellipse 45% 55% at 12% 18%, rgba(255, 255, 255, .045), transparent 70%),
+    repeating-linear-gradient(115deg, transparent 0 120px, rgba(0, 0, 0, .2) 120px 124px);
+}
+.footer { background: linear-gradient(180deg, #090a0c, #040506); }
+.cta { background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255, 255, 255, .05), transparent 62%), #060708; }
+.why { background: #060708; }
+.news-section {
+  background:
+    radial-gradient(ellipse at 25% 0%, rgba(255, 255, 255, .04), transparent 60%),
+    linear-gradient(180deg, #08090b, #07080a 60%, #050607);
+}
+.recruit { background: #060708; }
+
+/* 4b. Panel/khối dùng nền than trung tính thay vì nâu */
+:root {
+  --panel: #121417;
+  --panel-2: #1a1d21;
+  --bg: #050607;
+  --bg-2: #0a0b0d;
+  --charcoal: #0d0f12;
+  --line: rgba(255, 255, 255, .09);
+  --line-strong: rgba(255, 255, 255, .18);
+}
+.topbar.is-scrolled::before { background: #050607; }
+
+/* 5. Nút phụ: chữ TRẮNG, viền TRẮNG; hover đổ vàng */
+.game-card .game-body .tags a.tag-svc,
+.rec-apply,
+.game-card .game-body .tags a.tag-svc:nth-child(1),
+.game-card .game-body .tags a.tag-svc:nth-child(2),
+.rec-card:nth-child(1) .rec-apply,
+.rec-card:nth-child(2) .rec-apply {
+  background: rgba(255, 255, 255, .06) !important;
+  border: 1px solid rgba(255, 255, 255, .72) !important;
+  border-radius: 10px;
+  color: #ffffff !important;
+}
+.game-card .game-body .tags a.tag-svc:hover,
+.game-card .game-body .tags a.tag-svc:focus-visible,
+.rec-apply:hover,
+.rec-apply:focus-visible {
+  background: linear-gradient(100deg, #ffe0b0, #f0b969) !important;
+  border-color: #ffffff !important;
+  color: #1b1206 !important;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .6);
+  transform: translateY(-2px);
+}
+
+/* 6. Hai nút trên thẻ game luôn 1 hàng, đều nhau => thẻ không bị lệch */
+.game-card .game-body .tags {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+}
+.game-card .game-body .tags a.tag-svc {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 10px 10px;
+  font-size: 12.5px;
+  letter-spacing: .05em;
+  white-space: nowrap;
+}
+
+/* 7. Hover thẻ game nhẹ hơn (bớt giật), vẫn nổi khối */
+.game-card:hover, .game-card:focus-visible {
+  transform: skewX(var(--skew)) translateY(-6px) scale(1.02);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, .6);
+}
+
+/* 8. Giảm chi phí vẽ: bỏ render phần dưới màn hình cho tới khi cuộn tới */
+.news-section, .why, .recruit, .cta, .footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
+}
+
+/* 9. Hero nhẹ hơn: zoom nhẹ, tắt trên máy nhỏ */
+.hero-slide.is-active .hero-img { animation: heroZoomLite 14s linear forwards; }
+@keyframes heroZoomLite { from { transform: scale(1.01); } to { transform: scale(1.04); } }
+@media (max-width: 760px), (prefers-reduced-motion: reduce) {
+  .hero-slide.is-active .hero-img { animation: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .game-card:hover, .game-card:focus-visible { transform: skewX(var(--skew)); }
+  .tag-svc, .rec-apply { transition: none !important; }
+}
+
+/* v78b — Bỏ content-visibility (gây khoảng trắng khi chụp toàn trang và nhảy anchor) */
+.news-section, .why, .recruit, .cta, .footer {
+  content-visibility: visible;
+  contain-intrinsic-size: auto;
+}
+
+/* v79b — Nút dịch vụ: độ rộng ổn định, 1 hay 2 nút đều cân */
+.game-card .game-body .tags { justify-content: center; }
+.game-card .game-body .tags a.tag-svc {
+  flex: 0 1 auto;
+  min-width: 116px;
+  max-width: 46%;
+}

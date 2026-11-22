@@ -320,7 +320,11 @@
   }
 
   /* Mục dịch vụ trong trang game: thu mua (buy) và booster (boost); chưa có mục riêng thì mở trang game */
-  var SVC_ANCHORS = { "poe-1": { buy: "#sell-divine" }, "blox-fruits": { buy: "#bang-gia" } };
+  var SVC_ANCHORS = {
+    "aion-2": { buy: "#pricing", boost: "#boost" },
+    "blox-fruits": { buy: "#bang-gia" },
+    "poe-1": { buy: "#sell-divine" }
+  };
   function svcTag(game, kind, label) {
     var a = el("a", "tag tag-svc", label);
     var hash = (SVC_ANCHORS[game.id] || {})[kind] || "";
@@ -330,12 +334,16 @@
   }
 
   function gameCard(game) {
-    var card = el(game.url ? "a" : "button", "game-card");
+    /* Thẻ là khối thường; game có trang riêng thì phủ một liên kết toàn thẻ,
+       nút Thu mua/Booster nằm trên và bấm được riêng (tránh <a> lồng <a>) */
+    var card = el(game.url ? "div" : "button", "game-card");
     if (game.color) card.style.setProperty("--card-brand", game.color);
     if (game.url) {
-      /* Mở trang game ngay trong tab đang xem: trình duyệt nhúng (như trong VS Code) không mở được tab mới,
-         và từ trang game bấm logo là về lại trang chủ */
-      card.href = game.url;
+      card.classList.add("has-link");
+      var hit = el("a", "game-hit");
+      hit.href = game.url;
+      hit.setAttribute("aria-label", game.name);
+      card.appendChild(hit);
     } else {
       card.type = "button";
       card.addEventListener("click", function () { openSoon(game); });
@@ -347,6 +355,7 @@
       img.src = game.image;
       img.alt = "";
       img.loading = "lazy";
+      img.decoding = "async";
       if (game.focus) img.style.objectPosition = game.focus;
       art.appendChild(img);
     } else {
@@ -493,6 +502,8 @@
       var img = el("img", "hero-img");
       img.src = item.image || game.hero || game.image;
       img.alt = "";
+      img.decoding = "async";
+      if (i === 0) img.setAttribute("fetchpriority", "high");
       if (item.isGame && game.heroFocusMobile) img.style.setProperty("--focus-m", game.heroFocusMobile);
       if (item.isGame && game.heroFocus) img.style.setProperty("--focus-d", game.heroFocus);
       if (i > 0) img.loading = "lazy";
