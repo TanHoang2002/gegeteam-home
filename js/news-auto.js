@@ -2,6 +2,17 @@
    Muốn dịch một tin: chép nó sang mục news trong js/data.js rồi thêm bản dịch. */
 window.GEGE_NEWS_AUTO = [
   {
+    "id": "wow-24317680",
+    "game": "wow-forever",
+    "date": "2026-11-24",
+    "title": "Don’t Miss the World of Warcraft: Forever Comic, “Al'Aketh Rising”",
+    "summary": "Join Constable Aonda of the Skyborne as she travels into a remote settlement in the shadow of a growing threat.",
+    "url": "https://worldofwarcraft.blizzard.com/en-us/news/24317680/dont-miss-the-world-of-warcraft-forever-comic-alaketh-rising",
+    "image": "assets/news/auto/wow-forever-wow-24317680.webp",
+    "auto": true,
+    "hero": false
+  },
+  {
     "id": "steam-1849827110427896",
     "game": "aion-2",
     "date": "2026-11-19",
@@ -30,17 +41,6 @@ window.GEGE_NEWS_AUTO = [
     "title": "Path of Exile: Covens of Umbra is Now Available!",
     "summary": "Disrupt dark magicks and put an end to the powerful witchcraft of the Coven Queen in Path of Exile: Covens of Umbra.",
     "url": "https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1848664643347678",
-    "auto": true,
-    "hero": false
-  },
-  {
-    "id": "wow-24317865",
-    "game": "wow-forever",
-    "date": "2026-11-05",
-    "title": "WoW: Forever– Watch Forging Forever",
-    "summary": "Witness the creation of World of Warcraft: Forever's first legendary: Taldramir, the Whispering Wood.",
-    "url": "https://worldofwarcraft.blizzard.com/en-us/news/24317865/wow-forever-watch-forging-forever",
-    "image": "assets/news/auto/wow-forever-wow-24317865.webp",
     "auto": true,
     "hero": false
   },
